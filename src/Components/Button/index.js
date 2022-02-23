@@ -11,6 +11,8 @@ const Button = ({ type }) => {
     buttonType = css.addJobButton;
   } else if (type === "cancelButton") {
     buttonType = css.cancelButton;
+  } else if (type === "saveButton") {
+    buttonType = css.saveButton;
   }
 
   return <button className={buttonType}>Click me</button>;

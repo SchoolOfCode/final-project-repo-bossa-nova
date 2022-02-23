@@ -23,6 +23,12 @@ function App() {
       <Button type="deleteButton" />
       <Button type="addJobButton" />
       <Button type="cancelButton" />
+      <Button type="saveButton" />
+      <Button type="saveButton" />
+      <Button type="saveButton" />
+      <Button type="saveButton" />
+      <Button type="saveButton" />
+      <Button type="saveButton" />
     </div>
   );
 }
