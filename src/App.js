@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "./Components/Button";
+import Heading from "./Components/Heading";
 import "./App.css";
 
 function App() {
@@ -24,11 +25,7 @@ function App() {
       <Button type="addJobButton" />
       <Button type="cancelButton" />
       <Button type="saveButton" />
-      <Button type="saveButton" />
-      <Button type="saveButton" />
-      <Button type="saveButton" />
-      <Button type="saveButton" />
-      <Button type="saveButton" />
+      <Heading />
     </div>
   );
 }
