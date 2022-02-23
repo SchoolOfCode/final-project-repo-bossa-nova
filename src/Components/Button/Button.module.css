@@ -1,0 +1,16 @@
+.editButton {
+  background-color: var(--primaryColor);
+}
+
+.deleteButton {
+  background-color: var(--secondaryColor);
+}
+
+.addJobButton {
+  background-color: pink;
+  width: 500px;
+}
+
+.cancelButton {
+  background-color: purple;
+}
