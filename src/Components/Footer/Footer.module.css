@@ -1,0 +1,16 @@
+.Footer {
+  display: flex;
+  justify-content: center;
+
+  padding: 300px 0;
+
+  background-color: var(--header-bg);
+  color: var(--default-bg);
+  padding: var(--spacing-sm);
+}
+
+@media screen and (min-width: 700px) {
+  .Footer {
+    grid-area: Footer;
+  }
+}
