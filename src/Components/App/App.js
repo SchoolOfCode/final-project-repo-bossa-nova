@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import Button from "./Components/ButtonPrototype";
-import Heading from "./Components/HeadingPrototype";
-
-import Header from './Components/Header'
-import Sidebar from './Components/Sidebar'
-import Hero from './Components/Hero'
-import Footer from './Components/Footer'
+import Header from "../LayoutComponents/Header";
+import Sidebar from "../LayoutComponents/Sidebar";
+import Footer from "../LayoutComponents/Footer";
+import Hero from "../Hero";
 import "./App.css";
+import HeroContainer from "../LayoutComponents/HeroContainer";
 
 function App() {
   const URL = process.env.REACT_APP_API_URL;
@@ -23,12 +21,15 @@ function App() {
 
   console.log(data);
 
-  return <div className="App">
-    <Header />
-    <Sidebar />
-    <Hero />
-    <Footer />
-  </div>;
+  return (
+    <div className="App">
+      <Header />
+      <Sidebar />
+      <Hero />
+
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

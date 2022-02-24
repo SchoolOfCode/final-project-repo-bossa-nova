@@ -1,0 +1,7 @@
+.heroWrapper {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,86 @@
+:root {
+  --primaryColor: blue;
+  --secondaryColor: red;
+  --backgroundColor: black;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+
+:root {
+  /* Colours */
+  --default-font: #0b0d17;
+  --default-bg: #ebf5fb;
+  --header-bg: #21618c;
+  --row-bg: #85c1e9;
+  --submit-btn: #a2d9ce;
+  --sidebar-bg: #d6eaf8;
+  --accent: #fa9583;
+  --accent-light: #f4dfcc;
+
+  /* Fonts */
+  font-family: "Lato", sans-serif;
+
+  --h1: 4rem;
+  --h2: 2.75rem;
+  --h3: 2rem;
+  --h4: 1.5rem;
+  --sidebar: 1.2rem;
+  --body: 1rem;
+  --nav: 0.875rem;
+
+  --thin: 100;
+  --light: 300;
+  --reg: 400;
+  --bold: 700;
+  --extra-bold: 900;
+
+  --letter-space: 2px;
+
+  /* Spacing */
+  --spacing-sm: 0.5em;
+  --spacing-md: 1em;
+  --spacing-lg: 2em;
+}
+
+@media screen and (min-width: 700px) {
+  :root {
+    --h1: 6rem;
+    --h2: 4rem;
+    --h3: 3rem;
+    --h4: 2rem;
+    --sidebar: 1.5rem;
+    --body: 1.125rem;
+    --nav: 1rem;
+  }
+}
+
+body {
+  font-size: var(--body);
+  font-weight: var(--reg);
+}
+
+.App {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 80px 120px 1fr 60px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Header"
+    "Sidebar"
+    "HeroSection"
+    "Footer";
+}
+
+@media screen and (min-width: 700px) {
+  .App {
+    display: grid;
+    grid-template-columns: 1.3fr 3.7fr;
+    grid-template-rows: 80px 1fr 60px;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "Header Header"
+      "Sidebar HeroSection"
+      "Footer Footer";
+  }
+}
