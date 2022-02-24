@@ -1,0 +1,55 @@
+/* Add new job button */
+.newJobButton {
+  background-color: var(--submit-btn);
+  border: none;
+  border-radius: 8px;
+  padding: var(--spacing-sm);
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  box-shadow: var(--box-shadow);
+  padding: 0 2em;
+}
+
+/* Save button  */
+.positiveButton {
+  background-color: var(--submit-btn);
+  border: none;
+  border-radius: 5px;
+  padding: var(--spacing-sm);
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--sidebar);
+  box-shadow: var(--box-shadow);
+}
+
+/* Cancel button */
+.negativeButton {
+  background-color: var(--accent);
+  border: none;
+  border-radius: 5px;
+  padding: var(--spacing-sm);
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--sidebar);
+  box-shadow: var(--box-shadow);
+  color: var(--default-bg);
+}
+
+/* Inside the table: edit button */
+.tablePositiveButton {
+  font-family: var(--font-family);
+  background-color: transparent;
+  color: var(--header-bg);
+  font-weight: var(--bold);
+  border: none;
+  font-size: var(--nav);
+}
+/* Inside the table: Delete button */
+.tableNegativeButton {
+  font-family: var(--font-family);
+  background-color: transparent;
+  color: var(--accent);
+  font-weight: var(--bold);
+  border: none;
+  font-size: var(--nav);
+}
