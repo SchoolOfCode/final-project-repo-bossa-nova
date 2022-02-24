@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-import LoginButton from "./Components/LoginButton";
-import LogoutButton from "./Components/LogoutButton";
-import Profile from "./Components/Profile";
+
+import { Routes, Route } from "react-router-dom";
+import Login from "./Pages/Login";
+import Home from "./Pages/Home";
+import AddNew from "./Pages/AddNew";
+import Update from "./Pages/Update";
+import Resources from "./Pages/Resources";
 import "./App.css";
 
 function App() {
@@ -21,9 +25,13 @@ function App() {
 
   return (
     <div className="App">
-      <LoginButton />
-      <LogoutButton />
-      <Profile />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="home" element={<Home />} />
+        <Route path="add-new" element={<AddNew />} />
+        <Route path="update" element={<Update />} />
+        <Route path="resources" element={<Resources />} />
+      </Routes>
     </div>
   );
 }
