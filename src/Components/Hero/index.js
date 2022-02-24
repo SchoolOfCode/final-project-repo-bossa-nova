@@ -18,10 +18,10 @@ function Hero() {
       <HeroContainer>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="home" element={<Home />} />
-          <Route path="add-new" element={<AddNew />} />
-          <Route path="update" element={<Update />} />
-          <Route path="resources" element={<Resources />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/add-new" element={<AddNew />} />
+          <Route path="/update" element={<Update />} />
+          <Route path="/resources" element={<Resources />} />
         </Routes>
       </HeroContainer>
     </div>
