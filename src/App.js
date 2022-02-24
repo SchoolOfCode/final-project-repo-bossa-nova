@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import LoginButton from "./Components/LoginButton";
-import LogoutButton from "./Components/LogoutButton";
-import Profile from "./Components/Profile";
+
+import { Routes, Route, Link } from "react-router-dom";
+import Login from "./Pages/Login";
+import Home from "./Pages/Home";
 import "./App.css";
 
 function App() {
@@ -21,9 +22,10 @@ function App() {
 
   return (
     <div className="App">
-      <LoginButton />
-      <LogoutButton />
-      <Profile />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="home" element={<Home />} />
+      </Routes>
     </div>
   );
 }
