@@ -3,6 +3,7 @@ import Header from "../LayoutComponents/Header";
 import Sidebar from "../LayoutComponents/Sidebar";
 import Footer from "../LayoutComponents/Footer";
 import Hero from "../Hero";
+
 import "./App.css";
 
 function App() {
