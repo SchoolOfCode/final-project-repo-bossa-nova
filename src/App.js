@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import Button from "./Components/ButtonPrototype";
 import Heading from "./Components/HeadingPrototype";
+
+import Header from './Components/Header'
+import Sidebar from './Components/Sidebar'
+import Hero from './Components/Hero'
+import Footer from './Components/Footer'
 import "./App.css";
 
 function App() {
@@ -18,7 +23,12 @@ function App() {
 
   console.log(data);
 
-  return <div className="App"></div>;
+  return <div className="App">
+    <Header />
+    <Sidebar />
+    <Hero />
+    <Footer />
+  </div>;
 }
 
 export default App;
