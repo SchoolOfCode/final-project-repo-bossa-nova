@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Button from "./Components/Button";
-import Heading from "./Components/Heading";
+import Button from "./Components/ButtonPrototype";
+import Heading from "./Components/HeadingPrototype";
 import "./App.css";
 
 function App() {
@@ -18,16 +18,7 @@ function App() {
 
   console.log(data);
 
-  return (
-    <div className="App">
-      <Button type="editButton" />
-      <Button type="deleteButton" />
-      <Button type="addJobButton" />
-      <Button type="cancelButton" />
-      <Button type="saveButton" />
-      <Heading />
-    </div>
-  );
+  return <div className="App"></div>;
 }
 
 export default App;
