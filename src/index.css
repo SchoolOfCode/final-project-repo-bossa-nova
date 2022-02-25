@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ----------- Buttons ------------- */
+
+/* Add new job button */
+.newJobButton {
+  @apply bg-aqua font-bold text-s18 text-black border-none rounded-rounded15 font-lato shadow-sm p-sm;
+}
+
+/* Save button  */
+.positiveButton {
+  @apply bg-aqua font-bold text-s18 text-blueWhite border-none rounded-rounded5 font-lato shadow-sm p-sm;
+}
+
+/* Cancel button */
+.negativeButton {
+  @apply bg-coral font-bold text-s18 text-black border-none rounded-rounded5 font-lato shadow-sm p-sm;
+}
+
+/* Inside the table: edit button */
+.tablePositiveButton {
+  @apply bg-transparent font-bold font-lato text-s14 text-mainBlue border-none p-sm;
+}
+/* Inside the table: Delete button */
+.tableNegativeButton {
+  @apply bg-transparent font-bold font-lato text-s14 text-coral border-none  p-sm;
+}
+
+/* ----------- End of Buttons ------------- */
+
 /* Box sizing rules */
 *,
 *::before,

@@ -6,11 +6,9 @@ import "../../../index.css";
 function Header() {
   return (
     <nav className={styles.Header}>
-      <Button btn="bg-coral font-lato shadow-sm" text={"Home"}></Button>
+      <Button btn="positiveButton" text={"Home"}></Button>
 
-      <button class="bg-coral font-shizuru p-sm rounded-rounded5 shadow-sm">
-        Log Out
-      </button>
+      <button class="tableNegativeButton">Log Out</button>
     </nav>
   );
 }
