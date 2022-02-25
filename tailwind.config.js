@@ -68,12 +68,14 @@ module.exports = {
       //rounded-
       rounded5: "5px",
       rounded8: "8px",
+      rounded10: "10px",
       rounded15: "15px",
     },
 
     boxShadow: {
       //shadow-
       sm: "0 4px 4px 0px rgba(0 0 0 / 0.25)",
+      lg: "5px 5px 10px 2px rgba(0 0 0 / 0.25)",
     },
 
     extend: {},
