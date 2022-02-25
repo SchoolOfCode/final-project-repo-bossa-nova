@@ -9,15 +9,13 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { nanoid } from "nanoid";
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   //   Routes,
   //   Route,
   //   Link,
   //   Navigate,
   useNavigate,
 } from "react-router-dom";
-
-import styles from "./Home.module.css";
 
 const columns = [
   { col_id: "jobTitle", label: "Job Title", minWidth: 100 },
