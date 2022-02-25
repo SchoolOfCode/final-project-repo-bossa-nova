@@ -9,6 +9,14 @@ module.exports = {
     "./public/index.html",
   ],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
+
     colors: {
       beige: "#F4DFCC",
       coral: "#FA9583",
@@ -21,24 +29,28 @@ module.exports = {
       aqua: "#A2D9CE",
     },
 
-    extend: {
-      fontFamily: {
-        lato: ["Lato", "sans-serif"],
-        shizuru: ["Shizuru", "cursive"],
-      },
-
-      spacing: {
-        sm: "1em",
-        md: "2em",
-        lg: "3em",
-      },
-
-      borderRadius: {
-        rounded5: "5px",
-        rounded8: "8px",
-        rounded15: "15px",
-      },
+    fontFamily: {
+      lato: ["Lato", "sans-serif"],
+      shizuru: ["Shizuru", "cursive"],
     },
+
+    spacing: {
+      sm: "1em",
+      md: "2em",
+      lg: "3em",
+    },
+
+    borderRadius: {
+      rounded5: "5px",
+      rounded8: "8px",
+      rounded15: "15px",
+    },
+
+    boxShadow: {
+      sm: "0 4px 4px 0px rgba(0 0 0 / 0.25)",
+    },
+
+    extend: {},
     plugins: [require("tailwindcss"), require("autoprefixer")],
   },
 };
