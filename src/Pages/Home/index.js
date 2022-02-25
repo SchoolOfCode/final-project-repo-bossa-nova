@@ -2,6 +2,7 @@ import Profile from "../../Components/Profile";
 import LogoutButton from "../../Components/LogoutButton";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import StickyHeadTable from "../../Components/Table";
 
 export default function Home() {
   const { isLoading, isAuthenticated, logout } = useAuth0();
@@ -22,6 +23,7 @@ export default function Home() {
       </main>
       <Profile />
       <LogoutButton />
+      <StickyHeadTable />
     </>
   ) : (
     <div>
