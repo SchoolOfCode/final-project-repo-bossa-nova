@@ -26,6 +26,18 @@ module.exports = {
         lato: ["Lato", "sans-serif"],
         shizuru: ["Shizuru", "cursive"],
       },
+
+      spacing: {
+        sm: "1em",
+        md: "2em",
+        lg: "3em",
+      },
+
+      borderRadius: {
+        rounded5: "5px",
+        rounded8: "8px",
+        rounded15: "15px",
+      },
     },
     plugins: [require("tailwindcss"), require("autoprefixer")],
   },

@@ -8,7 +8,9 @@ function Header() {
     <nav className={styles.Header}>
       <Button btn="bg-coral font-lato" text={"Home"}></Button>
 
-      <button class="bg-coral font-shizuru">Log Out</button>
+      <button class="bg-coral font-shizuru p-sm rounded-rounded5">
+        Log Out
+      </button>
     </nav>
   );
 }
