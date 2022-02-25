@@ -16,7 +16,7 @@ export default function Button({ text, handleClick, type }) {
   }
 
   return (
-    <button className={buttonType} onClick={handleClick}>
+    <button class="bg-black" className={buttonType} onClick={handleClick}>
       {text}
     </button>
   );
