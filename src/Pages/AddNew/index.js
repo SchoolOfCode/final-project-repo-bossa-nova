@@ -5,6 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Input from "../../Components/Input";
 import React, { useReducer } from "react";
 
+// This is the object that the useReducer is using as initial state
 const initialValues = {
   jobTitle: "",
   company: "",
@@ -12,6 +13,8 @@ const initialValues = {
   jobStatus: "",
 };
 
+// This is the function trigged by the dispatch function that is
+// nested in callDispatch function (line 38)
 function reducer(state, action) {
   switch (action.type) {
     case "update_input":
@@ -25,8 +28,10 @@ function reducer(state, action) {
 }
 
 export default function AddNew() {
+  // YOUTUBE VIDEO ABOUT useReducer: https://www.youtube.com/watch?v=0_P4dspmSA0&t=654s
   const [state, dispatch] = useReducer(reducer, initialValues);
 
+  //callDispatch is being called in each Input component
   function callDispatch(e, key) {
     dispatch({
       type: "update_input",
