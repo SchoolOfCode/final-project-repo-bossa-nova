@@ -3,12 +3,12 @@ import Button from "../../Button";
 import styles from "./Header.module.css";
 import "../../../index.css";
 
-function Header({ text }) {
+function Header() {
   return (
     <nav className={styles.Header}>
-      <Button class="blue" text={"Home"}></Button>
+      <Button btn="bg-coral font-lato" text={"Home"}></Button>
 
-      <button>Log Out</button>
+      <button class="bg-coral font-shizuru">Log Out</button>
     </nav>
   );
 }

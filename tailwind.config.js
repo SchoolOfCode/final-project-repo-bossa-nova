@@ -20,7 +20,13 @@ module.exports = {
       black: "#0B0D17",
       aqua: "#A2D9CE",
     },
-    extend: {},
+
+    extend: {
+      fontFamily: {
+        lato: ["Lato", "sans-serif"],
+        shizuru: ["Shizuru", "cursive"],
+      },
+    },
     plugins: [require("tailwindcss"), require("autoprefixer")],
   },
 };
