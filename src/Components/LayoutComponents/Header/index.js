@@ -1,16 +1,14 @@
 import React from "react";
 import Button from "../../Button";
-import styles from "./Header.module.css";
+// import styles from "./Header.module.css";
 import "../../../index.css";
 
 function Header() {
   return (
-    <nav className={styles.Header}>
-      <Button btn="bg-coral font-lato shadow-sm" text={"Home"}></Button>
+    <nav className="bg-mainBlue col-auto space-x-0 space-y-0 h-130 shadow-sm">
+      <Button btn="positiveButton" text={"Home"}></Button>
 
-      <button class="bg-coral font-shizuru p-sm rounded-rounded5 shadow-sm">
-        Log Out
-      </button>
+      <button className="tableNegativeButton">Log Out</button>
     </nav>
   );
 }
