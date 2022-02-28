@@ -15,15 +15,13 @@ import Resources from "../../Pages/Resources";
 function Hero() {
   return (
     <div className={styles.Hero}>
-      <HeroContainer>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/add-new" element={<AddNew />} />
-          <Route path="/update" element={<Update />} />
-          <Route path="/resources" element={<Resources />} />
-        </Routes>
-      </HeroContainer>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/add-new" element={<AddNew />} />
+        <Route path="/update" element={<Update />} />
+        <Route path="/resources" element={<Resources />} />
+      </Routes>
     </div>
   );
 }

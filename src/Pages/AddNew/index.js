@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Input from "../../Components/Input";
 import React, { useReducer } from "react";
+import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 
 // This is the object that the useReducer is using as initial state
 const initialValues = {
@@ -48,52 +49,56 @@ export default function AddNew() {
     logout({ returnTo: window.location.origin });
   }
 
-  return isAuthenticated ? (
-    <>
-      <nav>
-        <Link to="/home">Home</Link>
-        <Link to="/resources">Resources</Link>
-        <Link to="/update">Update</Link>
-      </nav>
-      <main>
-        <h2>Welcome to the add new page!</h2>
-      </main>
-      <Profile />
-      <LogoutButton />
-      <form>
-        <Input
-          labelText={"Job Title"}
-          type={"text"}
-          name={"jobTitle"}
-          value={state.value}
-          update={(e) => callDispatch(e, "jobTitle")}
-        />
-        <Input
-          labelText={"Company"}
-          type={"text"}
-          name={"company"}
-          value={state.value}
-          update={(e) => callDispatch(e, "company")}
-        />
-        <Input
-          labelText={"Salary"}
-          type={"text"}
-          name={"salary"}
-          value={state.value}
-          update={(e) => callDispatch(e, "salary")}
-        />
-        <Input
-          labelText={"Job Status"}
-          type={"text"}
-          name={"jobStatus"}
-          value={state.value}
-          update={(e) => callDispatch(e, "jobStatus")}
-        />
-      </form>
-    </>
-  ) : (
-    <div>
-      <h1>Loading...</h1>
-    </div>
+  return (
+    <HeroContainer title={"Add new job"}>
+      {isAuthenticated ? (
+        <>
+          <nav>
+            <Link to="/home">Home</Link>
+            <Link to="/resources">Resources</Link>
+            <Link to="/update">Update</Link>
+          </nav>
+          <main>
+            <h2>Welcome to the add new page!</h2>
+          </main>
+          <Profile />
+          <LogoutButton />
+          <form>
+            <Input
+              labelText={"Job Title"}
+              type={"text"}
+              name={"jobTitle"}
+              value={state.value}
+              update={(e) => callDispatch(e, "jobTitle")}
+            />
+            <Input
+              labelText={"Company"}
+              type={"text"}
+              name={"company"}
+              value={state.value}
+              update={(e) => callDispatch(e, "company")}
+            />
+            <Input
+              labelText={"Salary"}
+              type={"text"}
+              name={"salary"}
+              value={state.value}
+              update={(e) => callDispatch(e, "salary")}
+            />
+            <Input
+              labelText={"Job Status"}
+              type={"text"}
+              name={"jobStatus"}
+              value={state.value}
+              update={(e) => callDispatch(e, "jobStatus")}
+            />
+          </form>
+        </>
+      ) : (
+        <div>
+          <h1>Loading...</h1>
+        </div>
+      )}
+    </HeroContainer>
   );
 }

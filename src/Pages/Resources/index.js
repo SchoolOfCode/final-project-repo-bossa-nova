@@ -4,6 +4,7 @@ import LogoutButton from "../../Components/LogoutButton";
 import Card from "../../Components/Card";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 import { nanoid } from "nanoid";
 
 export default function Resources() {
@@ -27,26 +28,31 @@ export default function Resources() {
     logout({ returnTo: window.location.origin });
   }
 
-  return isAuthenticated ? (
-    <>
-      <nav>
-        <Link to="/add-new">Add new</Link>
-        <Link to="/home">Home</Link>
-        <Link to="/update">Update</Link>
-      </nav>
-      <main>
-        <h2>Welcome to the resources!</h2>
-      </main>
-      <Profile />
-      <LogoutButton />
-      {data &&
-        data.map((resource) => {
-          return <Card key={nanoid()} link={resource.link} />;
-        })}
-    </>
-  ) : (
-    <div>
-      <h1>Loading...</h1>
-    </div>
+return (
+    <HeroContainer title={"Resources"}>
+      {" "}
+      {isAuthenticated ? (
+        <>
+          <nav>
+            <Link to="/add-new">Add new</Link>
+            <Link to="/home">Home</Link>
+            <Link to="/update">Update</Link>
+          </nav>
+          <main>
+            <h2>Welcome to the resources!</h2>
+          </main>
+          <Profile />
+          <LogoutButton />
+            {data &&
+            data.map((resource) => {
+              return <Card key={nanoid()} link={resource.link} />;
+            })}
+        </>
+      ) : (
+        <div>
+          <h1>Loading...</h1>
+        </div>
+      )}
+    </HeroContainer>
   );
 }
