@@ -16,6 +16,7 @@ import {
   //   Navigate,
   useNavigate,
 } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const columns = [
   { col_id: "jobTitle", label: "Job Title", minWidth: 100 },
@@ -58,20 +59,23 @@ export default function StickyHeadTable() {
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const { user } = useAuth0();
 
+  const URL = process.env.REACT_APP_API_URL;
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(
-        `https://job-tracker-main.herokuapp.com/api/jobs`
-      );
-      const data = await response.json();
-      const mappedData = data.map((job) => createData(job));
-      setData(mappedData);
+      const response = await fetch(`${URL}/api/user/${user.sub}`);
+      console.log(response);
+      if (response.status < 300) {
+        const data = await response.json();
+        const mappedData = data.payload[0].jobs.map((job) => createData(job));
+        setData(mappedData);
+      } else {
+        return;
+      }
     }
     fetchData();
-  }, []);
-
-  console.log(data);
+  }, [URL, user.sub]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

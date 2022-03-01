@@ -28,7 +28,7 @@ export default function Resources() {
     logout({ returnTo: window.location.origin });
   }
 
-return (
+  return (
     <HeroContainer title={"Resources"}>
       {" "}
       {isAuthenticated ? (
@@ -43,8 +43,8 @@ return (
           </main>
           <Profile />
           <LogoutButton />
-            {data &&
-            data.map((resource) => {
+          {data &&
+            data.payload.map((resource) => {
               return <Card key={nanoid()} link={resource.link} />;
             })}
         </>
