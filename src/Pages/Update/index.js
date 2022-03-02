@@ -1,11 +1,11 @@
 import Profile from "../../Components/Profile";
 import LogoutButton from "../../Components/LogoutButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
-import { useParams } from "react-router-dom";
 import Input from "../../Components/Input";
 import Select from "../../Components/Select";
+import Button from "../../Components/Button";
 import { useEffect, useState, useReducer } from "react";
 
 const initialValues = {};
@@ -23,6 +23,7 @@ function reducer(state, action) {
 
 export default function Update() {
   const { isLoading, isAuthenticated, logout } = useAuth0();
+  const navigate = useNavigate();
 
   const params = useParams();
 
@@ -54,10 +55,21 @@ export default function Update() {
     });
   }
 
-  console.log(state);
-
   if (!isLoading && !isAuthenticated) {
     logout({ returnTo: window.location.origin });
+  }
+
+  async function handlePutRequest() {
+    const response = await fetch(`${URL}/api/user/${user_id}/${job_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(state),
+    });
+    navigate("/home");
+    alert("job edited");
+    return await response.json();
   }
 
   return (
@@ -76,41 +88,47 @@ export default function Update() {
           <Profile />
           <LogoutButton />
           {initialState && (
-            <form>
-              <Input
-                labelText={"Job Title"}
-                type={"text"}
-                name={"jobTitle"}
-                value={state.jobTitle}
-                update={(e) => callDispatch(e, "jobTitle")}
-              />
-              <Input
-                labelText={"Company"}
-                type={"text"}
-                name={"company"}
-                value={state.company}
-                update={(e) => callDispatch(e, "company")}
-              />
-              <Input
-                labelText={"Min Salary"}
-                type={"text"}
-                name={"minSalary"}
-                value={state.minSalary}
-                update={(e) => callDispatch(e, "minSalary")}
-              />
-              <Input
-                labelText={"Max Salary"}
-                type={"text"}
-                name={"maxSalary"}
-                value={state.maxSalary}
-                update={(e) => callDispatch(e, "maxSalary")}
-              />
+            <>
+              <form>
+                <Input
+                  labelText={"Job Title"}
+                  type={"text"}
+                  name={"jobTitle"}
+                  value={state.jobTitle}
+                  update={(e) => callDispatch(e, "jobTitle")}
+                />
+                <Input
+                  labelText={"Company"}
+                  type={"text"}
+                  name={"company"}
+                  value={state.company}
+                  update={(e) => callDispatch(e, "company")}
+                />
+                <Input
+                  labelText={"Min Salary"}
+                  type={"text"}
+                  name={"minSalary"}
+                  value={state.minSalary}
+                  update={(e) => callDispatch(e, "minSalary")}
+                />
+                <Input
+                  labelText={"Max Salary"}
+                  type={"text"}
+                  name={"maxSalary"}
+                  value={state.maxSalary}
+                  update={(e) => callDispatch(e, "maxSalary")}
+                />
 
-              <Select
-                value={state.jobStatus}
-                update={(e) => callDispatch(e, "jobStatus")}
-              />
-            </form>
+                <Select
+                  value={state.jobStatus}
+                  update={(e) => callDispatch(e, "jobStatus")}
+                />
+              </form>
+              <div>
+                <Button text="CANCEL" handleClick={() => navigate("/home")} />
+                <Button text="SAVE" handleClick={handlePutRequest} />
+              </div>
+            </>
           )}
         </>
       ) : (
