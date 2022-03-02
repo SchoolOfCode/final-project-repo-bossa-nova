@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../Button";
 // import styles from "./Header.module.css";
-import "../../../index.css";
+// import "../../../index.css";
 
 function Header() {
   return (

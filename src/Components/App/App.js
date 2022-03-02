@@ -1,10 +1,9 @@
 /* import { useEffect, useState } from "react"; */
 import Header from "../LayoutComponents/Header";
 import Sidebar from "../LayoutComponents/Sidebar";
-import Footer from "../LayoutComponents/Footer";
+// import Footer from "../LayoutComponents/Footer";
 import Hero from "../Hero";
-
-import "./App.css";
+// import "./App.css";
 
 function App() {
   /*   const URL = process.env.REACT_APP_API_URL;
@@ -26,7 +25,7 @@ function App() {
       <Header />
       <Sidebar />
       <Hero />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
