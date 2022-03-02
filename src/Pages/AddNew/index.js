@@ -5,13 +5,16 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Input from "../../Components/Input";
 import React, { useReducer } from "react";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
+import Select from "../../Components/Select";
+import Button from "../../Components/Button";
 
 // This is the object that the useReducer is using as initial state
 const initialValues = {
   jobTitle: "",
   company: "",
-  salary: "",
-  jobStatus: "",
+  minSalary: "",
+  maxSalary: "",
+  jobStatus: "waiting",
 };
 
 // This is the function trigged by the dispatch function that is
@@ -68,30 +71,36 @@ export default function AddNew() {
               labelText={"Job Title"}
               type={"text"}
               name={"jobTitle"}
-              value={state.value}
+              value={state.jobTitle}
               update={(e) => callDispatch(e, "jobTitle")}
             />
             <Input
               labelText={"Company"}
               type={"text"}
               name={"company"}
-              value={state.value}
+              value={state.company}
               update={(e) => callDispatch(e, "company")}
             />
             <Input
-              labelText={"Salary"}
+              labelText={"Min Salary"}
               type={"text"}
-              name={"salary"}
-              value={state.value}
-              update={(e) => callDispatch(e, "salary")}
+              name={"minSalary"}
+              value={state.minSalary}
+              update={(e) => callDispatch(e, "minSalary")}
             />
             <Input
-              labelText={"Job Status"}
+              labelText={"Max Salary"}
               type={"text"}
-              name={"jobStatus"}
-              value={state.value}
+              name={"maxSalary"}
+              value={state.maxSalary}
+              update={(e) => callDispatch(e, "maxSalary")}
+            />
+            <Select
+              value={state.jobStatus}
               update={(e) => callDispatch(e, "jobStatus")}
             />
+            <Button text="SAVE" />
+            <Button text="CANCEL" />
           </form>
         </>
       ) : (
