@@ -1,6 +1,6 @@
 import Profile from "../../Components/Profile";
 import LogoutButton from "../../Components/LogoutButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Input from "../../Components/Input";
 import React, { useReducer } from "react";
@@ -52,6 +52,8 @@ export default function AddNew() {
     logout({ returnTo: window.location.origin });
   }
 
+  const navigate = useNavigate();
+
   return (
     <HeroContainer title={"Add new job"}>
       {isAuthenticated ? (
@@ -100,7 +102,7 @@ export default function AddNew() {
               update={(e) => callDispatch(e, "jobStatus")}
             />
             <Button text="SAVE" />
-            <Button text="CANCEL" />
+            <Button text="CANCEL" handleClick={() => navigate("/home")} />
           </form>
         </>
       ) : (
