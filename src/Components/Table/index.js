@@ -90,7 +90,6 @@ export default function StickyHeadTable() {
     const response = await fetch(`${URL}/api/user/${user.sub}/${jobID}`, {
       method: "DELETE",
     });
-    console.log(await response.json());
     navigate("/home");
     alert("job deleted");
     setRerender(rerender + 1);
