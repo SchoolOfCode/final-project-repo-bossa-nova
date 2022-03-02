@@ -132,7 +132,14 @@ export default function StickyHeadTable() {
                             <TableCell key={nanoid()}>
                               {column.col_id === "buttons" ? (
                                 <div>
-                                  <Button text="EDIT" />
+                                  <Button
+                                    text="EDIT"
+                                    handleClick={() => {
+                                      navigate(
+                                        `/update/${user.sub}/${job._id}`
+                                      );
+                                    }}
+                                  />
                                   <Button
                                     text="DELETE"
                                     handleClick={() =>
