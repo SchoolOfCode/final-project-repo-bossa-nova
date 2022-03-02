@@ -44,15 +44,23 @@ export default function AddNew() {
     });
   }
 
-  console.log(state);
-
-  const { isLoading, isAuthenticated, logout } = useAuth0();
+  const { isLoading, isAuthenticated, logout, user } = useAuth0();
 
   if (!isLoading && !isAuthenticated) {
     logout({ returnTo: window.location.origin });
   }
 
   const navigate = useNavigate();
+
+  const URL = process.env.REACT_APP_API_URL;
+  async function handlePostRequest() {
+    const response = await fetch(`${URL}/api/user/${user.sub}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(state),
+    });
+    return await response.json();
+  }
 
   return (
     <HeroContainer title={"Add new job"}>
@@ -101,9 +109,9 @@ export default function AddNew() {
               value={state.jobStatus}
               update={(e) => callDispatch(e, "jobStatus")}
             />
-            <Button text="SAVE" />
-            <Button text="CANCEL" handleClick={() => navigate("/home")} />
           </form>
+          <Button text="CANCEL" handleClick={() => navigate("/home")} />
+          <Button text="SAVE" handleClick={handlePostRequest} />
         </>
       ) : (
         <div>
