@@ -4,6 +4,7 @@ import { FaRegFolder } from "react-icons/fa";
 import { BsCalendar2Minus } from "react-icons/bs";
 import { BiLogIn } from "react-icons/bi";
 import { IoPersonOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 // import { GiHamburgerMenu } from "react-icons/gi";
 // import { ImCross } from "react-icons/im";
 
@@ -36,9 +37,7 @@ function Sidebar() {
         )}
       </div> */}
 
-      <div
-        className="rounded-b-xl ease-in-out duration-300" 
-      >
+      <div className="rounded-b-xl ease-in-out duration-300">
         {/* ${showSidebar ? "-translate-x-0" : "-translate-x-full"} */}
 
         <nav className="p-md">
@@ -54,7 +53,10 @@ function Sidebar() {
           </button>
           <button className="flex">
             <BsCalendar2Minus />
-            Resources
+            <Link to="/resources">Resources</Link>
+          </button>
+          <button>
+            <Link to="/add-new">Add new</Link>
           </button>
           <hr />
           <button className="flex">
