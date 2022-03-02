@@ -7,6 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
+import Button from "../Button";
 import { nanoid } from "nanoid";
 import {
   // BrowserRouter as Router,
@@ -56,8 +57,8 @@ function createData({
 export default function StickyHeadTable() {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
-
   const [page, setPage] = useState(0);
+  const [rerender, setRerender] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const { user } = useAuth0();
 
@@ -65,7 +66,6 @@ export default function StickyHeadTable() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(`${URL}/api/user/${user.sub}`);
-      console.log(response);
       if (response.status < 300) {
         const data = await response.json();
         const mappedData = data.payload[0].jobs.map((job) => createData(job));
@@ -75,7 +75,7 @@ export default function StickyHeadTable() {
       }
     }
     fetchData();
-  }, [URL, user.sub]);
+  }, [URL, user.sub, rerender]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -85,6 +85,16 @@ export default function StickyHeadTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  async function handleDeleteRequest(jobID) {
+    const response = await fetch(`${URL}/api/user/${user.sub}/${jobID}`, {
+      method: "DELETE",
+    });
+    navigate("/home");
+    alert("job deleted");
+    setRerender(rerender + 1);
+    return await response.json();
+  }
 
   return (
     <main>
@@ -116,15 +126,20 @@ export default function StickyHeadTable() {
                         role="checkbox"
                         tabIndex={-1}
                         key={job._id}
-                        onClick={() => {
-                          navigate(`/update/${job._id}`);
-                        }}
                       >
                         {columns.map((column) => {
                           return (
                             <TableCell key={nanoid()}>
                               {column.col_id === "buttons" ? (
-                                <button>Delete</button>
+                                <div>
+                                  <Button text="EDIT" />
+                                  <Button
+                                    text="DELETE"
+                                    handleClick={() =>
+                                      handleDeleteRequest(job._id)
+                                    }
+                                  />
+                                </div>
                               ) : (
                                 // accessing object with [] notation because column.col_id is a dinamic value
                                 job[column.col_id]
