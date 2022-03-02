@@ -3,9 +3,16 @@ import LogoutButton from "../../Components/LogoutButton";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
+import { useParams } from "react-router-dom";
 
-export default function Update({ job }) {
+export default function Update() {
   const { isLoading, isAuthenticated, logout } = useAuth0();
+
+  const params = useParams();
+
+  // params from query string
+
+  const { user_id, job_id } = params;
 
   if (!isLoading && !isAuthenticated) {
     logout({ returnTo: window.location.origin });
