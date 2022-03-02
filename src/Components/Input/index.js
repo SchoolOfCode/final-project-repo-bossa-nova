@@ -3,8 +3,8 @@ const inputStyle = { outline: "solid" };
 
 export default function Input({ labelText, type, name, value, update }) {
   return (
-    <label>
-      {labelText}
+    <>
+      <label>{labelText}</label>
       <input
         style={inputStyle}
         type={type}
@@ -12,6 +12,6 @@ export default function Input({ labelText, type, name, value, update }) {
         value={value}
         onChange={update}
       />
-    </label>
+    </>
   );
 }

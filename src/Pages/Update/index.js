@@ -6,6 +6,7 @@ import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 import Input from "../../Components/Input";
 import Select from "../../Components/Select";
 import Button from "../../Components/Button";
+import TextArea from "../../Components/Textarea";
 import { useEffect, useState, useReducer } from "react";
 
 const initialValues = {};
@@ -24,16 +25,16 @@ function reducer(state, action) {
 export default function Update() {
   const { isLoading, isAuthenticated, logout } = useAuth0();
   const navigate = useNavigate();
-
   const params = useParams();
-
-  // params from query string
   const { user_id, job_id } = params;
-
-  //Fetch the data
-  const [initialState, setInitialState] = useState(null);
-
   const URL = process.env.REACT_APP_API_URL;
+
+  if (!isLoading && !isAuthenticated) {
+    logout({ returnTo: window.location.origin });
+  }
+
+  const [initialState, setInitialState] = useState(null);
+  const [state, dispatch] = useReducer(reducer, initialValues);
 
   useEffect(() => {
     async function fetchData() {
@@ -45,18 +46,12 @@ export default function Update() {
     fetchData();
   }, [URL, user_id, job_id]);
 
-  const [state, dispatch] = useReducer(reducer, initialValues);
-
   function callDispatch(e, key) {
     dispatch({
       type: "update_input",
       value: e.target.value,
       key: key,
     });
-  }
-
-  if (!isLoading && !isAuthenticated) {
-    logout({ returnTo: window.location.origin });
   }
 
   async function handlePutRequest() {
@@ -118,7 +113,66 @@ export default function Update() {
                   value={state.maxSalary}
                   update={(e) => callDispatch(e, "maxSalary")}
                 />
+                <Input
+                  labelText={"Tech Stack"}
+                  type={"text"}
+                  name={"techStack"}
+                  value={state.techStack}
+                  update={(e) => callDispatch(e, "techStack")}
+                />
+                <Input
+                  labelText={"Contact"}
+                  type={"text"}
+                  name={"contact"}
+                  value={state.contact}
+                  update={(e) => callDispatch(e, "contact")}
+                />
+                <Input
+                  labelText={"URL link"}
+                  type={"url"}
+                  name={"urlLink"}
+                  value={state.urlLink}
+                  update={(e) => callDispatch(e, "urlLink")}
+                />
+                <Input
+                  labelText={"Location"}
+                  type={"text"}
+                  name={"location"}
+                  value={state.location}
+                  update={(e) => callDispatch(e, "location")}
+                />
+                <Input
+                  labelText={"Application Deadline"}
+                  type={"text"}
+                  name={"applicationDeadline"}
+                  value={state.applicationDeadline}
+                  update={(e) => callDispatch(e, "applicationDeadline")}
+                />
+                <Input
+                  labelText={"Interview Date"}
+                  type={"text"}
+                  name={"interviewDate"}
+                  value={state.interviewDate}
+                  update={(e) => callDispatch(e, "interviewDate")}
+                />
+                <TextArea
+                  labelText={"Job Description"}
+                  name={"jobDescription"}
+                  value={state.jobDescription}
+                  update={(e) => callDispatch(e, "jobDescription")}
+                />
+                <TextArea
+                  labelText={"Notes"}
+                  name={"notes"}
+                  value={state.notes}
+                  update={(e) => callDispatch(e, "notes")}
+                />
 
+                {/* contact: "Rita Blogs", dateAdded: "2023/10/29",
+              applicationDeadline: "2023/10/10", interviewDate: "2023/10/10",
+              offerDate: "2023/10/10", urlLink: "www.exmple.com", location:
+              "Remote", jobDescription: "Working work working work", notes: "my
+              notes", */}
                 <Select
                   value={state.jobStatus}
                   update={(e) => callDispatch(e, "jobStatus")}
