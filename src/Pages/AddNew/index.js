@@ -59,6 +59,8 @@ export default function AddNew() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(state),
     });
+    navigate("/home");
+    alert("job created");
     return await response.json();
   }
 
