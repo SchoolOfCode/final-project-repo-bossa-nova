@@ -5,10 +5,11 @@ import Button from "../../Button";
 
 function Header() {
   return (
-    <nav className="bg-mainBlue col-auto space-x-0 space-y-0 h-130 shadow-sm">
+    <nav className="bg-mainBlue flex justify-between">
       <Button btn="positiveButton" text={"Home"}></Button>
+      <Button btn="tableNegativeButton" text={"Log Out"}></Button>
 
-      <button className="tableNegativeButton">Log Out</button>
+      {/* <button className="tableNegativeButton">Log Out</button> */}
     </nav>
   );
 }

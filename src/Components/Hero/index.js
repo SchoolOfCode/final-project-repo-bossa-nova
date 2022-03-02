@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./Hero.module.css";
-import HeroContainer from "../LayoutComponents/HeroContainer";
+// import styles from "./Hero.module.css";
+// import HeroContainer from "../LayoutComponents/HeroContainer";
 import { Routes, Route } from "react-router-dom";
 import Login from "../../Pages/Login";
 import Home from "../../Pages/Home";
@@ -14,7 +14,7 @@ import Resources from "../../Pages/Resources";
 
 function Hero() {
   return (
-    <div className={styles.Hero}>
+    <div className="bg-blueWhite flex-grow overflow-y-scroll">
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
