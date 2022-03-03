@@ -68,11 +68,11 @@ export default function Update() {
   }
 
   return (
-    <HeroContainer title={"job to be updated"}>
+    <HeroContainer title={"Job to be updated"}>
       {" "}
       {isAuthenticated ? (
         <>
-          <nav>
+          {/* <nav>
             <Link to="/add-new">Add new</Link>
             <Link to="/resources">Resources</Link>
             <Link to="/update">Home</Link>
@@ -81,7 +81,7 @@ export default function Update() {
             <h2>Welcome to the update page!</h2>
           </main>
           <Profile />
-          <LogoutButton />
+          <LogoutButton /> */}
           {initialState && (
             <>
               <form className="flex flex-col">
@@ -178,7 +178,7 @@ export default function Update() {
                   update={(e) => callDispatch(e, "jobStatus")}
                 />
               </form>
-              <div>
+              <div className="flex justify-center pt-3">
                 <Button
                   btn="positiveButton"
                   text="Save"
