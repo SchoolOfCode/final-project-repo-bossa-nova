@@ -74,10 +74,10 @@ function Sidebar() {
             <IoPersonOutline />
             {user && user.name}
           </button>
-          <button className="flex">
+          <div className="flex">
             <BiLogIn />
             <LogoutButton text="Sign out" />
-          </button>
+          </div>
         </nav>
       </div>
     </aside>

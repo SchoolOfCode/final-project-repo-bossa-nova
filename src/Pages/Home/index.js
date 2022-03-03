@@ -16,18 +16,11 @@ export default function Home() {
     <HeroContainer title={"My jobs application"}>
       {isAuthenticated ? (
         <>
-          <nav>
+          <div className="mb-6 flex justify-end">
             <Link to="/add-new" className="newJobButton">
               Add new job
             </Link>
-            <Link to="/resources">Resources</Link>
-            <Link to="/update">Update</Link>
-          </nav>
-          <main>
-            <h2>Welcome to the homepage!</h2>
-          </main>
-          {/*  <Profile /> */}
-          <LogoutButton />
+          </div>
           <StickyHeadTable />
         </>
       ) : (
