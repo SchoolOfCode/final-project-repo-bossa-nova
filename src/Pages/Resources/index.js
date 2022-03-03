@@ -41,54 +41,6 @@ export default function Resources() {
           <main>
             <h2>Welcome to the resources!</h2>
           </main>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
-          <div>a fucing div</div>
           <Profile />
           <LogoutButton />
           {data &&
