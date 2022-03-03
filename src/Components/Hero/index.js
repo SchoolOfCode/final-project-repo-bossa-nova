@@ -19,7 +19,7 @@ function Hero() {
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/add-new" element={<AddNew />} />
-        <Route path="/update" element={<Update />} />
+        <Route path="/update/:user_id/:job_id" element={<Update />} />
         <Route path="/resources" element={<Resources />} />
       </Routes>
     </div>
