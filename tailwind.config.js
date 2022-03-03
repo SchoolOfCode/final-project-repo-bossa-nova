@@ -41,6 +41,7 @@ module.exports = {
 
     boxShadow: {
       //shadow-
+      esm: "0 2px 2px 0px rgba(0 0 0 / 0.10)",
       sm: "0 4px 4px 0px rgba(0 0 0 / 0.25)",
       lg: "5px 5px 10px 2px rgba(0 0 0 / 0.25)",
     },

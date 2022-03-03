@@ -112,8 +112,16 @@ export default function AddNew() {
               update={(e) => callDispatch(e, "jobStatus")}
             />
           </form>
-          <Button text="CANCEL" handleClick={() => navigate("/home")} />
-          <Button text="SAVE" handleClick={handlePostRequest} />
+          <Button
+            btn="positiveButton"
+            text="Save"
+            handleClick={handlePostRequest}
+          />
+          <Button
+            btn="negativeButton"
+            text="Cancel"
+            handleClick={() => navigate("/home")}
+          />
         </>
       ) : (
         <div>

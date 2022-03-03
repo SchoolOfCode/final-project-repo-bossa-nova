@@ -17,14 +17,16 @@ export default function Home() {
       {isAuthenticated ? (
         <>
           <nav>
-            <Link to="/add-new">Add new</Link>
+            <Link to="/add-new" className="newJobButton">
+              Add new job
+            </Link>
             <Link to="/resources">Resources</Link>
             <Link to="/update">Update</Link>
           </nav>
           <main>
             <h2>Welcome to the homepage!</h2>
           </main>
-          <Profile />
+          {/*  <Profile /> */}
           <LogoutButton />
           <StickyHeadTable />
         </>
