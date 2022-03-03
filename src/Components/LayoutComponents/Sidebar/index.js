@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { HiOutlineBriefcase } from "react-icons/hi";
+import { AiOutlineHome } from "react-icons/ai";
 import { FaRegFolder } from "react-icons/fa";
 import { BsCalendar2Minus } from "react-icons/bs";
 import { BiLogIn } from "react-icons/bi";
@@ -45,16 +46,19 @@ function Sidebar() {
         }`}
       >
         <nav className="p-md flex flex-col gap-8">
-          <Link to="/home">Home</Link>
-          <button className="flex">
+          <button className="flex space-x-3 items-baseline">
+            <AiOutlineHome />
+            <Link to="/home">Home</Link>
+          </button>
+          <button className="flex space-x-3 items-baseline">
             <BsCalendar2Minus />
             <Link to="/resources">Resources</Link>
           </button>
-          <button className="flex">
+          <button className="flex space-x-3 items-baseline">
             <IoPersonOutline />
             {user && user.name}
           </button>
-          <button className="flex">
+          <button className="flex space-x-3 items-baseline">
             <BiLogIn />
             Sign Out
           </button>
@@ -65,16 +69,19 @@ function Sidebar() {
 
       <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] rounded-b-xl bg-lightBlue px-6 pl-10 text-black ">
         <nav className="p-md flex flex-col gap-8">
-          <Link to="/home">Home</Link>
-          <button className="flex">
+          <button className="flex space-x-3 items-baseline">
+            <AiOutlineHome />
+            <Link to="/home">Home</Link>
+          </button>
+          <button className="flex space-x-3 items-baseline">
             <BsCalendar2Minus />
             <Link to="/resources">Resources</Link>
           </button>
-          <button className="flex">
+          <button className="flex space-x-3 items-baseline">
             <IoPersonOutline />
             {user && user.name}
           </button>
-          <div className="flex">
+          <div className="flex space-x-3 items-baseline">
             <BiLogIn />
             <LogoutButton text="Sign out" />
           </div>

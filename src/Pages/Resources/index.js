@@ -33,20 +33,12 @@ export default function Resources() {
       {" "}
       {isAuthenticated ? (
         <>
-          <nav>
-            <Link to="/add-new">Add new</Link>
-            <Link to="/home">Home</Link>
-            <Link to="/update">Update</Link>
-          </nav>
-          <main>
-            <h2>Welcome to the resources!</h2>
-          </main>
-          <Profile />
-          <LogoutButton />
-          {data &&
-            data.payload.map((resource) => {
-              return <Card key={nanoid()} link={resource.link} />;
-            })}
+          <div className="grid justify-center md:grid-cols-2 xl:grid-cols-3">
+            {data &&
+              data.payload.map((resource) => {
+                return <Card key={nanoid()} link={resource.link} />;
+              })}
+          </div>
         </>
       ) : (
         <div>
