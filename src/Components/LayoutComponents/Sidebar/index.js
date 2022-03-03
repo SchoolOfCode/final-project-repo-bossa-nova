@@ -6,6 +6,7 @@ import { BiLogIn } from "react-icons/bi";
 import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from "../../LogoutButton";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -39,62 +40,45 @@ function Sidebar() {
 
       {/* mobile sidebar */}
       <div
-        className={`flex flex-col flex-grow w-[50vw] rounded-b-xl bg-lightBlue p-6 pl-10 text-black fixed ease-in-out duration-300 md:hidden ${
+        className={`flex flex-col flex-grow w-[50vw] rounded-b-xl bg-lightBlue p-6 pl-10 text-black fixed ease-in-out duration-300 md:hidden z-30 ${
           showSidebar ? "-translate-x-0 " : "-translate-x-full"
         }`}
       >
-        <h3 className="mt-5 text-xl font-semibold text-black">
-          <nav className="p-md">
-            <Link to="/home">Home</Link>
-            <button className="flex">
-              <BsCalendar2Minus />
-              <Link to="/resources">Resources</Link>
-            </button>
-            <button className="flex">
-              <IoPersonOutline />
-              {user.name} Here
-            </button>
-            <button className="flex">
-              <BiLogIn />
-              Sign Out
-            </button>
-          </nav>
-        </h3>
+        <nav className="p-md flex flex-col gap-8">
+          <Link to="/home">Home</Link>
+          <button className="flex">
+            <BsCalendar2Minus />
+            <Link to="/resources">Resources</Link>
+          </button>
+          <button className="flex">
+            <IoPersonOutline />
+            {user && user.name}
+          </button>
+          <button className="flex">
+            <BiLogIn />
+            Sign Out
+          </button>
+        </nav>
       </div>
 
       {/* desktop sidebar */}
 
       <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] rounded-b-xl bg-lightBlue px-6 pl-10 text-black ">
-        <h3 className="mt-5 text-xl font-semibold text-black">
-          <nav className="p-md">
-            <h2>Home</h2>
-            <hr />
-            <button className="flex">
-              <HiOutlineBriefcase />
-              Applications
-            </button>
-            <button className="flex">
-              <FaRegFolder />
-              Documents
-            </button>
-            <button className="flex">
-              <BsCalendar2Minus />
-              <Link to="/resources">Resources</Link>
-            </button>
-            <button>
-              <Link to="/add-new">Add new</Link>
-            </button>
-            <hr />
-            <button className="flex">
-              <IoPersonOutline />
-              Cintia Here
-            </button>
-            <button className="flex">
-              <BiLogIn />
-              Sign Out
-            </button>
-          </nav>
-        </h3>
+        <nav className="p-md flex flex-col gap-8">
+          <Link to="/home">Home</Link>
+          <button className="flex">
+            <BsCalendar2Minus />
+            <Link to="/resources">Resources</Link>
+          </button>
+          <button className="flex">
+            <IoPersonOutline />
+            {user && user.name}
+          </button>
+          <button className="flex">
+            <BiLogIn />
+            <LogoutButton text="Sign out" />
+          </button>
+        </nav>
       </div>
     </aside>
   );
