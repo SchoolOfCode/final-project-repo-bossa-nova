@@ -5,7 +5,7 @@
 /* ----------- Input style ------------- */
 
 .styleInput {
-  @apply bg-blueWhite shadow-esm text-grey py-1;
+  @apply bg-blueWhite shadow-esm text-black py-1;
 }
 
 .styleLabel {
@@ -13,7 +13,7 @@
 }
 
 .styleSelect {
-  @apply bg-blueWhite shadow-esm text-grey py-1;
+  @apply bg-blueWhite shadow-esm text-black py-1;
 }
 
 /* ----------- Buttons ------------- */
@@ -25,12 +25,12 @@
 
 /* Save button  */
 .positiveButton {
-  @apply bg-aqua font-bold text-lg text-blueWhite border-none rounded-md font-lato shadow-esm p-1 mx-2 w-20 h-12;
+  @apply bg-aqua font-bold text-base text-mainBlue border-none rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8;
 }
 
 /* Cancel button */
 .negativeButton {
-  @apply bg-coral font-bold text-lg text-blueWhite border-none rounded-md font-lato shadow-esm p-1 mx-2 w-20 h-12;
+  @apply bg-coral font-bold text-base text-mainBlue border-none rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8;
 }
 
 /* Inside the table: edit button */
