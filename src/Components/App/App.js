@@ -8,7 +8,7 @@ import Hero from "../Hero";
 function App() {
   return (
     <div className="">
-      <Header className="sticky"/>
+      <Header className="sticky min-h-[12vh]"/>
       <div className="flex h-screen overflow-hidden">
         <Sidebar />
         <Hero />
