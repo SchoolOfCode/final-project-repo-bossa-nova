@@ -65,20 +65,20 @@ export default function AddNew() {
   }
 
   return (
-    <HeroContainer title={"Add new job"}>
+    <HeroContainer title={"Please add a new job!"}>
       {isAuthenticated ? (
         <>
-          <nav>
+          {/* <nav>
             <Link to="/home">Home</Link>
             <Link to="/resources">Resources</Link>
             <Link to="/update">Update</Link>
-          </nav>
-          <main>
+          </nav> */}
+          {/* <main className="">
             <h2>Welcome to the add new page!</h2>
-          </main>
-          <Profile />
-          <LogoutButton />
-          <form>
+          </main> */}
+          {/* <Profile />
+          <LogoutButton /> */}
+          <form className="">
             <Input
               labelText={"Job Title"}
               type={"text"}
