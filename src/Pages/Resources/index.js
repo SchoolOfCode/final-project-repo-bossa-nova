@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import Profile from "../../Components/Profile";
-import LogoutButton from "../../Components/LogoutButton";
 import Card from "../../Components/Card";
-import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 import { nanoid } from "nanoid";

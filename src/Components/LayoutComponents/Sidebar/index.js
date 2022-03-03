@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { HiOutlineBriefcase } from "react-icons/hi";
 import { AiOutlineHome } from "react-icons/ai";
-import { FaRegFolder } from "react-icons/fa";
 import { BsCalendar2Minus } from "react-icons/bs";
 import { BiLogIn } from "react-icons/bi";
 import { IoPersonOutline } from "react-icons/io5";
