@@ -1,0 +1,195 @@
+import Profile from "../../Components/Profile";
+import LogoutButton from "../../Components/LogoutButton";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
+import Input from "../../Components/Input";
+import Select from "../../Components/Select";
+import Button from "../../Components/Button";
+import TextArea from "../../Components/Textarea";
+import { useEffect, useState, useReducer } from "react";
+
+const initialValues = {};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "set_initialState":
+      return { ...action.value };
+    case "update_input":
+      return { ...state, [action.key]: action.value };
+    default:
+      return state;
+  }
+}
+
+export default function Update() {
+  const { isLoading, isAuthenticated, logout } = useAuth0();
+  const navigate = useNavigate();
+  const params = useParams();
+  const { user_id, job_id } = params;
+  const URL = process.env.REACT_APP_API_URL;
+
+  if (!isLoading && !isAuthenticated) {
+    logout({ returnTo: window.location.origin });
+  }
+
+  const [initialState, setInitialState] = useState(null);
+  const [state, dispatch] = useReducer(reducer, initialValues);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(`${URL}/api/user/${user_id}/${job_id}`);
+      const data = await response.json();
+      setInitialState(data.payload[0]);
+      dispatch({ type: "set_initialState", value: data.payload[0] });
+    }
+    fetchData();
+  }, [URL, user_id, job_id]);
+
+  function callDispatch(e, key) {
+    dispatch({
+      type: "update_input",
+      value: e.target.value,
+      key: key,
+    });
+  }
+
+  async function handlePutRequest() {
+    const response = await fetch(`${URL}/api/user/${user_id}/${job_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(state),
+    });
+    navigate("/home");
+    alert("job edited");
+    return await response.json();
+  }
+
+  return (
+    <HeroContainer title={"job to be updated"}>
+      {" "}
+      {isAuthenticated ? (
+        <>
+          <nav>
+            <Link to="/add-new">Add new</Link>
+            <Link to="/resources">Resources</Link>
+            <Link to="/update">Home</Link>
+          </nav>
+          <main>
+            <h2>Welcome to the update page!</h2>
+          </main>
+          <Profile />
+          <LogoutButton />
+          {initialState && (
+            <>
+              <form>
+                <Input
+                  labelText={"Job Title"}
+                  type={"text"}
+                  name={"jobTitle"}
+                  value={state.jobTitle}
+                  update={(e) => callDispatch(e, "jobTitle")}
+                />
+                <Input
+                  labelText={"Company"}
+                  type={"text"}
+                  name={"company"}
+                  value={state.company}
+                  update={(e) => callDispatch(e, "company")}
+                />
+                <Input
+                  labelText={"Min Salary"}
+                  type={"text"}
+                  name={"minSalary"}
+                  value={state.minSalary}
+                  update={(e) => callDispatch(e, "minSalary")}
+                />
+                <Input
+                  labelText={"Max Salary"}
+                  type={"text"}
+                  name={"maxSalary"}
+                  value={state.maxSalary}
+                  update={(e) => callDispatch(e, "maxSalary")}
+                />
+                <Input
+                  labelText={"Tech Stack"}
+                  type={"text"}
+                  name={"techStack"}
+                  value={state.techStack}
+                  update={(e) => callDispatch(e, "techStack")}
+                />
+                <Input
+                  labelText={"Contact"}
+                  type={"text"}
+                  name={"contact"}
+                  value={state.contact}
+                  update={(e) => callDispatch(e, "contact")}
+                />
+                <Input
+                  labelText={"URL link"}
+                  type={"url"}
+                  name={"urlLink"}
+                  value={state.urlLink}
+                  update={(e) => callDispatch(e, "urlLink")}
+                />
+                <Input
+                  labelText={"Location"}
+                  type={"text"}
+                  name={"location"}
+                  value={state.location}
+                  update={(e) => callDispatch(e, "location")}
+                />
+                <Input
+                  labelText={"Application Deadline"}
+                  type={"text"}
+                  name={"applicationDeadline"}
+                  value={state.applicationDeadline}
+                  update={(e) => callDispatch(e, "applicationDeadline")}
+                />
+                <Input
+                  labelText={"Interview Date"}
+                  type={"text"}
+                  name={"interviewDate"}
+                  value={state.interviewDate}
+                  update={(e) => callDispatch(e, "interviewDate")}
+                />
+                <TextArea
+                  labelText={"Job Description"}
+                  name={"jobDescription"}
+                  value={state.jobDescription}
+                  update={(e) => callDispatch(e, "jobDescription")}
+                />
+                <TextArea
+                  labelText={"Notes"}
+                  name={"notes"}
+                  value={state.notes}
+                  update={(e) => callDispatch(e, "notes")}
+                />
+
+                {/* contact: "Rita Blogs", dateAdded: "2023/10/29",
+              applicationDeadline: "2023/10/10", interviewDate: "2023/10/10",
+              offerDate: "2023/10/10", urlLink: "www.exmple.com", location:
+              "Remote", jobDescription: "Working work working work", notes: "my
+              notes", */}
+                <Select
+                  value={state.jobStatus}
+                  update={(e) => callDispatch(e, "jobStatus")}
+                />
+              </form>
+              <div>
+                <Button text="CANCEL" handleClick={() => navigate("/home")} />
+                <Button text="SAVE" handleClick={handlePutRequest} />
+              </div>
+            </>
+          )}
+        </>
+      ) : (
+        <div>
+          <h1>Loading...</h1>
+        </div>
+      )}
+    </HeroContainer>
+  );
+}
