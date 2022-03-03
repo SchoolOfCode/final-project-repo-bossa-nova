@@ -68,11 +68,11 @@ export default function Update() {
   }
 
   return (
-    <HeroContainer title={"job to be updated"}>
+    <HeroContainer title={"Job to be updated"}>
       {" "}
       {isAuthenticated ? (
         <>
-          <nav>
+          {/* <nav>
             <Link to="/add-new">Add new</Link>
             <Link to="/resources">Resources</Link>
             <Link to="/update">Home</Link>
@@ -81,104 +81,111 @@ export default function Update() {
             <h2>Welcome to the update page!</h2>
           </main>
           <Profile />
-          <LogoutButton />
+          <LogoutButton /> */}
           {initialState && (
             <>
-              <form>
-                <Input
-                  labelText={"Job Title"}
-                  type={"text"}
-                  name={"jobTitle"}
-                  value={state.jobTitle}
-                  update={(e) => callDispatch(e, "jobTitle")}
-                />
-                <Input
-                  labelText={"Company"}
-                  type={"text"}
-                  name={"company"}
-                  value={state.company}
-                  update={(e) => callDispatch(e, "company")}
-                />
-                <Input
-                  labelText={"Min Salary"}
-                  type={"text"}
-                  name={"minSalary"}
-                  value={state.minSalary}
-                  update={(e) => callDispatch(e, "minSalary")}
-                />
-                <Input
-                  labelText={"Max Salary"}
-                  type={"text"}
-                  name={"maxSalary"}
-                  value={state.maxSalary}
-                  update={(e) => callDispatch(e, "maxSalary")}
-                />
-                <Input
-                  labelText={"Tech Stack"}
-                  type={"text"}
-                  name={"techStack"}
-                  value={state.techStack}
-                  update={(e) => callDispatch(e, "techStack")}
-                />
-                <Input
-                  labelText={"Contact"}
-                  type={"text"}
-                  name={"contact"}
-                  value={state.contact}
-                  update={(e) => callDispatch(e, "contact")}
-                />
-                <Input
-                  labelText={"URL link"}
-                  type={"url"}
-                  name={"urlLink"}
-                  value={state.urlLink}
-                  update={(e) => callDispatch(e, "urlLink")}
-                />
-                <Input
-                  labelText={"Location"}
-                  type={"text"}
-                  name={"location"}
-                  value={state.location}
-                  update={(e) => callDispatch(e, "location")}
-                />
-                <Input
-                  labelText={"Application Deadline"}
-                  type={"text"}
-                  name={"applicationDeadline"}
-                  value={state.applicationDeadline}
-                  update={(e) => callDispatch(e, "applicationDeadline")}
-                />
-                <Input
-                  labelText={"Interview Date"}
-                  type={"text"}
-                  name={"interviewDate"}
-                  value={state.interviewDate}
-                  update={(e) => callDispatch(e, "interviewDate")}
-                />
-                <TextArea
-                  labelText={"Job Description"}
-                  name={"jobDescription"}
-                  value={state.jobDescription}
-                  update={(e) => callDispatch(e, "jobDescription")}
-                />
-                <TextArea
-                  labelText={"Notes"}
-                  name={"notes"}
-                  value={state.notes}
-                  update={(e) => callDispatch(e, "notes")}
-                />
+              <form className="flex flex-col md:flex-row -mx-4">
+                <div className="w-1/3 px-2">
+                  <Input
+                    labelText={"Job Title"}
+                    type={"text"}
+                    name={"jobTitle"}
+                    value={state.jobTitle}
+                    update={(e) => callDispatch(e, "jobTitle")}
+                  />
+                  <Input
+                    labelText={"Company"}
+                    type={"text"}
+                    name={"company"}
+                    value={state.company}
+                    update={(e) => callDispatch(e, "company")}
+                  />
+                  <Input
+                    labelText={"Min Salary"}
+                    type={"text"}
+                    name={"minSalary"}
+                    value={state.minSalary}
+                    update={(e) => callDispatch(e, "minSalary")}
+                  />
+                  <Input
+                    labelText={"Max Salary"}
+                    type={"text"}
+                    name={"maxSalary"}
+                    value={state.maxSalary}
+                    update={(e) => callDispatch(e, "maxSalary")}
+                  />
+                  <TextArea
+                    labelText={"Job Description"}
+                    name={"jobDescription"}
+                    value={state.jobDescription}
+                    update={(e) => callDispatch(e, "jobDescription")}
+                  />
+                </div>
+                <div className="w-1/3 px-2">
+                  <Input
+                    labelText={"Tech Stack"}
+                    type={"text"}
+                    name={"techStack"}
+                    value={state.techStack}
+                    update={(e) => callDispatch(e, "techStack")}
+                  />
+                  <Input
+                    labelText={"Contact"}
+                    type={"text"}
+                    name={"contact"}
+                    value={state.contact}
+                    update={(e) => callDispatch(e, "contact")}
+                  />
+                  <Input
+                    labelText={"URL link"}
+                    type={"url"}
+                    name={"urlLink"}
+                    value={state.urlLink}
+                    update={(e) => callDispatch(e, "urlLink")}
+                  />
+                  <Input
+                    labelText={"Location"}
+                    type={"text"}
+                    name={"location"}
+                    value={state.location}
+                    update={(e) => callDispatch(e, "location")}
+                  />
+                </div>
+                <div className="w-1/3 px-2">
+                  <Input
+                    labelText={"Application Deadline"}
+                    type={"text"}
+                    name={"applicationDeadline"}
+                    value={state.applicationDeadline}
+                    update={(e) => callDispatch(e, "applicationDeadline")}
+                  />
+                  <Input
+                    labelText={"Interview Date"}
+                    type={"text"}
+                    name={"interviewDate"}
+                    value={state.interviewDate}
+                    update={(e) => callDispatch(e, "interviewDate")}
+                  />
 
-                {/* contact: "Rita Blogs", dateAdded: "2023/10/29",
+                  <TextArea
+                    labelText={"Notes"}
+                    name={"notes"}
+                    value={state.notes}
+                    update={(e) => callDispatch(e, "notes")}
+                  />
+
+                  {/* contact: "Rita Blogs", dateAdded: "2023/10/29",
               applicationDeadline: "2023/10/10", interviewDate: "2023/10/10",
               offerDate: "2023/10/10", urlLink: "www.exmple.com", location:
               "Remote", jobDescription: "Working work working work", notes: "my
               notes", */}
-                <Select
-                  value={state.jobStatus}
-                  update={(e) => callDispatch(e, "jobStatus")}
-                />
+                  <Select
+                    value={state.jobStatus}
+                    update={(e) => callDispatch(e, "jobStatus")}
+                  />
+                </div>
               </form>
-              <div>
+              <div className="flex justify-center pt-3">
                 <Button
                   btn="positiveButton"
                   text="Save"

@@ -78,7 +78,7 @@ export default function AddNew() {
           </main> */}
           {/* <Profile />
           <LogoutButton /> */}
-          <form className="">
+          <form className="flex flex-col md:px-40">
             <Input
               labelText={"Job Title"}
               type={"text"}
@@ -112,16 +112,18 @@ export default function AddNew() {
               update={(e) => callDispatch(e, "jobStatus")}
             />
           </form>
-          <Button
-            btn="positiveButton"
-            text="Save"
-            handleClick={handlePostRequest}
-          />
-          <Button
-            btn="negativeButton"
-            text="Cancel"
-            handleClick={() => navigate("/home")}
-          />
+          <div className="flex justify-center pt-3">
+            <Button
+              btn="positiveButton"
+              text="Save"
+              handleClick={handlePostRequest}
+            />
+            <Button
+              btn="negativeButton"
+              text="Cancel"
+              handleClick={() => navigate("/home")}
+            />
+          </div>
         </>
       ) : (
         <div>

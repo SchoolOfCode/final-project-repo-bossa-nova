@@ -1,12 +1,18 @@
 import React from "react";
-const inputStyle = { outline: "solid" };
 
-export default function Input({ labelText, type, name, value, update }) {
+export default function Input({
+  labelText,
+  type,
+  name,
+  value,
+  update,
+  styleInput,
+}) {
   return (
     <>
-      <label>{labelText}</label>
+      <label className="styleLabel">{labelText}</label>
       <input
-        style={inputStyle}
+        className="styleInput"
         type={type}
         name={name}
         value={value}

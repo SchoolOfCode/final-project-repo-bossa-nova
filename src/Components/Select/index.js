@@ -3,8 +3,11 @@ import React from "react";
 const Select = ({ value, update }) => {
   return (
     <>
-      <label htmlFor="job-status">Job Status:</label>
+      <label className="styleLabel" htmlFor="job-status">
+        Job Status:
+      </label>
       <select
+        className="styleSelect"
         defaultValue={value}
         name="jobStatus"
         id="job-status"
