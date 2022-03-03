@@ -39,40 +39,6 @@ module.exports = {
       shizuru: ["Shizuru", "cursive"],
     },
 
-    fontWeight: {
-      //font-
-      thin: 100,
-      light: 300,
-      reg: 400,
-      bold: 700,
-      extrabold: 900,
-    },
-
-    fontSize: {
-      //text-
-      s12: ".75rem",
-      s14: ".875rem",
-      s18: "1.125rem",
-      s24: "1.5rem",
-      s36: "2.25rem,",
-      s48: "3rem",
-    },
-
-    spacing: {
-      //pg-
-      sm: "1em",
-      md: "2em",
-      lg: "3em",
-    },
-
-    borderRadius: {
-      //rounded-
-      rounded5: "5px",
-      rounded8: "8px",
-      rounded10: "10px",
-      rounded15: "15px",
-    },
-
     boxShadow: {
       //shadow-
       sm: "0 4px 4px 0px rgba(0 0 0 / 0.25)",
