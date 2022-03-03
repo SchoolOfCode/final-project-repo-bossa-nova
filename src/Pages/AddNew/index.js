@@ -78,7 +78,7 @@ export default function AddNew() {
           </main> */}
           {/* <Profile />
           <LogoutButton /> */}
-          <form className="">
+          <form className="flex flex-col">
             <Input
               labelText={"Job Title"}
               type={"text"}

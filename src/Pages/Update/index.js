@@ -84,7 +84,7 @@ export default function Update() {
           <LogoutButton />
           {initialState && (
             <>
-              <form>
+              <form className="flex flex-col">
                 <Input
                   labelText={"Job Title"}
                   type={"text"}

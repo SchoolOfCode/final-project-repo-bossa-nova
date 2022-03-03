@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ----------- Input style ------------- */
+
+.styleInput {
+  @apply bg-blueWhite shadow-esm text-grey py-1;
+}
+
+.styleLabel {
+  @apply text-grey font-semibold;
+}
+
+.styleSelect {
+  @apply bg-blueWhite shadow-esm text-grey py-1;
+}
+
 /* ----------- Buttons ------------- */
 
 /* Add new job button */
