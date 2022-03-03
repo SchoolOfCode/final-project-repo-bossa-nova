@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { HiOutlineBriefcase } from "react-icons/hi";
-import { FaRegFolder } from "react-icons/fa";
+import { AiOutlineHome } from "react-icons/ai";
 import { BsCalendar2Minus } from "react-icons/bs";
 import { BiLogIn } from "react-icons/bi";
 import { IoPersonOutline } from "react-icons/io5";
@@ -46,16 +45,19 @@ function Sidebar() {
         }`}
       >
         <nav className="p-md flex flex-col gap-8">
-          <Link to="/home">Home</Link>
-          <button className="flex">
+          <button className="flex space-x-3 items-baseline">
+            <AiOutlineHome />
+            <Link to="/home">Home</Link>
+          </button>
+          <button className="flex space-x-3 items-baseline">
             <BsCalendar2Minus />
             <Link to="/resources">Resources</Link>
           </button>
-          <button className="flex">
+          <button className="flex space-x-3 items-baseline">
             <IoPersonOutline />
             {user && user.name}
           </button>
-          <button className="flex">
+          <button className="flex space-x-3 items-baseline">
             <BiLogIn />
             Sign Out
           </button>
@@ -64,28 +66,28 @@ function Sidebar() {
 
       {/* desktop sidebar */}
 
-      <div className="">
-        <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue px-6 pl-10 text-mainBlue border-mainBlue ml-4 mr-4 mb-4 h-[90vh]">
-          <nav className="flex flex-col gap-8 pt-20">
-            <button className="flex hover:text-coral">
-              <Link to="/home">Home</Link>
-            </button>
-            <hr className="border-t-[1px] " />
-            <button className="flex hover:text-coral">
-              <BsCalendar2Minus />
-              <Link to="/resources">Resources</Link>
-            </button>
-            <hr className="border-t-[1px] " />
-            <button className="flex hover:text-coral">
-              <IoPersonOutline />
-              {user && user.name}
-            </button>
-            <button className="flex hover:text-coral">
-              <BiLogIn />
-              <LogoutButton text="Sign out" />
-            </button>
-          </nav>
-        </div>
+       <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue px-6 pl-10 text-mainBlue border-mainBlue ml-4 mr-4 mb-4 h-[90vh]">
+        <nav className="flex flex-col gap-8 pt-20">
+          <button className="flex space-x-3 items-baseline hover:text-coral">
+            <AiOutlineHome />
+            <Link to="/home">Home</Link>
+          </button>
+          <hr className="border-t-[1px] " />
+          <button className="flex space-x-3 items-baseline hover:text-coral">
+            <BsCalendar2Minus />
+            <Link to="/resources">Resources</Link>
+          </button>
+          <hr className="border-t-[1px] " />
+          <button className="flex space-x-3 items-baseline hover:text-coral">
+            <IoPersonOutline />
+            {user && user.name}
+          </button>
+          <div className="flex space-x-3 items-baseline hover:text-coral">
+            <BiLogIn />
+            <LogoutButton text="Sign out" />
+          </div>
+        </nav>
+
       </div>
     </aside>
   );
