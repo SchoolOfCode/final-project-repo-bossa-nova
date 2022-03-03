@@ -39,7 +39,8 @@ function Sidebar() {
 
       {/* mobile sidebar */}
       <div
-        className={`flex flex-col flex-grow w-[50vw] rounded-b-xl bg-lightBlue p-6 pl-10 text-black fixed ease-in-out duration-300 md:hidden z-30 ${
+        className={`flex flex-col flex-grow w-[50vw] rounded-b-xl bg-lightBlue p-6 pl-10 fixed ease-in-out duration-300 md:hidden z-30 
+        text-mainBlue border-mainBlue ml-4 mr-4 mb-4 h-[90vh]${
           showSidebar ? "-translate-x-0 " : "-translate-x-full"
         }`}
       >
@@ -65,25 +66,28 @@ function Sidebar() {
 
       {/* desktop sidebar */}
 
-      <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] rounded-b-xl bg-lightBlue px-6 pl-10 text-black ">
-        <nav className="p-md flex flex-col gap-8">
-          <button className="flex space-x-3 items-baseline">
+       <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue px-6 pl-10 text-mainBlue border-mainBlue ml-4 mr-4 mb-4 h-[90vh]">
+        <nav className="flex flex-col gap-8 pt-20">
+          <button className="flex space-x-3 items-baseline hover:text-coral">
             <AiOutlineHome />
             <Link to="/home">Home</Link>
           </button>
-          <button className="flex space-x-3 items-baseline">
+          <hr className="border-t-[1px] " />
+          <button className="flex space-x-3 items-baseline hover:text-coral">
             <BsCalendar2Minus />
             <Link to="/resources">Resources</Link>
           </button>
-          <button className="flex space-x-3 items-baseline">
+          <hr className="border-t-[1px] " />
+          <button className="flex space-x-3 items-baseline hover:text-coral">
             <IoPersonOutline />
             {user && user.name}
           </button>
-          <div className="flex space-x-3 items-baseline">
+          <div className="flex space-x-3 items-baseline hover:text-coral">
             <BiLogIn />
             <LogoutButton text="Sign out" />
           </div>
         </nav>
+
       </div>
     </aside>
   );
