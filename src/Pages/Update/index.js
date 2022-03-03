@@ -179,8 +179,16 @@ export default function Update() {
                 />
               </form>
               <div>
-                <Button text="CANCEL" handleClick={() => navigate("/home")} />
-                <Button text="SAVE" handleClick={handlePutRequest} />
+                <Button
+                  btn="positiveButton"
+                  text="Save"
+                  handleClick={handlePutRequest}
+                />
+                <Button
+                  btn="negativeButton"
+                  text="Cancel"
+                  handleClick={() => navigate("/home")}
+                />
               </div>
             </>
           )}

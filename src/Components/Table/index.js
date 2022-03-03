@@ -133,7 +133,8 @@ export default function StickyHeadTable() {
                               {column.col_id === "buttons" ? (
                                 <div>
                                   <Button
-                                    text="EDIT"
+                                    btn="tablePositiveButton"
+                                    text="Edit"
                                     handleClick={() => {
                                       navigate(
                                         `/update/${user.sub}/${job._id}`
@@ -141,7 +142,8 @@ export default function StickyHeadTable() {
                                     }}
                                   />
                                   <Button
-                                    text="DELETE"
+                                    btn="tableNegativeButton"
+                                    text="Delete"
                                     handleClick={() =>
                                       handleDeleteRequest(job._id)
                                     }

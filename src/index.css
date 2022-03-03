@@ -6,26 +6,26 @@
 
 /* Add new job button */
 .newJobButton {
-  @apply bg-aqua font-extrabold text-lg text-black border-none rounded-2xl font-lato shadow-sm p-4;
+  @apply bg-aqua font-bold text-lg text-black border-none rounded-xl font-lato shadow-esm p-3 px-6;
 }
 
 /* Save button  */
 .positiveButton {
-  @apply bg-aqua font-extrabold text-lg text-blueWhite border-none rounded-md font-lato shadow-sm p-4;
+  @apply bg-aqua font-bold text-lg text-blueWhite border-none rounded-md font-lato shadow-esm p-1 mx-2 w-20 h-12;
 }
 
 /* Cancel button */
 .negativeButton {
-  @apply bg-coral font-extrabold text-lg text-black border-none rounded-md font-lato shadow-sm p-4;
+  @apply bg-coral font-bold text-lg text-blueWhite border-none rounded-md font-lato shadow-esm p-1 mx-2 w-20 h-12;
 }
 
 /* Inside the table: edit button */
 .tablePositiveButton {
-  @apply bg-transparent font-extrabold font-lato text-sm text-mainBlue border-none p-4;
+  @apply bg-transparent font-bold font-lato text-sm text-mainBlue border-none p-4;
 }
 /* Inside the table: Delete button */
 .tableNegativeButton {
-  @apply bg-transparent font-extrabold font-lato text-sm text-coral border-none  p-4;
+  @apply bg-transparent font-bold font-lato text-sm text-coral border-none  p-4;
 }
 
 /* ----------- End of Buttons ------------- */
