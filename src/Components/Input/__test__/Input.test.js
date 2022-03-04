@@ -1,0 +1,8 @@
+import { render, screen } from "@testing-library/react";
+import Input from "..";
+
+it("Should count number of inputs", () => {
+  render(<Input labelText="Company" />);
+  const InputElements = screen.getByLabelText(/Company/i);
+  expect(InputElements).toBeInTheDocument();
+});
