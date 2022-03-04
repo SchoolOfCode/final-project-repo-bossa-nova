@@ -39,6 +39,15 @@ module.exports = {
       shizuru: ["Shizuru", "cursive"],
     },
 
+    fontSize: {
+      mobileHeroHeading: ["12px", "14.4px"],
+      mobileButton: ["13px, 15.6px"],
+      mobileSidebar: ["14px", "16px"],
+      mobileBody: ["18px", "21.6px"],
+      desktopMain: ["24px", "28.8px"],
+      desktopHeroHeading: ["36px", "43.2px"],
+    },
+
     boxShadow: {
       //shadow-
       esm: "0 2px 2px 0px rgba(0 0 0 / 0.10)",
