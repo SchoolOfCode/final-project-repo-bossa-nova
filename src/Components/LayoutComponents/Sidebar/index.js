@@ -6,6 +6,8 @@ import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../../LogoutButton";
+import { ImCross } from "react-icons/im";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -16,51 +18,54 @@ function Sidebar() {
       <div className="md:hidden">
         {showSidebar ? (
           <button
-            className="flex text-6xl text-black items-center cursor-pointer fixed left-20 bg top-6 z-50"
+            className="fixed z-50 text-blueWhite left-4 top-4 text-xl"
             onClick={() => setShowSidebar(!showSidebar)}
           >
-            x
+            <ImCross />
           </button>
         ) : (
-          <svg
+          <button
             onClick={() => setShowSidebar(!showSidebar)}
-            className="fixed z-30 flex items-center cursor-pointer left-10 top-6"
-            fill="#2563EB"
-            viewBox="0 0 100 80"
-            width="40"
-            height="40"
+            className="fixed z-50 text-blueWhite left-2 top-3 text-3xl"
           >
-            <rect width="100" height="10"></rect>
-            <rect y="30" width="100" height="10"></rect>
-            <rect y="60" width="100" height="10"></rect>
-          </svg>
+            <GiHamburgerMenu />
+          </button>
         )}
       </div>
 
       {/* mobile sidebar */}
       <div
-        className={`flex flex-col flex-grow w-[50vw] rounded-b-xl bg-lightBlue p-6 pl-10 fixed ease-in-out duration-300 md:hidden z-30 
+        className={`flex flex-col flex-grow w-[70vw] sm:w-[60vw] h-[90vh] rounded-b-xl bg-lightBlue p-6 pl-10 fixed ease-in-out duration-300 md:hidden z-30 
         text-mainBlue border-mainBlue ${
           showSidebar ? "-translate-x-0 " : "-translate-x-full"
         }`}
       >
-        <nav className="p-md flex flex-col gap-8">
-          <button className="flex space-x-3 items-baseline">
+        <nav className="pt-20 flex flex-col gap-8">
+          <button className="flex space-x-3 items-baseline hover:text-coral">
             <AiOutlineHome />
-            <Link to="/home">Home</Link>
+            <Link to="/home" onClick={() => setShowSidebar(!showSidebar)}>
+              Home
+            </Link>
           </button>
-          <button className="flex space-x-3 items-baseline">
+          <hr className="border-t-[1px] " />
+          <button className="flex space-x-3 items-baseline hover:text-coral">
             <BsCalendar2Minus />
-            <Link to="/resources">Resources</Link>
+            <Link to="/resources" onClick={() => setShowSidebar(!showSidebar)}>
+              Resources
+            </Link>
           </button>
-          <button className="flex space-x-3 items-baseline">
+          <hr className="border-t-[1px] " />
+          <button
+            onClick={() => setShowSidebar(!showSidebar)}
+            className="flex space-x-3 items-baseline hover:text-coral"
+          >
             <IoPersonOutline />
             {user && user.name}
           </button>
-          <button className="flex space-x-3 items-baseline">
+          <div className="flex space-x-3 items-baseline hover:text-coral">
             <BiLogIn />
-            Sign Out
-          </button>
+            <LogoutButton text="Sign out" />
+          </div>
         </nav>
       </div>
 
@@ -78,7 +83,7 @@ function Sidebar() {
             <Link to="/resources">Resources</Link>
           </button>
           <hr className="border-t-[1px] " />
-          <button className="flex space-x-3 items-baseline hover:text-coral">
+          <button className="flex space-x-3 items-baseline hover:text-coral truncate">
             <IoPersonOutline />
             {user && user.name}
           </button>
