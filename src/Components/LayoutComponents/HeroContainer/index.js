@@ -4,13 +4,15 @@ import React from "react";
 
 export default function HeroContainer({ children, title }) {
   return (
-    <div>
-      <div className="bg-mainBlue text-blueWhite text-2xl p-4 mt-12 mx-8 rounded-2xl">
+    <div className="relative flex justify-center">
+      <div className="absolute  z-10   bg-mainBlue text-blueWhite text-2xl p-5 mt-12 w-[82%] md:w-[86%] rounded-lg">
         {title}
       </div>
-      <main className=" bg-white shadow-lg rounded-2xl p-5 mb-4 mx-12">
+      <main className="absolute mt-20 bg-white shadow-lg rounded-lg p-5 pt-12 mb-4 w-[87%] md:w-[90%]">
         {children}
       </main>
     </div>
   );
 }
+
+// header 75% body 83
