@@ -11,7 +11,7 @@ export default function Home() {
   }
 
   return (
-    <HeroContainer title={"My jobs application"}>
+    <HeroContainer title={"List of my job applications"}>
       {isAuthenticated ? (
         <>
           <div className="mb-6 flex justify-end">
