@@ -40,12 +40,13 @@ module.exports = {
     },
 
     fontSize: {
-      mobileHeroHeading: ["12px", "14.4px"],
+      mobileBody: ["12px", "14.4px"],
       mobileButton: ["13px, 15.6px"],
-      mobileSidebar: ["14px", "16px"],
-      mobileBody: ["18px", "21.6px"],
-      desktopMain: ["24px", "28.8px"],
-      desktopHeroHeading: ["36px", "43.2px"],
+      mobileSidebar: ["17px", "28.8px"],
+      mobileHeroHeading: ["18px", "21.6px"],
+      desktopMain: ["18px", "21.6px"],
+      desktopHeroHeading: ["28px", "43.2px"],
+      desktopSidebar: ["20px", "28.8px"],
     },
 
     boxShadow: {
