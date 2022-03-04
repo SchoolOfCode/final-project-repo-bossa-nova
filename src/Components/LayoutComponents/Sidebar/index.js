@@ -18,7 +18,7 @@ function Sidebar() {
       <div className="md:hidden">
         {showSidebar ? (
           <button
-            className="fixed z-50 text-blueWhite left-4 top-4 text-xl"
+            className="fixed z-50 text-desktopHeroHeading text-blueWhite left-4 top-5 text-xl"
             onClick={() => setShowSidebar(!showSidebar)}
           >
             <ImCross />
@@ -26,7 +26,7 @@ function Sidebar() {
         ) : (
           <button
             onClick={() => setShowSidebar(!showSidebar)}
-            className="fixed z-50 text-blueWhite left-2 top-3 text-3xl"
+            className="fixed z-50 text-desktopHeroHeading text-blueWhite left-4 top-4 text-3xl"
           >
             <GiHamburgerMenu />
           </button>
@@ -41,7 +41,7 @@ function Sidebar() {
         }`}
       >
         <nav className="pt-20 flex flex-col gap-8">
-          <button className="flex space-x-3 items-baseline hover:text-coral">
+          <button className="flex space-x-3 items-baseline  hover:text-coral">
             <AiOutlineHome />
             <Link to="/home" onClick={() => setShowSidebar(!showSidebar)}>
               HOME
