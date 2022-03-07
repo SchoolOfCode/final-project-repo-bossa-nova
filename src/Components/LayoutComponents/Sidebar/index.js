@@ -39,6 +39,7 @@ function Sidebar() {
 
       {/* mobile sidebar */}
       <div
+        data-testid={"mobile-sidebar"}
         className={`flex flex-col flex-grow w-[50vw] rounded-b-xl bg-lightBlue p-6 pl-10 fixed ease-in-out duration-300 md:hidden z-30 
         text-mainBlue border-mainBlue ${
           showSidebar ? "-translate-x-0 " : "-translate-x-full"
@@ -66,7 +67,10 @@ function Sidebar() {
 
       {/* desktop sidebar */}
 
-      <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue px-6 pl-10 text-mainBlue border-mainBlue ml-4 mr-4 mb-4 h-[90vh]">
+      <div data-testid={'desktop-sidebar'}
+        className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue 
+      px-6 pl-10 text-mainBlue border-mainBlue ml-4 mr-4 mb-4 h-[90vh]"
+      >
         <nav className="flex flex-col gap-8 pt-20">
           <button className="flex space-x-3 items-baseline hover:text-coral">
             <AiOutlineHome />

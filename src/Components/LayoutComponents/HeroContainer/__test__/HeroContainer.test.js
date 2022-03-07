@@ -1,6 +1,5 @@
-import '@testing-library/jest-dom';
 import { render, screen } from "@testing-library/react";
-import HeroContainer from "../index.js";
+import HeroContainer from "../";
 
 it("should render same text passed into title prop", () => {
   render(<HeroContainer title="Page Title" />);
