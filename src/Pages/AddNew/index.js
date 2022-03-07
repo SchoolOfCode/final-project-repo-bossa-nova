@@ -52,16 +52,35 @@ export default function AddNew() {
 
   const navigate = useNavigate();
 
+  //------- form validation -------//
+  function validateForm(min, max, jobTitle, company) {
+    if (min > 0 && max > min && jobTitle !== "" && company !== "") {
+      return true;
+    }
+    return false;
+  }
+
   const URL = process.env.REACT_APP_API_URL;
   async function handlePostRequest() {
-    const response = await fetch(`${URL}/api/user/${user.sub}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(state),
-    });
-    navigate("/home");
-    alert("job created");
-    return await response.json();
+    if (
+      validateForm(
+        state.minSalary,
+        state.maxSalary,
+        state.jobTitle,
+        state.company
+      )
+    ) {
+      const response = await fetch(`${URL}/api/user/${user.sub}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(state),
+      });
+      navigate("/home");
+      alert("job created");
+      return await response.json();
+    } else {
+      alert("invalid input");
+    }
   }
 
   return (
