@@ -7,8 +7,8 @@ const LoginButton = () => {
 
   return (
     <Button
-      btn="negativeButton"
-      text="Log in"
+      btn="startTodayButton"
+      text="Start today"
       onClick={() => loginWithRedirect()}
     />
   );

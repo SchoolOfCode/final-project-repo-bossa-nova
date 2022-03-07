@@ -33,6 +33,10 @@
   @apply bg-coral font-bold text-mobileButton md:text-desktopMain text-mainBlue border-none rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8;
 }
 
+.startTodayButton {
+  @apply bg-coral font-bold text-mobileButton md:text-desktopMain text-black border-none rounded-lg font-lato shadow-esm py-3 px-10 mx-2;
+}
+
 /* Inside the table: edit button */
 .tablePositiveButton {
   @apply bg-transparent font-bold font-lato text-mobileSidebar text-mainBlue border-none p-4;
