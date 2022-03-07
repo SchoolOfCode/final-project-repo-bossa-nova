@@ -64,10 +64,10 @@ export default function Update() {
     } else if (min < 0) {
       alert("Please type a Min Salary greater than 0");
       return false;
-    } else if (min > max) {
+    } else if (min >= max) {
       alert("Please type a Max Salary that is greater than Min Salary");
       return false;
-    } else if (jobStatus === '') {
+    } else if (jobStatus === "") {
       alert("Please select a job status");
       return false;
     } else {
@@ -146,6 +146,7 @@ export default function Update() {
                     update={(e) => callDispatch(e, "maxSalary")}
                   />
                   <TextArea
+                    maxlength={1000}
                     labelText={"Job Description"}
                     name={"jobDescription"}
                     value={state.jobDescription}
@@ -199,6 +200,7 @@ export default function Update() {
                   />
 
                   <TextArea
+                    maxlength={2000}
                     labelText={"Notes"}
                     name={"notes"}
                     value={state.notes}

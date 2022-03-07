@@ -1,10 +1,11 @@
 import React from "react";
 
-const TextArea = ({ labelText, name, value, update }) => {
+const TextArea = ({ labelText, name, value, update, maxlength }) => {
   return (
     <>
       <label className="styleLabel">{labelText}</label>
       <textarea
+        maxlength={maxlength}
         className="styleInput"
         name={name}
         value={value}

@@ -63,10 +63,10 @@ export default function AddNew() {
     } else if (min < 0) {
       alert("Please type a Min Salary greater than 0");
       return false;
-    } else if (min > max) {
+    } else if (min >= max) {
       alert("Please type a Max Salary that is greater than Min Salary");
       return false;
-    } else if (jobStatus === '') {
+    } else if (jobStatus === "") {
       alert("Please select a job status");
       return false;
     } else {
