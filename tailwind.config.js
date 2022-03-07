@@ -13,6 +13,7 @@ module.exports = {
       sm: "640px",
       md: "768px",
       lg: "1024px",
+      logl: "1110px",
       xl: "1280px",
       "2xl": "1536px",
     },
@@ -47,6 +48,8 @@ module.exports = {
       desktopMain: ["18px", "21.6px"],
       desktopHeroHeading: ["28px", "43.2px"],
       desktopSidebar: ["20px", "28.8px"],
+      loginDesktop: ["96px", "115.2px"],
+      loginApplications: ["40px", "52.6px"],
     },
 
     boxShadow: {

@@ -142,7 +142,7 @@ export default function StickyHeadTable() {
                                     }}
                                   />
                                   <Button
-                                    btn="tableNegativeButton"
+                                    btn="negativeButton"
                                     text="Delete"
                                     handleClick={() =>
                                       handleDeleteRequest(job._id)
