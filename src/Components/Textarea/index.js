@@ -5,6 +5,7 @@ const TextArea = ({ labelText, name, value, update }) => {
     <>
       <label className="styleLabel">{labelText}</label>
       <textarea
+        data-testid="textarea-test"
         className="styleInput"
         name={name}
         value={value}
