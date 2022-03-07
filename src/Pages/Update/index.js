@@ -54,7 +54,7 @@ export default function Update() {
     });
   }
 
-  function validateForm(min, max, jobTitle, company) {
+  function validateForm(min, max, jobTitle, company, jobStatus) {
     if (jobTitle === "") {
       alert("Please type a Job Title");
       return false;
@@ -67,6 +67,9 @@ export default function Update() {
     } else if (min > max) {
       alert("Please type a Max Salary that is greater than Min Salary");
       return false;
+    } else if (jobStatus === '') {
+      alert("Please select a job status");
+      return false;
     } else {
       return true;
     }
@@ -78,7 +81,8 @@ export default function Update() {
         state.minSalary,
         state.maxSalary,
         state.jobTitle,
-        state.company
+        state.company,
+        state.jobStatus
       )
     ) {
       const response = await fetch(`${URL}/api/user/${user_id}/${job_id}`, {

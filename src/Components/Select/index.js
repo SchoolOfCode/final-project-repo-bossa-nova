@@ -13,6 +13,7 @@ const Select = ({ value, update }) => {
         id="job-status"
         onChange={update}
       >
+        <option disabled value=''>Please select:</option>
         <option value="wishlist">Wishlist</option>
         <option value="applied">Applied</option>
         <option value="interview">Interview</option>
