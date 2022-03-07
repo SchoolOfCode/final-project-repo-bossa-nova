@@ -54,17 +54,44 @@ export default function Update() {
     });
   }
 
+  function validateForm(min, max, jobTitle, company) {
+    if (jobTitle === "") {
+      alert("Please type a Job Title");
+      return false;
+    } else if (company === "") {
+      alert("Please type a Company Name");
+      return false;
+    } else if (min < 0) {
+      alert("Please type a Min Salary greater than 0");
+      return false;
+    } else if (min > max) {
+      alert("Please type a Max Salary that is greater than Min Salary");
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   async function handlePutRequest() {
-    const response = await fetch(`${URL}/api/user/${user_id}/${job_id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(state),
-    });
-    navigate("/home");
-    alert("job edited");
-    return await response.json();
+    if (
+      validateForm(
+        state.minSalary,
+        state.maxSalary,
+        state.jobTitle,
+        state.company
+      )
+    ) {
+      const response = await fetch(`${URL}/api/user/${user_id}/${job_id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(state),
+      });
+      navigate("/home");
+      alert("job edited");
+      return await response.json();
+    }
   }
 
   return (
@@ -102,14 +129,14 @@ export default function Update() {
                   />
                   <Input
                     labelText={"Min Salary"}
-                    type={"text"}
+                    type={"number"}
                     name={"minSalary"}
                     value={state.minSalary}
                     update={(e) => callDispatch(e, "minSalary")}
                   />
                   <Input
                     labelText={"Max Salary"}
-                    type={"text"}
+                    type={"number"}
                     name={"maxSalary"}
                     value={state.maxSalary}
                     update={(e) => callDispatch(e, "maxSalary")}
