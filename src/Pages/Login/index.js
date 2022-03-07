@@ -7,26 +7,28 @@ export default function Login() {
     <HeroContainer title={"Please Log in"}>
       <main>
         <div className="relative h-[73.6vh] flex justify-center">
-          <div className="absolute hidden md:block top-[6rem]">
-            <div classname="flex justify-between">
-              <div className=" flex">
-                <img
-                  className=" z-10  object-cover h-[400px]"
-                  src="login-image.png"
-                  alt="login"
-                />
-                <div className="z-20  h-[400px] w-[301px] -ml-40 mt-40 rounded-lg p-8  bg-coral">
-                  <h4>ABOUT</h4>
-                  <br />
-                  <p>
-                    Bossa Nova job tracker is an easy way to organise your job
-                    applications.
-                  </p>
-                  <br />
-                  <p>No more using speadsheets or email</p>
-                </div>
+          <div className="absolute hidden md:block top-[4rem]">
+            <div className=" flex">
+              <img
+                className=" z-10  object-cover h-[400px]"
+                src="login-image.png"
+                alt="login"
+              />
+              <div className="z-20  h-[400px] w-[301px] -ml-40 mt-40 rounded-lg p-8  bg-coral">
+                <h4>ABOUT</h4>
+                <br />
+                <p>
+                  Bossa Nova job tracker is an easy way to organise your job
+                  applications.
+                </p>
+                <br />
+                <p>No more using speadsheets or email</p>
               </div>
-              <img className="h-auto z-100 " src="logo-01.png" alt="logo" />
+              <img
+                className="h-[172px] z-100 -mr-4 "
+                src="logo-01.png"
+                alt="logo"
+              />
             </div>
           </div>
           <h2 className="md:hidden">Tracker Your Jobs</h2>
