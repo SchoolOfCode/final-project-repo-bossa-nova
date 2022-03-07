@@ -10,9 +10,12 @@ export default function Input({
 }) {
   return (
     <>
-      <label className="styleLabel">{labelText}</label>
+      <label htmlFor={labelText} className="styleLabel">
+        {labelText}
+      </label>
       <input
         className="styleInput"
+        id={labelText}
         type={type}
         name={name}
         value={value}
