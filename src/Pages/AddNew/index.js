@@ -54,17 +54,30 @@ export default function AddNew() {
 
   //------- form validation -------//
   function validateForm(min, max, jobTitle, company) {
-    if (min > 0 && max > min && jobTitle !== "" && company !== "") {
-      return true;
+    if(min < 0) {
+      alert("Please type a Min Salary greater than 0")
+      return false
+    } else if (min > max) {
+      alert("Please type a Max Salary that is greater than Min Salary")
+      return false
+    } else if (jobTitle === "") {
+      alert("Please type a Job Title")
+      return false
+    } else if (company === "") {
+      alert("Please type a Company Name")
+      return false
+    } else {
+      return true
     }
-    return false;
+    // if (min > 0 && max > min && jobTitle !== "" && company !== "") {
+    //   return true;
+    // }
+    // return false;
   }
 
   const URL = process.env.REACT_APP_API_URL;
   async function handlePostRequest() {
-    if (
-      validateForm(
-        state.minSalary,
+    if (validateForm(state.minSalary,
         state.maxSalary,
         state.jobTitle,
         state.company
@@ -78,9 +91,10 @@ export default function AddNew() {
       navigate("/home");
       alert("job created");
       return await response.json();
-    } else {
-      alert("invalid input");
-    }
+    } 
+    // else {
+    //   alert("invalid input");
+    // }  
   }
 
   return (

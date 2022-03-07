@@ -14,6 +14,7 @@ const MockSidebar = () => {
 describe("Sidebar tests to check visibility at different screen sizes", () => {
   it("should render mobile sidebar at small screens", () => {
     render(<MockSidebar />);
+    // const mobileSidebar = screen.getByTestId("mobile-sidebar");
     const mobileSidebar = screen.getByTestId("mobile-sidebar");
     expect(mobileSidebar).toBeVisible();
   });

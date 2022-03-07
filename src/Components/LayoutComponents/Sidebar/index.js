@@ -66,7 +66,6 @@ function Sidebar() {
       </div>
 
       {/* desktop sidebar */}
-
       <div data-testid={'desktop-sidebar'}
         className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue 
       px-6 pl-10 text-mainBlue border-mainBlue ml-4 mr-4 mb-4 h-[90vh]"
