@@ -24,7 +24,7 @@ export default function Login() {
                 <br />
                 <p>No more using speadsheets or email</p>
               </div>
-              <div className="w-[10vw]" />
+              <div className="w-[10vw] logl" />
               <img
                 className="h-[172px] z-100 -mr-4 "
                 src="logo-01.png"
@@ -48,7 +48,7 @@ export default function Login() {
             <br />
             <p>No more using speadsheets or email</p>
           </div>
-          <div className="absolute z-40 right-[4rem] bottom-[9rem]">
+          <div className="absolute z-40 logl:right-[4rem] right-[2rem] bottom-[9rem]">
             <h3 className="text-loginApplications">Applications</h3>
             <LoginButton />
           </div>
