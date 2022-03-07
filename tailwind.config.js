@@ -47,6 +47,7 @@ module.exports = {
       desktopMain: ["18px", "21.6px"],
       desktopHeroHeading: ["28px", "43.2px"],
       desktopSidebar: ["20px", "28.8px"],
+      loginDesktop: ["96px", "115.2px"],
     },
 
     boxShadow: {
