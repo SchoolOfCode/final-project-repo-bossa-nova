@@ -7,15 +7,15 @@ export default function Login() {
     <HeroContainer title={"Please Log in"}>
       <main>
         <div className="relative h-[73.6vh] flex justify-center">
-          <div className="absolute hidden md:block top-[4rem]">
+          <div className=" hidden md:block mt-[3.3rem]">
             <div className=" flex">
               <img
-                className=" z-10  object-cover h-[400px]"
+                className=" z-10  object-cover h-[350px]"
                 src="login-image.png"
                 alt="login"
               />
-              <div className="z-20  h-[400px] w-[301px] -ml-40 mt-40 rounded-lg p-8  bg-coral">
-                <h4>ABOUT</h4>
+              <div className="z-20  h-[350px] w-[262px] -ml-40 mt-40   rounded-lg px-8 pt-12 shadow-sm bg-white bg-opacity-80">
+                <h4 className="font-bold">ABOUT</h4>
                 <br />
                 <p>
                   Bossa Nova job tracker is an easy way to organise your job
@@ -24,6 +24,7 @@ export default function Login() {
                 <br />
                 <p>No more using speadsheets or email</p>
               </div>
+              <div className="w-[10vw]" />
               <img
                 className="h-[172px] z-100 -mr-4 "
                 src="logo-01.png"
@@ -47,8 +48,8 @@ export default function Login() {
             <br />
             <p>No more using speadsheets or email</p>
           </div>
-          <div className="absolute right-10 bottom-10">
-            <h3 className="text-desktopHeroHeading">Applications</h3>
+          <div className="absolute z-40 right-[4rem] bottom-[9rem]">
+            <h3 className="text-loginApplications">Applications</h3>
             <LoginButton />
           </div>
         </div>
