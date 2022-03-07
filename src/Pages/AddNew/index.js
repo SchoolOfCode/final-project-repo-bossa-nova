@@ -95,14 +95,14 @@ export default function AddNew() {
             />
             <Input
               labelText={"Min Salary"}
-              type={"text"}
+              type={"number"}
               name={"minSalary"}
               value={state.minSalary}
               update={(e) => callDispatch(e, "minSalary")}
             />
             <Input
               labelText={"Max Salary"}
-              type={"text"}
+              type={"number"}
               name={"maxSalary"}
               value={state.maxSalary}
               update={(e) => callDispatch(e, "maxSalary")}
