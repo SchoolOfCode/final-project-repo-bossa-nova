@@ -6,6 +6,8 @@ import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../../LogoutButton";
+import { ImCross } from "react-icons/im";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -16,62 +18,60 @@ function Sidebar() {
       <div className="md:hidden">
         {showSidebar ? (
           <button
-            className="flex text-6xl text-black items-center cursor-pointer fixed left-20 bg top-6 z-50"
+            className="fixed z-50 text-desktopHeroHeading text-blueWhite left-4 top-5 text-xl"
             onClick={() => setShowSidebar(!showSidebar)}
           >
-            x
+            <ImCross />
           </button>
         ) : (
-          <svg
+          <button
             onClick={() => setShowSidebar(!showSidebar)}
-            className="fixed z-30 flex items-center cursor-pointer left-10 top-6"
-            fill="#2563EB"
-            viewBox="0 0 100 80"
-            width="40"
-            height="40"
+            className="fixed z-50 text-desktopHeroHeading text-blueWhite left-4 top-4 text-3xl"
           >
-            <rect width="100" height="10"></rect>
-            <rect y="30" width="100" height="10"></rect>
-            <rect y="60" width="100" height="10"></rect>
-          </svg>
+            <GiHamburgerMenu />
+          </button>
         )}
       </div>
 
       {/* mobile sidebar */}
       <div
-        data-testid={"mobile-sidebar"}
-        className={`flex flex-col flex-grow w-[50vw] rounded-b-xl bg-lightBlue p-6 pl-10 fixed ease-in-out duration-300 md:hidden z-30 
-        text-mainBlue border-mainBlue ${
+        className={`flex flex-col flex-grow w-[70vw] sm:w-[60vw] h-[90vh] rounded-b-xl bg-lightBlue p-6 pl-10 fixed ease-in-out duration-300 md:hidden z-30 
+        text-mainBlue border-mainBlue text-mobileSidebar ${
           showSidebar ? "-translate-x-0 " : "-translate-x-full"
         }`}
       >
-        <nav className="p-md flex flex-col gap-8">
-          <button className="flex space-x-3 items-baseline">
+        <nav className="pt-20 flex flex-col gap-8">
+          <button className="flex space-x-3 items-baseline  hover:text-coral">
             <AiOutlineHome />
-            <Link to="/home">Home</Link>
+            <Link to="/home" onClick={() => setShowSidebar(!showSidebar)}>
+              HOME
+            </Link>
           </button>
-          <button className="flex space-x-3 items-baseline">
+          <hr className="border-t-[1px] " />
+          <button className="flex space-x-3 items-baseline hover:text-coral">
             <BsCalendar2Minus />
-            <Link to="/resources">Resources</Link>
+            <Link to="/resources" onClick={() => setShowSidebar(!showSidebar)}>
+              Resources
+            </Link>
           </button>
-          <button className="flex space-x-3 items-baseline">
+          <hr className="border-t-[1px] " />
+          {/* <button
+            onClick={() => setShowSidebar(!showSidebar)}
+            className="flex space-x-3 items-baseline hover:text-coral"
+          >
             <IoPersonOutline />
             {user && user.name}
-          </button>
-          <button className="flex space-x-3 items-baseline">
+          </button> */}
+          <div className="flex space-x-3 items-baseline hover:text-coral">
             <BiLogIn />
-            Sign Out
-          </button>
+            <LogoutButton text="Sign out" />
+          </div>
         </nav>
       </div>
 
       {/* desktop sidebar */}
-
-      <div data-testid={'desktop-sidebar'}
-        className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue 
-      px-6 pl-10 text-mainBlue border-mainBlue ml-4 mr-4 mb-4 h-[90vh]"
-      >
-        <nav className="flex flex-col gap-8 pt-20">
+      <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue px-6 pl-10 text-mainBlue text-desktopSidebar border-mainBlue ml-4 mr-4 mb-4 h-[90vh]">
+       <nav className="flex flex-col gap-8 pt-20">
           <button className="flex space-x-3 items-baseline hover:text-coral">
             <AiOutlineHome />
             <Link to="/home">Home</Link>
@@ -82,10 +82,10 @@ function Sidebar() {
             <Link to="/resources">Resources</Link>
           </button>
           <hr className="border-t-[1px] " />
-          <button className="flex space-x-3 items-baseline hover:text-coral">
+          {/*   <button className="flex space-x-3 items-baseline hover:text-coral truncate">
             <IoPersonOutline />
             {user && user.name}
-          </button>
+          </button> */}
           <div className="flex space-x-3 items-baseline hover:text-coral">
             <BiLogIn />
             <LogoutButton text="Sign out" />

@@ -20,26 +20,26 @@
 
 /* Add new job button */
 .newJobButton {
-  @apply bg-aqua font-bold text-lg text-black border-none rounded-xl font-lato shadow-esm p-3 px-6;
+  @apply bg-aqua font-bold text-mobileButton md:text-desktopMain text-black border-none rounded-xl font-lato shadow-esm p-3 px-6;
 }
 
 /* Save button  */
 .positiveButton {
-  @apply bg-aqua font-bold text-base text-mainBlue border-none rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8;
+  @apply bg-aqua font-bold text-mobileButton md:text-desktopMain text-mainBlue border-none rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8;
 }
 
 /* Cancel button */
 .negativeButton {
-  @apply bg-coral font-bold text-base text-mainBlue border-none rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8;
+  @apply bg-coral font-bold text-mobileButton md:text-desktopMain text-mainBlue border-none rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8;
 }
 
 /* Inside the table: edit button */
 .tablePositiveButton {
-  @apply bg-transparent font-bold font-lato text-sm text-mainBlue border-none p-4;
+  @apply bg-transparent font-bold font-lato text-mobileSidebar text-mainBlue border-none p-4;
 }
 /* Inside the table: Delete button */
 .tableNegativeButton {
-  @apply bg-transparent font-bold font-lato text-sm text-coral border-none  p-4;
+  @apply bg-transparent font-bold font-lato text-mobileSidebar text-coral border-none  p-4;
 }
 
 /* ----------- End of Buttons ------------- */
