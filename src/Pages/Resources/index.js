@@ -30,7 +30,7 @@ export default function Resources() {
       {" "}
       {isAuthenticated ? (
         <>
-          <div className="grid justify-center md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid  md:grid-cols-2 xl:grid-cols-3 justify-items-center ">
             {data &&
               data.payload.map((resource) => {
                 return <Card key={nanoid()} link={resource.link} />;
