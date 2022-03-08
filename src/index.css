@@ -39,11 +39,11 @@
 
 /* Inside the table: edit button */
 .tablePositiveButton {
-  @apply bg-transparent font-bold font-lato text-mobileButton text-mainBlue  hover:bg-mainBlue hover:text-white dark:text-blue dark:hover:bg-blue dark:hover:text-darkContHero rounded-md border-none px-4 w-20 py-2 duration-300 ease-in-out;
+  @apply bg-transparent font-bold font-lato text-mobileButton text-mainBlue  hover:bg-mainBlue hover:text-white dark:text-mainBlue dark:hover:bg-blue dark:hover:text-darkContHero rounded-md border-none px-4 w-20 py-2 duration-300 ease-in-out;
 }
 /* Inside the table: Delete button */
 .tableNegativeButton {
-  @apply bg-transparent font-bold font-lato text-mobileButton text-coral hover:bg-coral hover:text-white dark:text-darkCancel dark:hover:bg-darkCancel dark:hover:text-darkContHero rounded-md border-none px-4 w-20 py-2 duration-300 ease-in-out;
+  @apply bg-transparent font-bold font-lato text-mobileButton text-coral hover:bg-coral hover:text-white dark:text-darkCancel dark:hover:bg-coral dark:hover:text-darkContHero rounded-md border-none px-4 w-20 py-2 duration-300 ease-in-out;
 }
 
 /* ----------- End of Buttons ------------- */
