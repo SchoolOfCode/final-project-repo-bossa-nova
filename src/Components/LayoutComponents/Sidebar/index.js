@@ -70,14 +70,17 @@ function Sidebar() {
       </div>
 
       {/* desktop sidebar */}
+
       <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue dark:bg-darkIcon px-6 pl-10 text-mainBlue text-desktopSidebar border-mainBlue dark:text-white dark:border-white ml-4 mr-4 mb-4 h-[90vh]">
         <nav className="flex flex-col gap-8 pt-20">
           <button className="flex space-x-3 items-baseline hover:text-coral dark:hover:text-darkCancel">
             <AiOutlineHome />
-            <Link to="/home">Home</Link>
+            <Link to="/home" name="home-link">
+              Home
+            </Link>
           </button>
           <hr className="border-t-[1px] " />
-          <button className="flex space-x-3 items-baseline hover:text-coral dark:hover:text-darkCancel">
+          <button name="resources-link" className="flex space-x-3 items-baseline hover:text-coral dark:hover:text-darkCancel">
             <BsCalendar2Minus />
             <Link to="/resources">Resources</Link>
           </button>
