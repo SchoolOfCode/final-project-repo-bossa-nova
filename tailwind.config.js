@@ -1,4 +1,6 @@
 module.exports = {
+  darkMode: "class",
+
   content: [
     "./src/**/*.{html,js}",
     "./src/Components/**/*.{html,js}",
@@ -27,11 +29,21 @@ module.exports = {
       mainBlue: "#21618C",
       blueWhite: "#EBF5FB",
       blue: "#85C1E9",
-      grey: "#7E7979",
+      grey: "#575353",
       black: "#0B0D17",
       aqua: "#A2D9CE",
       white: "#FFFFFF",
       transparent: "transparent",
+      //dark Mode color:
+      darkBlue: "#B6E2FF",
+      darkContHero: "#353535",
+      darkIcon: "#292929",
+      darkMainBlack: "#1D1D1D",
+      darkSave: "#B2F5E8",
+      darkCancel: "#FF4D39",
+      darkBg: "#111111",
+      darkBlockHome: "#C1BEBE",
+      darkTable: "#D5D8DC",
     },
 
     fontFamily: {

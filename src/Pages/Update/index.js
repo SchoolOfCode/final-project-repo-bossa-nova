@@ -115,8 +115,8 @@ export default function Update() {
           <LogoutButton /> */}
           {initialState && (
             <>
-              <form className="flex flex-col md:flex-row  space-y-2 md:space-y-3">
-                <div className="w-1/3 px-2">
+              <form className="flex flex-col  md:flex-row  ">
+                <div className="flex flex-col w-full md:w-1/3 px-2">
                   <Input
                     labelText={"Job Title"}
                     type={"text"}
@@ -153,7 +153,7 @@ export default function Update() {
                     update={(e) => callDispatch(e, "jobDescription")}
                   />
                 </div>
-                <div className="w-1/3 px-2">
+                <div className="flex flex-col w-full md:w-1/3 px-2">
                   <Input
                     labelText={"Tech Stack"}
                     type={"text"}
@@ -183,7 +183,7 @@ export default function Update() {
                     update={(e) => callDispatch(e, "location")}
                   />
                 </div>
-                <div className="w-1/3 px-2">
+                <div className="flex flex-col w-full md:w-1/3 px-2">
                   <Input
                     labelText={"Application Deadline"}
                     type={"text"}

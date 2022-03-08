@@ -3,7 +3,7 @@ import React from "react";
 const Select = ({ value, update }) => {
   return (
     <>
-      <label className="styleLabel" htmlFor="job-status">
+      <label className="styleLabel py-2" htmlFor="job-status">
         Job Status:
       </label>
       <select
@@ -13,7 +13,9 @@ const Select = ({ value, update }) => {
         id="job-status"
         onChange={update}
       >
-        <option disabled value=''>Please select:</option>
+        <option disabled value="">
+          Please select:
+        </option>
         <option value="wishlist">Wishlist</option>
         <option value="applied">Applied</option>
         <option value="interview">Interview</option>
