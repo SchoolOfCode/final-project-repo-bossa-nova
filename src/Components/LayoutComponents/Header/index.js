@@ -1,32 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../../../index.css";
 import LogoutButton from "../../LogoutButton";
 import { IoPersonOutline } from "react-icons/io5";
-import { pageWrapper } from "../../App/App";
-import { pink } from "@mui/material/colors";
+import Toggle from "../../DarkMode/toggle";
 
 function Header() {
-  const { pageState, setPageState } = useContext(pageWrapper);
-
   return (
-    <nav
-      className={
-        pageState
-          ? "bg-mainBlue dark:bg-darkMainBlack p-4 shadow-sm"
-          : "bg-coral"
-      }
-    >
+    <nav className="bg-mainBlue dark:bg-darkMainBlack p-4 shadow-sm">
       <div className="flex space-b justify-end items-center">
         <LogoutButton className="text-white font-bold mx-2" text="Logout" />
-        <IoPersonOutline className="text-white " />
-        <button
-          className="text-white"
-          onClick={() =>
-            setPageState({ ...pageState, Toogle: !pageState.Toogle })
-          }
-        >
-          Toogle Dark Mode
-        </button>
+        <IoPersonOutline className="text-white mr-2 " />
+
+        <Toggle />
       </div>
     </nav>
   );
