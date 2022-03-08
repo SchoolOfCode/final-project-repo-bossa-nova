@@ -1,11 +1,7 @@
 import React from "react";
-import LogoutButton from "../../LogoutButton";
 import "../../../index.css";
+import LogoutButton from "../../LogoutButton";
 import { IoPersonOutline } from "react-icons/io5";
-
-import LoginButton from "../../LoginButton";
-import Profile from "../../Profile/index";
-import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   return (
