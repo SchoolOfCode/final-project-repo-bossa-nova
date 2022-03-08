@@ -2,8 +2,8 @@
 // Act - take an action
 // Assert - make an assertion
 
-context("User logged in", () => {
-  beforeEach(() => {
+describe("sidebar navigation", () => {
+  it("logs in user", () => {
     cy.visit("http://localhost:3000/");
     cy.contains("Log out").click();
     cy.get(".startTodayButton").click();
@@ -20,4 +20,14 @@ context("User logged in", () => {
     cy.get("button[name=resources-link]").click();
     cy.url().should("include", "/resources");
   });
+
+  it("Navigates back to home page from resources page", () => {
+    cy.get("button[name=resources-link]").click();
+    cy.get("a[name=home-link]").click();
+    cy.url().should("include", "/home");
+  });
+
+  // it("Adds a new job", () => {
+  //   cy.get("")
+  // })
 });
