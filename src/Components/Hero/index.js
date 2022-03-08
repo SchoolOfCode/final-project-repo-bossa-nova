@@ -14,7 +14,7 @@ import Resources from "../../Pages/Resources";
 
 function Hero() {
   return (
-    <div className="bg-blueWhite flex-grow overflow-y-scroll">
+    <div className="bg-blueWhite dark:bg-darkBg flex-grow overflow-y-scroll">
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
