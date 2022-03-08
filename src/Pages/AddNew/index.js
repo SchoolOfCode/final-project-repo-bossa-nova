@@ -14,7 +14,7 @@ const initialValues = {
   company: "",
   minSalary: "",
   maxSalary: "",
-  jobStatus: "waiting",
+  jobStatus: "",
 };
 
 // This is the function trigged by the dispatch function that is
@@ -53,11 +53,25 @@ export default function AddNew() {
   const navigate = useNavigate();
 
   //------- form validation -------//
-  function validateForm(min, max, jobTitle, company) {
-    if (min > 0 && max > min && jobTitle !== "" && company !== "") {
+  function validateForm(min, max, jobTitle, company, jobStatus) {
+    if (jobTitle === "") {
+      alert("Please type a Job Title");
+      return false;
+    } else if (company === "") {
+      alert("Please type a Company Name");
+      return false;
+    } else if (min < 0) {
+      alert("Please type a Min Salary greater than 0");
+      return false;
+    } else if (min >= max) {
+      alert("Please type a Max Salary that is greater than Min Salary");
+      return false;
+    } else if (jobStatus === "") {
+      alert("Please select a job status");
+      return false;
+    } else {
       return true;
     }
-    return false;
   }
 
   const URL = process.env.REACT_APP_API_URL;
@@ -67,7 +81,8 @@ export default function AddNew() {
         state.minSalary,
         state.maxSalary,
         state.jobTitle,
-        state.company
+        state.company,
+        state.jobStatus
       )
     ) {
       const response = await fetch(`${URL}/api/user/${user.sub}`, {
@@ -78,8 +93,6 @@ export default function AddNew() {
       navigate("/home");
       alert("job created");
       return await response.json();
-    } else {
-      alert("invalid input");
     }
   }
 
