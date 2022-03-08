@@ -5,7 +5,7 @@ const TextArea = ({ labelText, name, value, update, maxlength }) => {
     <>
       <label className="styleLabel py-2">{labelText}</label>
       <textarea
-        maxlength={maxlength}
+        maxLength={maxlength}
         data-testid="textarea-test"
         className="styleInput"
         name={name}
