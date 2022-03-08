@@ -39,11 +39,11 @@
 
 /* Inside the table: edit button */
 .tablePositiveButton {
-  @apply bg-transparent font-bold font-lato text-mobileSidebar text-mainBlue border-none p-4;
+  @apply bg-transparent font-bold font-lato text-mobileSidebar text-mainBlue dark:text-darkBlue border-none p-4;
 }
 /* Inside the table: Delete button */
 .tableNegativeButton {
-  @apply bg-transparent font-bold font-lato text-mobileSidebar text-coral border-none  p-4;
+  @apply bg-transparent font-bold font-lato text-mobileSidebar text-coral dark:text-darkCancel border-none  p-4;
 }
 
 /* ----------- End of Buttons ------------- */
