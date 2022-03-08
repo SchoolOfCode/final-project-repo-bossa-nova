@@ -3,7 +3,7 @@ import React from "react";
 const TextArea = ({ labelText, name, value, update, maxlength }) => {
   return (
     <>
-      <label className="styleLabel">{labelText}</label>
+      <label className="styleLabel py-2">{labelText}</label>
       <textarea
         maxlength={maxlength}
         data-testid="textarea-test"

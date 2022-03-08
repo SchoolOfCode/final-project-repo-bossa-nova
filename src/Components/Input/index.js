@@ -1,16 +1,9 @@
 import React from "react";
 
-export default function Input({
-  labelText,
-  type,
-  name,
-  value,
-  update,
-  styleInput,
-}) {
+export default function Input({ labelText, type, name, value, update }) {
   return (
     <>
-      <label htmlFor={labelText} className="styleLabel">
+      <label htmlFor={labelText} className="styleLabel py-2">
         {labelText}
       </label>
       <input

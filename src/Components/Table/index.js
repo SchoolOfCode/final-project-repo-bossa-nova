@@ -97,9 +97,9 @@ export default function StickyHeadTable() {
   }
 
   return (
-    <main>
+    <main >
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
-        <TableContainer sx={{ maxHeight: 440 }}>
+        <TableContainer className="dark:bg-darkTable" sx={{ maxHeight: 440 }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
@@ -163,6 +163,7 @@ export default function StickyHeadTable() {
           </Table>
         </TableContainer>
         <TablePagination
+          className="dark:bg-darkBlockHome"
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
           // count expects an interger so we pass 0 if data hasn't been fetched yet
