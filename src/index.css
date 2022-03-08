@@ -5,36 +5,36 @@
 /* ----------- Input style ------------- */
 
 .styleInput {
-  @apply bg-blueWhite shadow-esm text-black py-1 pl-2;
+  @apply bg-blueWhite dark:bg-darkMainBlack border-2 border-blue shadow-esm text-black dark:text-blueWhite py-1 pl-2;
 }
 
 .styleLabel {
-  @apply text-grey font-semibold;
+  @apply text-grey dark:text-white  font-semibold;
 }
 
 .styleSelect {
-  @apply bg-blueWhite shadow-esm text-black py-1;
+  @apply bg-blueWhite dark:bg-darkMainBlack border-2 border-blue shadow-esm text-black dark:text-blueWhite py-1;
 }
 
 /* ----------- Buttons ------------- */
 
 /* Add new job button */
 .newJobButton {
-  @apply bg-aqua font-bold text-mobileButton md:text-desktopMain text-black border-none rounded-xl font-lato shadow-esm p-3 px-6;
+  @apply bg-aqua font-bold dark:bg-darkSave text-mobileButton md:text-desktopMain text-black border-none rounded-xl font-lato shadow-esm p-3 px-6;
 }
 
 /* Save button  */
 .positiveButton {
-  @apply bg-aqua font-bold text-mobileButton md:text-desktopMain text-mainBlue border-none rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8;
+  @apply bg-aqua font-bold dark:bg-darkSave text-mobileButton md:text-desktopMain text-mainBlue dark:text-darkBg border-none rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8;
 }
 
 /* Cancel button */
 .negativeButton {
-  @apply bg-coral font-bold text-mobileButton md:text-desktopMain text-mainBlue border-none rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8;
+  @apply bg-coral dark:bg-darkCancel font-bold text-mobileButton md:text-desktopMain text-mainBlue dark:text-darkBg border-none rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8;
 }
 
 .startTodayButton {
-  @apply bg-coral font-bold text-mobileButton md:text-desktopMain text-black border-none rounded-lg font-lato shadow-esm py-3 px-10 mx-2;
+  @apply bg-coral dark:bg-darkCancel font-bold text-mobileButton md:text-desktopMain text-black border-none rounded-lg font-lato shadow-esm py-3 px-10 mx-2;
 }
 
 /* Inside the table: edit button */

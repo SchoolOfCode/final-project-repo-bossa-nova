@@ -7,7 +7,7 @@ import Hero from "../Hero";
 
 function App() {
   return (
-    <div className="bg-blueWhite">
+    <div className="bg-blueWhite dark:bg-darkBg">
       <Header className="sticky min-h-[12vh]" />
       <div className="flex h-screen overflow-hidden">
         <Sidebar />

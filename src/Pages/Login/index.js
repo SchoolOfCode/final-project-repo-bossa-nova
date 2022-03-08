@@ -14,7 +14,7 @@ export default function Login() {
                 src="login-image.png"
                 alt="login"
               />
-              <div className="z-20  h-[350px] w-[262px] -ml-40 mt-40   rounded-lg px-8 pt-12 shadow-sm bg-white bg-opacity-80">
+              <div className="z-20  h-[350px] w-[262px] -ml-40 mt-40   rounded-lg px-8 pt-12 shadow-sm bg-white dark:bg-darkBlockHome bg-opacity-80">
                 <h4 className="font-bold">ABOUT</h4>
                 <br />
                 <p>
@@ -32,11 +32,11 @@ export default function Login() {
               />
             </div>
           </div>
-          <h2 className="md:hidden">Tracker Your Jobs</h2>
+          <h2 className="md:hidden ">Tracker Your Jobs</h2>
           <div className="absolute z-40 hidden md:block text-loginDesktop ml-16 mt-[6rem] font-semibold">
-            <h2 className="">Tracker</h2>
-            <h2 className=" ml-[13rem] -mt-5">Your</h2>
-            <h2 className=" ml-80 -mt-5">Jobs</h2>
+            <h2 className="dark:text-white">Tracker</h2>
+            <h2 className=" ml-[13rem] -mt-5 dark:text-white">Your</h2>
+            <h2 className=" ml-80 -mt-5 dark:text-white">Jobs</h2>
           </div>
           <div className="md:hidden">
             <h4>ABOUT</h4>
@@ -49,7 +49,9 @@ export default function Login() {
             <p>No more using speadsheets or email</p>
           </div>
           <div className="absolute z-40 logl:right-[4rem] right-[2rem] bottom-[9rem]">
-            <h3 className="text-loginApplications">Applications</h3>
+            <h3 className="text-loginApplications dark:text-white">
+              Applications
+            </h3>
             <LoginButton />
           </div>
         </div>
