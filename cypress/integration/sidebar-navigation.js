@@ -26,8 +26,4 @@ describe("sidebar navigation", () => {
     cy.get("a[name=home-link]").click();
     cy.url().should("include", "/home");
   });
-
-  // it("Adds a new job", () => {
-  //   cy.get("")
-  // })
 });
