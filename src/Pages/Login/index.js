@@ -50,7 +50,7 @@ export default function Login() {
           </div>
           <div className="absolute z-40 logl:right-[4rem] right-[2rem] bottom-[9rem]">
             <h3 className="text-loginApplications">Applications</h3>
-            <LoginButton />
+            <LoginButton/>
           </div>
         </div>
       </main>
