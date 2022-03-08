@@ -5,7 +5,7 @@
 /* ----------- Input style ------------- */
 
 .styleInput {
-  @apply bg-blueWhite dark:bg-darkMainBlack border-2 border-blue shadow-esm text-black dark:text-blueWhite py-1 pl-2;
+  @apply bg-blueWhite dark:bg-darkMainBlack border-2 border-blue shadow-esm text-black dark:text-blueWhite py-2 pl-2;
 }
 
 .styleLabel {
