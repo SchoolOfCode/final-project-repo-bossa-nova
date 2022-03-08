@@ -49,10 +49,12 @@ export default function Login() {
             <p>No more using speadsheets or email</p>
           </div>
           <div className="absolute z-40 logl:right-[4rem] right-[2rem] bottom-[9rem]">
+
             <h3 className="text-loginApplications dark:text-white">
               Applications
             </h3>
             <LoginButton />
+
           </div>
         </div>
       </main>
