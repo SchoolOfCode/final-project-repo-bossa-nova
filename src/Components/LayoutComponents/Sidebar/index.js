@@ -77,7 +77,7 @@ function Sidebar() {
             <Link to="/home">Home</Link>
           </button>
           <hr className="border-t-[1px] " />
-          <button className="flex space-x-3 items-baseline hover:text-coral">
+          <button name="resources-link" className="flex space-x-3 items-baseline hover:text-coral">
             <BsCalendar2Minus />
             <Link to="/resources">Resources</Link>
           </button>

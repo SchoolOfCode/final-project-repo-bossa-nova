@@ -32,7 +32,7 @@ Cypress.Commands.add("login", (overrides = {}) => {
     method: "POST",
     url: Cypress.env("auth_url"),
     body: {
-      grant_type: "refresh_token",
+      grant_type: "password",
       redirect_uri: "http://localhost:3000/home",
       username: Cypress.env("auth_username"),
       password: Cypress.env("auth_password"),
