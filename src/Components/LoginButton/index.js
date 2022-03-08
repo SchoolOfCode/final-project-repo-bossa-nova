@@ -9,7 +9,7 @@ const LoginButton = () => {
     <Button
       btn="startTodayButton"
       text="Start today"
-      onClick={() => loginWithRedirect()}
+      handleClick={() => loginWithRedirect()}
     />
   );
 };
