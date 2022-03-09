@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useState, useEffect } from "react";
 import StickyHeadTable from "../../Components/Table";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
-import { useState, useEffect } from "react";
+import Select from "../../Components/Select";
 
 function createData({
   jobTitle,
@@ -21,13 +22,11 @@ export default function Home() {
   const [data, setData] = useState(null);
   const [filter, setFilter] = useState(null);
 
-  useEffect(() => setFilter("applied"), []);
-
-  const URL = process.env.REACT_APP_API_URL;
-
   if (!isLoading && !isAuthenticated) {
     logout({ returnTo: window.location.origin });
   }
+
+  const URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     async function fetchData() {
@@ -35,9 +34,7 @@ export default function Home() {
       if (response.status < 300) {
         const data = await response.json();
         const mappedData = data.payload[0].jobs.map((job) => createData(job));
-        const filteredData = mappedData.filter(
-          (job) => job.jobStatus === filter
-        );
+        const filteredData = filterByStatus(mappedData, filter);
         setData(filteredData);
       } else {
         return;
@@ -48,10 +45,28 @@ export default function Home() {
     }
   }, [URL, user, filter]);
 
+  function filterByStatus(data, filter) {
+    return data.filter((job) => {
+      if (filter) {
+        return job.jobStatus === filter;
+      } else {
+        return job;
+      }
+    });
+  }
+
+  function handleChange(e) {
+    setFilter(e.target.value);
+  }
+
   return (
     <HeroContainer title={"List of my job applications"}>
       {isAuthenticated ? (
         <>
+          <div>
+            <Select update={(e) => handleChange(e)} />
+          </div>
+
           <div className="mb-6 flex justify-end">
             <Link to="/add-new" className="newJobButton">
               Add new job
