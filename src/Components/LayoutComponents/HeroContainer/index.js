@@ -1,12 +1,12 @@
 import React from "react";
 // import { css } from "styled-components";
 // import styles from "./HeroContainer.module.css";
-import { useContext } from "react";
-import { pageWrapper } from "../../App/App";
+// import { useContext } from "react";
+// import { pageWrapper } from "../../App/App";
 
 export default function HeroContainer({ children, title }) {
-  const { pageState, setPageState } = useContext(pageWrapper);
-  console.log(pageState);
+  // const { pageState, setPageState } = useContext(pageWrapper);
+  // console.log(pageState);
 
   return (
     <div className="relative flex justify-center">
