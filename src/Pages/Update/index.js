@@ -95,7 +95,9 @@ export default function Update() {
   }
 
   return (
-    <HeroContainer title={"Job to be updated"}>
+    <HeroContainer
+      title={`${state.jobTitle} @ ${state.company}` || "Loading..."}
+    >
       {" "}
       {isAuthenticated ? (
         <>
