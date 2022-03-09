@@ -6,7 +6,6 @@ import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 import Select from "../../Components/Select";
 import Button from "../../Components/Button";
 import { useAlert } from "react-alert";
-import { padding } from "@mui/system";
 
 // This is the object that the useReducer is using as initial state
 const initialValues = {
