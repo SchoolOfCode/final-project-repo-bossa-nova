@@ -107,12 +107,14 @@ export default function AddNew() {
         body: JSON.stringify(state),
       });
       navigate("/home");
-      alert.show("Job created", {
+      alert.show(<div className="w-[200px] sm:w-[400px]">Job created</div>, {
         title: "Success",
       });
       return await response.json();
     }
   }
+
+  // style={{ width: "400px", maxWidth: "200px" }}
 
   return (
     <HeroContainer title={"Please add a new job!"}>

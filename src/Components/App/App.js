@@ -8,8 +8,7 @@ import AlertMUITemplate from "react-alert-template-mui";
 
 export const options = {
   position: positions.TOP_LEFT,
-  timeout: 2000,
-  offset: "30px",
+  timeout: 4000,
   transition: transitions.SCALE,
 };
 
