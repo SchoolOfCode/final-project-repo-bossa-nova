@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -42,40 +42,14 @@ const columns = [
   },
 ];
 
-function createData({
-  jobTitle,
-  company,
-  jobStatus,
-  minSalary,
-  maxSalary,
-  _id,
-}) {
-  const salary = `£${minSalary} - £${maxSalary}`;
-  return { jobTitle, company, salary, jobStatus, _id };
-}
-
-export default function StickyHeadTable() {
+export default function StickyHeadTable({ data }) {
   const navigate = useNavigate();
-  const [data, setData] = useState(null);
   const [page, setPage] = useState(0);
   const [rerender, setRerender] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const { user } = useAuth0();
 
   const URL = process.env.REACT_APP_API_URL;
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(`${URL}/api/user/${user.sub}`);
-      if (response.status < 300) {
-        const data = await response.json();
-        const mappedData = data.payload[0].jobs.map((job) => createData(job));
-        setData(mappedData);
-      } else {
-        return;
-      }
-    }
-    fetchData();
-  }, [URL, user.sub, rerender]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -97,7 +71,7 @@ export default function StickyHeadTable() {
   }
 
   return (
-    <main >
+    <main>
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
         <TableContainer className="dark:bg-darkTable" sx={{ maxHeight: 440 }}>
           <Table stickyHeader aria-label="sticky table">

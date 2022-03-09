@@ -2,13 +2,45 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import StickyHeadTable from "../../Components/Table";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
+import { useState, useEffect } from "react";
+
+function createData({
+  jobTitle,
+  company,
+  jobStatus,
+  minSalary,
+  maxSalary,
+  _id,
+}) {
+  const salary = `£${minSalary} - £${maxSalary}`;
+  return { jobTitle, company, salary, jobStatus, _id };
+}
 
 export default function Home() {
-  const { isLoading, isAuthenticated, logout } = useAuth0();
+  const { user, isLoading, isAuthenticated, logout } = useAuth0();
+  const [data, setData] = useState(null);
+
+  const URL = process.env.REACT_APP_API_URL;
 
   if (!isLoading && !isAuthenticated) {
     logout({ returnTo: window.location.origin });
   }
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(`${URL}/api/user/${user.sub}`);
+      if (response.status < 300) {
+        const data = await response.json();
+        const mappedData = data.payload[0].jobs.map((job) => createData(job));
+        setData(mappedData);
+      } else {
+        return;
+      }
+    }
+    if (user) {
+      fetchData();
+    }
+  }, [URL, user]);
 
   return (
     <HeroContainer title={"List of my job applications"}>
@@ -19,7 +51,7 @@ export default function Home() {
               Add new job
             </Link>
           </div>
-          <StickyHeadTable />
+          <StickyHeadTable data={data} />
         </>
       ) : (
         <div>
