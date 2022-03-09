@@ -1,6 +1,4 @@
-import Profile from "../../Components/Profile";
-import LogoutButton from "../../Components/LogoutButton";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 import Input from "../../Components/Input";
@@ -9,6 +7,7 @@ import Button from "../../Components/Button";
 import TextArea from "../../Components/Textarea";
 import { useEffect, useState, useReducer } from "react";
 import { useAlert } from "react-alert";
+
 
 const initialValues = {};
 
@@ -35,14 +34,12 @@ export default function Update() {
     logout({ returnTo: window.location.origin });
   }
 
-  const [initialState, setInitialState] = useState(null);
   const [state, dispatch] = useReducer(reducer, initialValues);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(`${URL}/api/user/${user_id}/${job_id}`);
       const data = await response.json();
-      setInitialState(data.payload[0]);
       dispatch({ type: "set_initialState", value: data.payload[0] });
     }
     fetchData();
@@ -116,7 +113,9 @@ export default function Update() {
   }
 
   return (
-    <HeroContainer title={"Job to be updated"}>
+    <HeroContainer
+      title={`${state.jobTitle} @ ${state.company}` || "Loading..."}
+    >
       {" "}
       {isAuthenticated ? (
         <>
@@ -130,7 +129,7 @@ export default function Update() {
           </main>
           <Profile />
           <LogoutButton /> */}
-          {initialState && (
+          {state.jobStatus && (
             <>
               <form className="flex flex-col  md:flex-row  ">
                 <div className="flex flex-col w-full md:w-1/3 px-2">
