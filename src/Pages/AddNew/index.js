@@ -7,6 +7,8 @@ import React, { useReducer } from "react";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 import Select from "../../Components/Select";
 import Button from "../../Components/Button";
+import { useAlert } from "react-alert";
+import { padding } from "@mui/system";
 
 // This is the object that the useReducer is using as initial state
 const initialValues = {
@@ -32,6 +34,7 @@ function reducer(state, action) {
 }
 
 export default function AddNew() {
+  const alert = useAlert();
   // YOUTUBE VIDEO ABOUT useReducer: https://www.youtube.com/watch?v=0_P4dspmSA0&t=654s
   const [state, dispatch] = useReducer(reducer, initialValues);
 
@@ -55,19 +58,32 @@ export default function AddNew() {
   //------- form validation -------//
   function validateForm(min, max, jobTitle, company, jobStatus) {
     if (jobTitle === "") {
-      alert("Please type a Job Title");
+      alert.error(
+        <div style={{ width: "200px" }}>Please type a Job Title</div>,
+        {
+          title: "Error",
+        }
+      );
       return false;
     } else if (company === "") {
-      alert("Please type a Company Name");
+      alert.show("Please type a Company Name", {
+        title: "Error",
+      });
       return false;
     } else if (min < 0) {
-      alert("Please type a Min Salary greater than 0");
+      alert.show("Please type a Min Salary greater than 0", {
+        title: "Error",
+      });
       return false;
     } else if (min >= max) {
-      alert("Please type a Max Salary that is greater than Min Salary");
+      alert.show("Please type a Max Salary that is greater than Min Salary", {
+        title: "Error",
+      });
       return false;
     } else if (jobStatus === "") {
-      alert("Please select a job status");
+      alert.show("Please select a job status", {
+        title: "Error",
+      });
       return false;
     } else {
       return true;
@@ -91,7 +107,9 @@ export default function AddNew() {
         body: JSON.stringify(state),
       });
       navigate("/home");
-      alert("job created");
+      alert.show("Job created", {
+        title: "Success",
+      });
       return await response.json();
     }
   }
