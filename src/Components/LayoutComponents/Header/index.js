@@ -6,7 +6,7 @@ import Toggle from "../../DarkMode/toggle";
 
 function Header() {
   return (
-    <nav className="bg-mainBlue dark:bg-darkMainBlack p-4 shadow-sm">
+    <nav className="bg-mainBlue dark:bg-darkMainBlack p-4">
       <div className="flex space-b justify-end items-center">
         <LogoutButton className="text-white font-bold mx-2" text="Log out" />
         <IoPersonOutline className="text-white mr-2 " />
