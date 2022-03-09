@@ -19,6 +19,9 @@ function createData({
 export default function Home() {
   const { user, isLoading, isAuthenticated, logout } = useAuth0();
   const [data, setData] = useState(null);
+  const [filter, setFilter] = useState(null);
+
+  useEffect(() => setFilter("applied"), []);
 
   const URL = process.env.REACT_APP_API_URL;
 
@@ -32,7 +35,10 @@ export default function Home() {
       if (response.status < 300) {
         const data = await response.json();
         const mappedData = data.payload[0].jobs.map((job) => createData(job));
-        setData(mappedData);
+        const filteredData = mappedData.filter(
+          (job) => job.jobStatus === filter
+        );
+        setData(filteredData);
       } else {
         return;
       }
@@ -40,7 +46,7 @@ export default function Home() {
     if (user) {
       fetchData();
     }
-  }, [URL, user]);
+  }, [URL, user, filter]);
 
   return (
     <HeroContainer title={"List of my job applications"}>
