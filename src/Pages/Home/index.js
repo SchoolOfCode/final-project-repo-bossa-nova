@@ -21,6 +21,7 @@ export default function Home() {
   const { user, isLoading, isAuthenticated, logout } = useAuth0();
   const [data, setData] = useState(null);
   const [filter, setFilter] = useState("all");
+  const [rerender, setRerender] = useState(0);
 
   if (!isLoading && !isAuthenticated) {
     logout({ returnTo: window.location.origin });
@@ -43,7 +44,7 @@ export default function Home() {
     if (user) {
       fetchData();
     }
-  }, [URL, user, filter]);
+  }, [URL, user, filter, rerender]);
 
   function filterByStatus(data, filter) {
     return data.filter((job) => {
@@ -86,7 +87,11 @@ export default function Home() {
               Add new job
             </Link>
           </div>
-          <StickyHeadTable data={data} />
+          <StickyHeadTable
+            data={data}
+            rerender={rerender}
+            setRerender={setRerender}
+          />
         </>
       ) : (
         <div>

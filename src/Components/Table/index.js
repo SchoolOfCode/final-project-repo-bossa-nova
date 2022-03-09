@@ -42,10 +42,9 @@ const columns = [
   },
 ];
 
-export default function StickyHeadTable({ data }) {
+export default function StickyHeadTable({ data, rerender, setRerender }) {
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
-  const [rerender, setRerender] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const { user } = useAuth0();
 
