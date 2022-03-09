@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
 import StickyHeadTable from "../../Components/Table";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
-import Select from "../../Components/Select";
+import SelectFilter from "../../Components/SelectFilter";
 
 function createData({
   jobTitle,
@@ -20,7 +20,7 @@ function createData({
 export default function Home() {
   const { user, isLoading, isAuthenticated, logout } = useAuth0();
   const [data, setData] = useState(null);
-  const [filter, setFilter] = useState(null);
+  const [filter, setFilter] = useState("all");
 
   if (!isLoading && !isAuthenticated) {
     logout({ returnTo: window.location.origin });
@@ -47,7 +47,7 @@ export default function Home() {
 
   function filterByStatus(data, filter) {
     return data.filter((job) => {
-      if (filter) {
+      if (filter !== "all") {
         return job.jobStatus === filter;
       } else {
         return job;
@@ -64,7 +64,21 @@ export default function Home() {
       {isAuthenticated ? (
         <>
           <div>
-            <Select update={(e) => handleChange(e)} />
+            <SelectFilter
+              value={filter}
+              labelText="Filter by status:"
+              name="filter-status"
+              update={(e) => handleChange(e)}
+              options={[
+                "All",
+                "Wishlist",
+                "Applied",
+                "Interview",
+                "Offer",
+                "Accepted",
+                "Rejected",
+              ]}
+            />
           </div>
 
           <div className="mb-6 flex justify-end">
