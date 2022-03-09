@@ -89,7 +89,7 @@ describe("homepage actions", () => {
   });
 
   it("deletes job", () => {
-    cy.get(".negativeButton").first().click();
+    cy.get(".tableNegativeButton").first().click();
     cy.url().should("include", "/home");
   });
 });
