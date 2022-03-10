@@ -1,10 +1,4 @@
-
-// import Profile from "../../Components/Profile";
-// import LogoutButton from "../../Components/LogoutButton";
-
-
 import { useNavigate, useParams } from "react-router-dom";
-
 import { useAuth0 } from "@auth0/auth0-react";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 import Input from "../../Components/Input";
@@ -124,16 +118,6 @@ export default function Update() {
       {" "}
       {isAuthenticated ? (
         <>
-          {/* <nav>
-            <Link to="/add-new">Add new</Link>
-            <Link to="/resources">Resources</Link>
-            <Link to="/update">Home</Link>
-          </nav>
-          <main>
-            <h2>Welcome to the update page!</h2>
-          </main>
-          <Profile />
-          <LogoutButton /> */}
           {state.jobStatus && (
             <>
               <form className="flex flex-col  md:flex-row  ">
@@ -227,12 +211,6 @@ export default function Update() {
                     value={state.notes}
                     update={(e) => callDispatch(e, "notes")}
                   />
-
-                  {/* contact: "Rita Blogs", dateAdded: "2023/10/29",
-              applicationDeadline: "2023/10/10", interviewDate: "2023/10/10",
-              offerDate: "2023/10/10", urlLink: "www.exmple.com", location:
-              "Remote", jobDescription: "Working work working work", notes: "my
-              notes", */}
                   <Select
                     value={state.jobStatus}
                     update={(e) => callDispatch(e, "jobStatus")}

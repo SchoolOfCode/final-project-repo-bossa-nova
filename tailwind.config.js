@@ -43,7 +43,7 @@ module.exports = {
       darkSave: "#B2F5E8",
       darkCancel: "#F48175",
       darkBg: "#111111",
-      darkBlockHome: "#C1BEBE",
+      darkBlockHome: "#545353",
       darkTable: "#D5D8DC",
     },
 

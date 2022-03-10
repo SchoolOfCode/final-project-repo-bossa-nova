@@ -11,7 +11,7 @@ export default function Login() {
               <div className="md:space-y-[-1.1rem] lg:space-y-[-1.1rem] font-bold">
                 <p className="text-loginApplications md:text-loginDesktop lg:text-loginDesktop">
                   Job
-                  <p className="text-loginApplications md:text-loginApplications lg:text-loginApplications font-bold">
+                  <p className="text-desktopHeroHeading md:text-loginApplications lg:text-loginApplications font-bold">
                     Application
                   </p>
                 </p>
@@ -19,8 +19,8 @@ export default function Login() {
                   Tracker
                 </p>
               </div>
-
-              <div className="md:hidden lg:hidden z-20 h-[250px] w-[300px] rounded-lg px-2 pt-12 shadow-sm bg-white dark:bg-darkBlockHome bg-opacity-80 text-center">
+              {/* mobile block about  */}
+              <div className="md:hidden lg:hidden z-20 h-[250px] w-[300px] rounded-lg px-2 pt-12 shadow-sm bg-white dark:bg-darkBlockHome bg-opacity-80 dark:bg-opacity-80 text-center">
                 <h4 className="font-bold text-mobileSidebar">ABOUT</h4>
                 <br />
                 <p className="text-mobileSidebar md:text-mobileSidebar lg:text-mobileSidebar">
@@ -32,6 +32,7 @@ export default function Login() {
                   No more using spreadsheets or email.
                 </p>
               </div>
+              {/* End mobile block about  */}
             </div>
           </div>
           <div className="hidden md:flex lg:flex justify-center w-[50%] pt-5">
@@ -40,7 +41,7 @@ export default function Login() {
               alt={"job seeker"}
               className="h-[300px] w-[240px] hidden md:block lg:block"
             />
-            <div className="z-20 md:block lg:block h-[300px] w-[240px] -ml-40 mt-40 rounded-lg px-2 pt-12 shadow-sm bg-white dark:bg-darkBlockHome bg-opacity-80 text-center">
+            <div className="z-20 md:block lg:block h-[300px] w-[240px] -ml-40 mt-40 rounded-lg px-2 pt-12 shadow-sm bg-white dark:bg-darkBlockHome dark:text-white dark:bg-opacity-80 bg-opacity-80 text-center">
               <h4 className="font-bold text-mobileSidebar">ABOUT</h4>
               <br />
               <p className="text-mobileSidebar md:text-mobileSidebar lg:text-mobileSidebar">
