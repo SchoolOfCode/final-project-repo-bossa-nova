@@ -1,13 +1,18 @@
+
 // import Profile from "../../Components/Profile";
 // import LogoutButton from "../../Components/LogoutButton";
-// import { Link, useNavigate, useParams } from "react-router-dom";
+
+
+import { useNavigate, useParams } from "react-router-dom";
+
 import { useAuth0 } from "@auth0/auth0-react";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 import Input from "../../Components/Input";
 import Select from "../../Components/Select";
 import Button from "../../Components/Button";
 import TextArea from "../../Components/Textarea";
-import { useEffect, useState, useReducer } from "react";
+import { useEffect, useReducer } from "react";
+import { useAlert } from "react-alert";
 
 const initialValues = {};
 
@@ -23,6 +28,7 @@ function reducer(state, action) {
 }
 
 export default function Update() {
+  const alert = useAlert();
   const { isLoading, isAuthenticated, logout } = useAuth0();
   const navigate = useNavigate();
   const params = useParams();
@@ -33,14 +39,12 @@ export default function Update() {
     logout({ returnTo: window.location.origin });
   }
 
-  const [initialState, setInitialState] = useState(null);
   const [state, dispatch] = useReducer(reducer, initialValues);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(`${URL}/api/user/${user_id}/${job_id}`);
       const data = await response.json();
-      setInitialState(data.payload[0]);
       dispatch({ type: "set_initialState", value: data.payload[0] });
     }
     fetchData();
@@ -56,19 +60,32 @@ export default function Update() {
 
   function validateForm(min, max, jobTitle, company, jobStatus) {
     if (jobTitle === "") {
-      alert("Please type a Job Title");
+      alert.show(
+        <div className="w-[200px] sm:w-[400px]">"Please type a Job Title"</div>,
+        {
+          title: "Success",
+        }
+      );
       return false;
     } else if (company === "") {
-      alert("Please type a Company Name");
+      alert.show("Please type a Company Name", {
+        title: "Error",
+      });
       return false;
     } else if (min < 0) {
-      alert("Please type a Min Salary greater than 0");
+      alert.show("Please type a Min Salary greater than 0", {
+        title: "Error",
+      });
       return false;
     } else if (min >= max) {
-      alert("Please type a Max Salary that is greater than Min Salary");
+      alert.show("Please type a Max Salary that is greater than Min Salary", {
+        title: "Error",
+      });
       return false;
     } else if (jobStatus === "") {
-      alert("Please select a job status");
+      alert.show("Please select a job status", {
+        title: "Error",
+      });
       return false;
     } else {
       return true;
@@ -93,13 +110,17 @@ export default function Update() {
         body: JSON.stringify(state),
       });
       navigate("/home");
-      alert("job edited");
+      alert.show(<div className="w-[200px] sm:w-[400px]">Job edited</div>, {
+        title: "Success",
+      });
       return await response.json();
     }
   }
 
   return (
-    <HeroContainer title={"Job to be updated"}>
+    <HeroContainer
+      title={`${state.jobTitle} @ ${state.company}` || "Loading..."}
+    >
       {" "}
       {isAuthenticated ? (
         <>
@@ -113,7 +134,7 @@ export default function Update() {
           </main>
           <Profile />
           <LogoutButton /> */}
-          {initialState && (
+          {state.jobStatus && (
             <>
               <form className="flex flex-col  md:flex-row  ">
                 <div className="flex flex-col w-full md:w-1/3 px-2">

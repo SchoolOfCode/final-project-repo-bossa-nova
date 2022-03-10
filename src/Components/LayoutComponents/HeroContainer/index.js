@@ -1,10 +1,16 @@
 import React from "react";
+
+
+
+
 // import { css } from "styled-components";
 // import styles from "./HeroContainer.module.css";
-import { useContext } from "react";
-
+// import { useContext } from "react";
+// import { pageWrapper } from "../../App/App";
 
 export default function HeroContainer({ children, title }) {
+  // const { pageState, setPageState } = useContext(pageWrapper);
+  // console.log(pageState);
 
 
   return (
@@ -18,5 +24,3 @@ export default function HeroContainer({ children, title }) {
     </div>
   );
 }
-
-// header 75% body 83

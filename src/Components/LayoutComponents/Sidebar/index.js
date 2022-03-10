@@ -11,7 +11,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
-//   const { user } = useAuth0();
+
+  // const { user } = useAuth0();
+
   return (
     <aside>
       {/* buttons */}
@@ -80,7 +82,10 @@ function Sidebar() {
             </Link>
           </button>
           <hr className="border-t-[1px] " />
-          <button name="resources-link" className="flex space-x-3 items-baseline hover:text-coral dark:hover:text-darkCancel">
+          <button
+            name="resources-link"
+            className="flex space-x-3 items-baseline hover:text-coral dark:hover:text-darkCancel"
+          >
             <BsCalendar2Minus />
             <Link to="/resources">Resources</Link>
           </button>
