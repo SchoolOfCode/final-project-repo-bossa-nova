@@ -25,6 +25,7 @@ module.exports = {
       //font color: text-
       beige: "#F4DFCC",
       coral: "#FA9583",
+      lightcoral: "#FFC3B9",
       lightBlue: "#D6EAF8",
       mainBlue: "#21618C",
       blueWhite: "#EBF5FB",
