@@ -1,4 +1,10 @@
+
+// import Profile from "../../Components/Profile";
+// import LogoutButton from "../../Components/LogoutButton";
+
+
 import { useNavigate, useParams } from "react-router-dom";
+
 import { useAuth0 } from "@auth0/auth0-react";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 import Input from "../../Components/Input";

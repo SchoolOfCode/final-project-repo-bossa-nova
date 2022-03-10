@@ -11,7 +11,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
+
   // const { user } = useAuth0();
+
   return (
     <aside>
       {/* buttons */}
@@ -35,7 +37,7 @@ function Sidebar() {
 
       {/* mobile sidebar */}
       <div
-        className={`flex flex-col flex-grow w-[70vw] sm:w-[60vw] h-[90vh] rounded-b-xl bg-lightBlue dark:bg-darkIcon p-6 pl-10 fixed ease-in-out duration-300 md:hidden z-30 
+        className={`flex flex-col flex-grow w-[70vw] sm:w-[60vw] h-[100vh] rounded-b-xl bg-lightBlue dark:bg-darkIcon p-6 pl-10 fixed ease-in-out duration-300 md:hidden z-30 
         text-mainBlue border-mainBlue dark:text-white dark:border-white text-mobileSidebar ${
           showSidebar ? "-translate-x-0 " : "-translate-x-full"
         }`}
@@ -71,7 +73,7 @@ function Sidebar() {
 
       {/* desktop sidebar */}
 
-      <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue dark:bg-darkIcon px-6 pl-10 text-mainBlue text-desktopSidebar border-mainBlue dark:text-white dark:border-white ml-4 mr-4 mb-4 h-[90vh]">
+      <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue dark:bg-darkIcon px-6 pl-10 text-mainBlue text-desktopSidebar border-mainBlue dark:text-white dark:border-white ml-4 mr-4 mb-4 h-[100vh]">
         <nav className="flex flex-col gap-8 pt-20">
           <button className="flex space-x-3 items-baseline hover:text-coral dark:hover:text-darkCancel">
             <AiOutlineHome />

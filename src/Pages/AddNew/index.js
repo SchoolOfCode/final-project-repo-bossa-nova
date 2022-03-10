@@ -1,4 +1,10 @@
+
+// import Profile from "../../Components/Profile";
+// import LogoutButton from "../../Components/LogoutButton";
+
+
 import { useNavigate } from "react-router-dom";
+
 import { useAuth0 } from "@auth0/auth0-react";
 import Input from "../../Components/Input";
 import React, { useReducer } from "react";
@@ -127,7 +133,7 @@ export default function AddNew() {
           </main> */}
           {/* <Profile />
           <LogoutButton /> */}
-          <form className="flex flex-col md:px-24 lg:px-32  space-y-2 md:space-y-3">
+          <form className="flex flex-col md:px-24 lg:px-32">
             <Input
               labelText={"Job Title"}
               type={"text"}
