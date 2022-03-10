@@ -5,7 +5,7 @@
 /* ----------- Input style ------------- */
 
 .styleInput {
-  @apply bg-blueWhite dark:bg-darkMainBlack border-2 border-blue shadow-esm text-black dark:text-blueWhite py-2 pl-2;
+  @apply bg-blueWhite dark:bg-darkMainBlack border-2 border-blue shadow-esm text-black dark:text-blueWhite rounded-sm focus:outline-darkIcon focus:dark:outline-blueWhite py-2 pl-2;
 }
 
 .styleLabel {
@@ -20,17 +20,17 @@
 
 /* Add new job button */
 .newJobButton {
-  @apply bg-aqua font-bold dark:bg-darkSave text-mobileButton md:text-desktopMain text-black border-none rounded-xl font-lato shadow-esm p-3 px-6;
+  @apply bg-aqua font-bold dark:bg-darkSave hover:bg-grey focus:bg-grey dark:hover:bg-mainBlue dark:focus:bg-mainBlue hover:scale-105 focus:scale-105 focus:outline-none text-mobileButton md:text-desktopMain hover:text-blueWhite focus:text-blueWhite dark:hover:text-lightBlue dark:focus:text-lightBlue border-none rounded-xl font-lato shadow-esm p-3 px-6 duration-300 ease-in-out;
 }
 
 /* Save button  */
 .positiveButton {
-  @apply bg-mainBlue font-bold dark:bg-darkSave hover:bg-white hover:border-2 hover:border-blue hover:text-mainBlue text-mobileButton md:text-desktopMain text-white dark:text-darkBg  rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8 duration-300 ease-in-out;
+  @apply bg-mainBlue font-bold dark:bg-darkSave hover:bg-transparent focus:bg-transparent hover:border-2 focus:border-2 focus:outline-none hover:border-mainBlue focus:border-mainBlue hover:text-mainBlue focus:text-mainBlue dark:hover:bg-transparent dark:focus:bg-transparent dark:hover:text-white dark:focus:text-white dark:hover:border-darkSave dark:focus:border-darkSave text-mobileButton md:text-desktopMain text-white dark:text-darkBg  rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8 duration-300 ease-in-out;
 }
 
 /* Cancel button */
 .negativeButton {
-  @apply bg-coral dark:bg-darkCancel hover:bg-white hover:border-2 hover:border-coral hover:text-coral font-bold text-mobileButton md:text-desktopMain text-white dark:text-darkBg rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8 duration-300 ease-in-out;
+  @apply bg-coral dark:bg-darkCancel hover:bg-transparent focus:bg-transparent hover:border-2 focus:border-2 focus:outline-none  hover:border-coral focus:border-coral hover:text-coral focus:text-coral dark:hover:bg-transparent dark:focus:bg-transparent dark:hover:text-white dark:focus:text-white dark:hover:border-darkCancel dark:focus:border-darkCancel font-bold text-mobileButton md:text-desktopMain text-white dark:text-darkBg rounded-md font-lato shadow-esm p-1 px-3 mx-2 w-20 h-8 duration-300 ease-in-out;
 }
 
 .startTodayButton {
@@ -39,11 +39,11 @@
 
 /* Inside the table: edit button */
 .tablePositiveButton {
-  @apply bg-transparent font-bold font-lato text-mobileButton text-mainBlue  hover:bg-mainBlue hover:text-white dark:text-mainBlue dark:hover:bg-blue dark:hover:text-darkContHero rounded-md border-none px-4 w-20 py-2 duration-300 ease-in-out;
+  @apply bg-transparent font-bold font-lato text-mobileButton text-mainBlue  hover:bg-mainBlue focus:bg-mainBlue hover:text-white focus:text-white dark:text-mainBlue dark:hover:bg-blue dark:focus:bg-blue dark:hover:text-darkContHero dark:focus:text-darkContHero focus:outline-none rounded-md border-none px-4 w-20 py-2 duration-300 ease-in-out;
 }
 /* Inside the table: Delete button */
 .tableNegativeButton {
-  @apply bg-transparent font-bold font-lato text-mobileButton text-coral hover:bg-coral hover:text-white dark:text-darkCancel dark:hover:bg-coral dark:hover:text-darkContHero rounded-md border-none px-4 w-20 py-2 duration-300 ease-in-out;
+  @apply bg-transparent font-bold font-lato text-mobileButton text-coral hover:bg-coral focus:bg-coral hover:text-white focus:text-white dark:text-darkCancel dark:hover:bg-coral dark:focus:bg-coral dark:hover:text-darkContHero dark:focus:text-darkContHero focus:outline-none rounded-md border-none px-4 w-20 py-2 duration-300 ease-in-out;
 }
 
 /* ----------- End of Buttons ------------- */
