@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { AiOutlineHome } from "react-icons/ai";
 import { BsCalendar2Minus } from "react-icons/bs";
 import { BiLogIn } from "react-icons/bi";
-import { IoPersonOutline } from "react-icons/io5";
+// import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../../LogoutButton";
 import { ImCross } from "react-icons/im";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
-  const { user } = useAuth0();
+//   const { user } = useAuth0();
   return (
     <aside>
       {/* buttons */}
