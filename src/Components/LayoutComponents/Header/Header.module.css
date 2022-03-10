@@ -1,9 +1,0 @@
-.Header {
-  grid-area: Header;
-  display: flex;
-  background-color: var(--header-bg);
-  color: var(--default-bg);
-  justify-content: space-between;
-  padding: var(--spacing-sm) var(--spacing-md);
-  box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
