@@ -4,9 +4,11 @@ import { nanoid } from "nanoid";
 const SelectFilter = ({ labelText, name, update, options, value }) => {
   return (
     <>
-      <label>{labelText}</label>
+      <label className="text-mainBlue font-semibold dark:text-white pr-2">
+        {labelText}
+      </label>
       <select
-        className="styleSelect"
+        className="styleSelect rounded-md w-28 "
         name={name}
         onChange={update}
         value={value}

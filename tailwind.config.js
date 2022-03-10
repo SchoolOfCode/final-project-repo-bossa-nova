@@ -41,7 +41,7 @@ module.exports = {
       darkIcon: "#292929",
       darkMainBlack: "#1D1D1D",
       darkSave: "#B2F5E8",
-      darkCancel: "#FF4D39",
+      darkCancel: "#F48175",
       darkBg: "#111111",
       darkBlockHome: "#C1BEBE",
       darkTable: "#D5D8DC",
