@@ -47,7 +47,10 @@ const Charts = () => {
   return (
     <HeroContainer title="Stats">
       {isAuthenticated && data ? (
-        <PieChart outerRadius={100} innerRadius={0} data={data} />
+        <div>
+          <h2>Jobs By Status:</h2>
+          <PieChart outerRadius={150} innerRadius={0} data={data} />
+        </div>
       ) : (
         <div>
           <h1>Loading...</h1>
