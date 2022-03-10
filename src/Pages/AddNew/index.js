@@ -117,7 +117,20 @@ export default function AddNew() {
           data.payload.jobs[data.payload.jobs.length - 1]._id
         }`
       );
-      return data;
+      const emailResponse = await fetch(`http://localhost:3001/`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          url: `https://dev-branch-site.netlify.app/update/${user.sub}/${
+            data.payload.jobs[data.payload.jobs.length - 1]._id
+          }`,
+          recipientEmail: user.email,
+          user: user,
+        }),
+      });
+      const emailData = emailResponse.json();
+      console.log(emailData);
+      return [data, emailData];
     }
   }
 
