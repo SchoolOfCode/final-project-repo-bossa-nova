@@ -6,6 +6,7 @@ import Select from "../../Components/Select";
 import Button from "../../Components/Button";
 import TextArea from "../../Components/Textarea";
 import { useEffect, useReducer } from "react";
+import { useAlert } from "react-alert";
 
 const initialValues = {};
 
@@ -21,6 +22,7 @@ function reducer(state, action) {
 }
 
 export default function Update() {
+  const alert = useAlert();
   const { isLoading, isAuthenticated, logout } = useAuth0();
   const navigate = useNavigate();
   const params = useParams();
@@ -52,19 +54,32 @@ export default function Update() {
 
   function validateForm(min, max, jobTitle, company, jobStatus) {
     if (jobTitle === "") {
-      alert("Please type a Job Title");
+      alert.show(
+        <div className="w-[200px] sm:w-[400px]">"Please type a Job Title"</div>,
+        {
+          title: "Success",
+        }
+      );
       return false;
     } else if (company === "") {
-      alert("Please type a Company Name");
+      alert.show("Please type a Company Name", {
+        title: "Error",
+      });
       return false;
     } else if (min < 0) {
-      alert("Please type a Min Salary greater than 0");
+      alert.show("Please type a Min Salary greater than 0", {
+        title: "Error",
+      });
       return false;
     } else if (min >= max) {
-      alert("Please type a Max Salary that is greater than Min Salary");
+      alert.show("Please type a Max Salary that is greater than Min Salary", {
+        title: "Error",
+      });
       return false;
     } else if (jobStatus === "") {
-      alert("Please select a job status");
+      alert.show("Please select a job status", {
+        title: "Error",
+      });
       return false;
     } else {
       return true;
@@ -89,7 +104,9 @@ export default function Update() {
         body: JSON.stringify(state),
       });
       navigate("/home");
-      alert("job edited");
+      alert.show(<div className="w-[200px] sm:w-[400px]">Job edited</div>, {
+        title: "Success",
+      });
       return await response.json();
     }
   }
