@@ -8,28 +8,34 @@ function Header() {
   const { isAuthenticated } = useAuth0();
   return (
     <nav className="bg-mainBlue dark:bg-darkMainBlack p-4 fixed left-0 right-0 z-50">
-      <div className="flex space-b justify-end items-center ">
-        <div>
+      <div className="flex justify-end md:flex lg:flex md:justify-between lg:justify-between items-center">
+        <div className="pr-32">
           <img
-            alt="bossa-nova-logo"
+            alt="Logo Bossa Nova"
             src="logo-01.png"
-            className="w-[40px] h-[40px]"
+            className="w-[40px] h-[40px] md:w-[50px] lg:w-[50px] md:h-[50px] lg:h-[50px]"
           />
+          {/* Div image */}
         </div>
-        {isAuthenticated ? (
-          <>
-            <LogoutButton
-              className="text-white font-bold mx-2"
-              text="Log out"
-            />
-            <Toggle />
-          </>
-        ) : (
-          <>
-            <LoginButton text={"Sign in"} btn="text-white font-bold mx-2" />
-            <Toggle />
-          </>
-        )}
+        <div className="flex justify-end">
+          {isAuthenticated ? (
+            <>
+              <LogoutButton
+                className=" text-white font-bold mx-2 hover:text-darkBlue dark:hover:text-darkBlue"
+                text="Log out"
+              />
+              <Toggle />
+            </>
+          ) : (
+            <>
+              <LoginButton text={"Sign in"} btn="text-white font-bold mx-2" />
+              <Toggle />
+            </>
+          )}
+          {/* Div toggle and button */}
+        </div>
+
+        {/* Div wrapper big */}
       </div>
     </nav>
   );
