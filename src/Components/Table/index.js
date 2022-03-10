@@ -18,6 +18,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useAlert } from "react-alert";
 
 const columns = [
   { col_id: "jobTitle", label: "Job Title", minWidth: 100 },
@@ -47,6 +48,7 @@ export default function StickyHeadTable({ data, rerender, setRerender }) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const { user } = useAuth0();
+  const alert = useAlert();
 
   const URL = process.env.REACT_APP_API_URL;
 
@@ -64,7 +66,10 @@ export default function StickyHeadTable({ data, rerender, setRerender }) {
       method: "DELETE",
     });
     navigate("/home");
-    alert("job deleted");
+    alert.show(<div className="w-[200px] sm:w-[400px]">Job deleted</div>, {
+      title: "Success",
+    });
+
     setRerender(rerender + 1);
     return await response.json();
   }
