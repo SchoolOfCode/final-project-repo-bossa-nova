@@ -1,7 +1,5 @@
-
 // import Profile from "../../Components/Profile";
 // import LogoutButton from "../../Components/LogoutButton";
-
 
 import { useNavigate } from "react-router-dom";
 
@@ -113,7 +111,13 @@ export default function AddNew() {
       alert.show(<div className="w-[200px] sm:w-[400px]">Job created</div>, {
         title: "Success",
       });
-      return await response.json();
+      const data = await response.json();
+      console.log(
+        `https://dev-branch-site.netlify.app/update/${user.sub}/${
+          data.payload.jobs[data.payload.jobs.length - 1]._id
+        }`
+      );
+      return data;
     }
   }
 
