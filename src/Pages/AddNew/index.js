@@ -1,6 +1,6 @@
-import Profile from "../../Components/Profile";
-import LogoutButton from "../../Components/LogoutButton";
-import { Link, useNavigate } from "react-router-dom";
+// import Profile from "../../Components/Profile";
+// import LogoutButton from "../../Components/LogoutButton";
+// import { Link, useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Input from "../../Components/Input";
 import React, { useReducer } from "react";
