@@ -8,10 +8,12 @@ import { Link } from "react-router-dom";
 import LogoutButton from "../../LogoutButton";
 import { ImCross } from "react-icons/im";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "../../LoginButton";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
-
+  const { isAuthenticated } = useAuth0();
   // const { user } = useAuth0();
 
   return (
@@ -94,10 +96,20 @@ function Sidebar() {
             <IoPersonOutline />
             {user && user.name}
           </button> */}
-          <div className="flex space-x-3 items-baseline hover:text-coral">
-            <BiLogIn />
-            <LogoutButton text="Sign out" />
-          </div>
+          {isAuthenticated ? (
+            <div className="flex space-x-3 items-baseline hover:text-coral">
+              <BiLogIn />
+              <LogoutButton text="Sign out" />
+            </div>
+          ) : (
+            <div className="flex space-x-3 items-baseline hover:text-coral">
+              <BiLogIn />
+              <LoginButton
+                btn="flex space-x-3 items-baseline hover:text-coral"
+                text={"Sign in"}
+              />
+            </div>
+          )}
         </nav>
       </div>
     </aside>

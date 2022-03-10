@@ -55,7 +55,7 @@ export default function Login() {
           </div>
         </div>
         <div className="flex justify-center pb-4  ">
-          <LoginButton />
+          <LoginButton btn="startTodayButton" text={"Start today"} />
         </div>
       </main>
     </HeroContainer>
