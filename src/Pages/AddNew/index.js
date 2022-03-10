@@ -61,8 +61,8 @@ export default function AddNew() {
   //------- form validation -------//
   function validateForm(min, max, jobTitle, company, jobStatus) {
     if (jobTitle === "") {
-      alert.error(
-        <div style={{ width: "200px" }}>Please type a Job Title</div>,
+      alert.show(
+        <div className="w-[200px] sm:w-[400px]">Please type a Job Title</div>,
         {
           title: "Error",
         }
