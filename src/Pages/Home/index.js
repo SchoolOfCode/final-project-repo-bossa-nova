@@ -103,7 +103,7 @@ export default function Home() {
     <HeroContainer title={"List of my job applications"}>
       {isAuthenticated ? (
         <>
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center pt-1 pb-4">
             <div>
               <SelectFilter
                 value={statusFilter}
@@ -131,9 +131,9 @@ export default function Home() {
               />
             </div>
 
-            <div className="mb-6 flex justify-end">
+            <div className="flex-row">
               <Link to="/add-new" className="newJobButton">
-                Add new job
+                Add job
               </Link>
             </div>
           </div>

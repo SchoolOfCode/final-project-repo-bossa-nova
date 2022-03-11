@@ -76,6 +76,7 @@ export default function StickyHeadTable({ data, rerender, setRerender }) {
               <TableRow>
                 {columns.map((column) => (
                   <TableCell
+                    className="dark:bg-darkBlockHome dark:text-white"
                     key={nanoid()}
                     align={column.align}
                     style={{ minWidth: column.minWidth }}
@@ -138,7 +139,7 @@ export default function StickyHeadTable({ data, rerender, setRerender }) {
           </Table>
         </TableContainer>
         <TablePagination
-          className="dark:bg-darkBlockHome"
+          className="dark:bg-darkBlockHome dark:text-white"
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
           // count expects an interger so we pass 0 if data hasn't been fetched yet
