@@ -1,10 +1,4 @@
-
-// import Profile from "../../Components/Profile";
-// import LogoutButton from "../../Components/LogoutButton";
-
-
 import { useNavigate } from "react-router-dom";
-
 import { useAuth0 } from "@auth0/auth0-react";
 import Input from "../../Components/Input";
 import React, { useReducer } from "react";
@@ -117,22 +111,10 @@ export default function AddNew() {
     }
   }
 
-  // style={{ width: "400px", maxWidth: "200px" }}
-
   return (
     <HeroContainer title={"Please add a new job!"}>
       {isAuthenticated ? (
         <>
-          {/* <nav>
-            <Link to="/home">Home</Link>
-            <Link to="/resources">Resources</Link>
-            <Link to="/update">Update</Link>
-          </nav> */}
-          {/* <main className="">
-            <h2>Welcome to the add new page!</h2>
-          </main> */}
-          {/* <Profile />
-          <LogoutButton /> */}
           <form className="flex flex-col md:px-24 lg:px-32">
             <Input
               labelText={"Job Title"}

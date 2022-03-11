@@ -34,7 +34,7 @@
 }
 
 .startTodayButton {
-  @apply bg-coral dark:bg-darkCancel font-bold text-mobileButton md:text-desktopMain text-black border-none rounded-lg font-lato shadow-esm py-3 px-10 mx-2;
+  @apply bg-coral hover:bg-lightcoral  dark:bg-darkBlue dark:hover:bg-mainBlue font-bold text-mobileButton md:text-desktopMain text-black  rounded-lg font-lato shadow-esm py-3 px-10 mx-2 duration-300 ease-in-out;
 }
 
 /* Inside the table: edit button */

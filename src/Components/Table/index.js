@@ -9,14 +9,7 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import Button from "../Button";
 import { nanoid } from "nanoid";
-import {
-  // BrowserRouter as Router,
-  //   Routes,
-  //   Route,
-  //   Link,
-  //   Navigate,
-  useNavigate,
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAlert } from "react-alert";
 

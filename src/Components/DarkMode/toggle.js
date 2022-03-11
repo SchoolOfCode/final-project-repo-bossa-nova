@@ -11,14 +11,14 @@ const Toggle = () => {
       {theme === "dark" ? (
         <button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="bg-white p-2 text-lg rounded-full cursor-pointer "
+          className="bg-white hover:focus:ring hover:bg-darkBlue p-2 text-lg rounded-full cursor-pointer duration-300 ease-in-out "
         >
           <BsFillSunFill />
         </button>
       ) : (
         <button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className=" bg-white p-2 text-lg rounded-full cursor-pointer "
+          className=" bg-white text-mainBlue hover:bg-blueWhite hover:focus:ring p-2 text-lg rounded-full cursor-pointer duration-300 ease-in-out "
         >
           <BsFillMoonFill />
         </button>

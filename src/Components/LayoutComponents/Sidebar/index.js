@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { AiOutlineHome } from "react-icons/ai";
 import { BsCalendar2Minus } from "react-icons/bs";
 import { BiLogIn } from "react-icons/bi";
-// import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-// import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../../LogoutButton";
 import { ImCross } from "react-icons/im";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "../../LoginButton";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
-
-  // const { user } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   return (
     <aside>
@@ -57,13 +56,7 @@ function Sidebar() {
             </Link>
           </button>
           <hr className="border-t-[1px] " />
-          {/* <button
-            onClick={() => setShowSidebar(!showSidebar)}
-            className="flex space-x-3 items-baseline hover:text-coral"
-          >
-            <IoPersonOutline />
-            {user && user.name}
-          </button> */}
+
           <div className="flex space-x-3 items-baseline hover:text-coral">
             <BiLogIn />
             <LogoutButton text="Sign out" />
@@ -73,8 +66,8 @@ function Sidebar() {
 
       {/* desktop sidebar */}
 
-      <div className="hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue dark:bg-darkIcon px-6 pl-10 text-mainBlue text-desktopSidebar border-mainBlue dark:text-white dark:border-white ml-4 mr-4 mb-4 h-[100vh]">
-        <nav className="flex flex-col gap-8 pt-20">
+      <div className=" hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue dark:bg-darkIcon px-6 pl-10 text-mainBlue text-desktopSidebar border-mainBlue dark:text-white dark:border-white ml-4 mr-4 mb-4 h-[98vh] ">
+        <nav className="flex flex-col gap-8 pt-48 ">
           <button className="flex space-x-3 items-baseline hover:text-coral dark:hover:text-darkCancel">
             <AiOutlineHome />
             <Link to="/home" name="home-link">
@@ -90,14 +83,21 @@ function Sidebar() {
             <Link to="/resources">Resources</Link>
           </button>
           <hr className="border-t-[1px] " />
-          {/*   <button className="flex space-x-3 items-baseline hover:text-coral truncate">
-            <IoPersonOutline />
-            {user && user.name}
-          </button> */}
-          <div className="flex space-x-3 items-baseline hover:text-coral">
-            <BiLogIn />
-            <LogoutButton text="Sign out" />
-          </div>
+
+          {isAuthenticated ? (
+            <div className="flex space-x-3 items-baseline hover:text-coral">
+              <BiLogIn />
+              <LogoutButton text="Sign out" />
+            </div>
+          ) : (
+            <div className="flex space-x-3 items-baseline hover:text-coral">
+              <BiLogIn />
+              <LoginButton
+                btn="flex space-x-3 items-baseline hover:text-coral"
+                text={"Sign in"}
+              />
+            </div>
+          )}
         </nav>
       </div>
     </aside>

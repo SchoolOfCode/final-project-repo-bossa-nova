@@ -64,28 +64,30 @@ export default function Home() {
     <HeroContainer title={"List of my job applications"}>
       {isAuthenticated ? (
         <>
-          <div>
-            <SelectFilter
-              value={filter}
-              labelText="Filter by status:"
-              name="filter-status"
-              update={(e) => handleChange(e)}
-              options={[
-                "All",
-                "Wishlist",
-                "Applied",
-                "Interview",
-                "Offer",
-                "Accepted",
-                "Rejected",
-              ]}
-            />
-          </div>
+          <div className="flex justify-between">
+            <div>
+              <SelectFilter
+                value={filter}
+                labelText="Filter by status:"
+                name="filter-status"
+                update={(e) => handleChange(e)}
+                options={[
+                  "All",
+                  "Wishlist",
+                  "Applied",
+                  "Interview",
+                  "Offer",
+                  "Accepted",
+                  "Rejected",
+                ]}
+              />
+            </div>
 
-          <div className="mb-6 flex justify-end">
-            <Link to="/add-new" className="newJobButton">
-              Add new job
-            </Link>
+            <div className="mb-6 flex justify-end">
+              <Link to="/add-new" className="newJobButton">
+                Add new job
+              </Link>
+            </div>
           </div>
           <StickyHeadTable
             data={data}

@@ -1,61 +1,62 @@
 import LoginButton from "../../Components/LoginButton";
-
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 
 export default function Login() {
   return (
-    <HeroContainer title={"Please Log in"}>
+    <HeroContainer title={"Please Log In"}>
       <main>
-        <div className="relative h-[73.6vh] flex justify-center">
-          <div className=" hidden md:block mt-[3.3rem]">
-            <div className=" flex">
-              <img
-                className=" z-10  object-cover h-[350px]"
-                src="login-image.png"
-                alt="login"
-              />
-              <div className="z-20  h-[350px] w-[262px] -ml-40 mt-40   rounded-lg px-8 pt-12 shadow-sm bg-white dark:bg-darkBlockHome bg-opacity-80">
-                <h4 className="font-bold">ABOUT</h4>
+        <div className="flex pb-5 md:text-mobileBody ">
+          <div className="flex text-center justify-center w-[100%] md:w-[50%] lg:w-[50%] pt-5 dark:text-white">
+            <div className="flex-col md:text-mobileBody self-center  ">
+              <div className="md:space-y-[-1.1rem] lg:space-y-[-1.1rem] font-bold">
+                <p className="text-loginApplications md:text-loginDesktop lg:text-loginDesktop">
+                  Job
+                  <p className="text-desktopHeroHeading md:text-loginApplications lg:text-loginApplications font-bold">
+                    Application
+                  </p>
+                </p>
+                <p className="text-loginApplications md:text-loginDesktop lg:text-loginDesktop pb-2">
+                  Tracker
+                </p>
+              </div>
+              {/* mobile block about  */}
+              <div className="md:hidden lg:hidden z-20 h-[250px] w-[300px] rounded-lg px-2 pt-12 shadow-sm bg-white dark:bg-darkBlockHome bg-opacity-80 dark:bg-opacity-80 text-center">
+                <h4 className="font-bold text-mobileSidebar">ABOUT</h4>
                 <br />
-                <p>
-                  Bossa Nova job tracker is an easy way to organise your job
+                <p className="text-mobileSidebar md:text-mobileSidebar lg:text-mobileSidebar">
+                  Bossa Nova job tracker is an easy way to organize your job
                   applications.
                 </p>
                 <br />
-                <p>No more using speadsheets or email</p>
+                <p className="text-mobileSidebar md:text-mobileSidebar lg:text-mobileSidebar">
+                  No more using spreadsheets or email.
+                </p>
               </div>
-              <div className="w-[10vw] logl" />
-              <img
-                className="h-[172px] z-100 -mr-4 "
-                src="logo-01.png"
-                alt="logo"
-              />
+              {/* End mobile block about  */}
             </div>
           </div>
-          <h2 className="md:hidden ">Tracker Your Jobs</h2>
-          <div className="absolute z-40 hidden md:block text-loginDesktop ml-16 mt-[6rem] font-semibold">
-            <h2 className="dark:text-white">Tracker</h2>
-            <h2 className=" ml-[13rem] -mt-5 dark:text-white">Your</h2>
-            <h2 className=" ml-80 -mt-5 dark:text-white">Jobs</h2>
+          <div className="hidden md:flex lg:flex justify-center w-[50%] pt-5">
+            <img
+              src="login-image.png"
+              alt={"job seeker"}
+              className="h-[300px] w-[240px] hidden md:block lg:block"
+            />
+            <div className="z-20 md:block lg:block h-[300px] w-[240px] -ml-40 mt-40 rounded-lg px-2 pt-12 shadow-sm bg-white dark:bg-darkBlockHome dark:text-white dark:bg-opacity-80 bg-opacity-80 text-center">
+              <h4 className="font-bold text-mobileSidebar">ABOUT</h4>
+              <br />
+              <p className="text-mobileSidebar md:text-mobileSidebar lg:text-mobileSidebar">
+                Bossa Nova job tracker is an easy way to organize your job
+                applications.
+              </p>
+              <br />
+              <p className="text-mobileSidebar md:text-mobileSidebar lg:text-mobileSidebar">
+                No more using spreadsheets or email.
+              </p>
+            </div>
           </div>
-          <div className="md:hidden">
-            <h4>ABOUT</h4>
-            <br />
-            <p>
-              Bossa Nova job tracker is an easy way to organise your job
-              applications.
-            </p>
-            <br />
-            <p>No more using speadsheets or email</p>
-          </div>
-          <div className="absolute z-40 logl:right-[4rem] right-[2rem] bottom-[9rem]">
-
-            <h3 className="text-loginApplications dark:text-white">
-              Applications
-            </h3>
-            <LoginButton />
-
-          </div>
+        </div>
+        <div className="flex justify-center pb-4  ">
+          <LoginButton btn="startTodayButton" text={"Start today"} />
         </div>
       </main>
     </HeroContainer>

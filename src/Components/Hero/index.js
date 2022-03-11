@@ -1,6 +1,4 @@
 import React from "react";
-// import styles from "./Hero.module.css";
-// import HeroContainer from "../LayoutComponents/HeroContainer";
 import { Routes, Route } from "react-router-dom";
 import Login from "../../Pages/Login";
 import Home from "../../Pages/Home";

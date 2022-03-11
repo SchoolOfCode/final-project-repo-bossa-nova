@@ -25,6 +25,7 @@ module.exports = {
       //font color: text-
       beige: "#F4DFCC",
       coral: "#FA9583",
+      lightcoral: "#FFC3B9",
       lightBlue: "#D6EAF8",
       mainBlue: "#21618C",
       blueWhite: "#EBF5FB",
@@ -40,9 +41,9 @@ module.exports = {
       darkIcon: "#292929",
       darkMainBlack: "#1D1D1D",
       darkSave: "#B2F5E8",
-      darkCancel: "#FF4D39",
+      darkCancel: "#F48175",
       darkBg: "#111111",
-      darkBlockHome: "#C1BEBE",
+      darkBlockHome: "#545353",
       darkTable: "#D5D8DC",
     },
 
