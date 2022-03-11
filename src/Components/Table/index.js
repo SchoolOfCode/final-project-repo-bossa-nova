@@ -93,6 +93,10 @@ export default function StickyHeadTable({ data, rerender, setRerender }) {
                   .map((job) => {
                     return (
                       <TableRow
+                        className="cursor-default"
+                        onTouchStart={() => {
+                          navigate(`/update/${user.sub}/${job._id}`);
+                        }}
                         hover
                         role="checkbox"
                         tabIndex={-1}
