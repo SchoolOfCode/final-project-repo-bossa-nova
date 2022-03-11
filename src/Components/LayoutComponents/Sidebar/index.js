@@ -37,6 +37,7 @@ function Sidebar() {
 
       {/* mobile sidebar */}
       <div
+        data-testid="mobile-sidebar"
         className={`flex flex-col flex-grow w-[70vw] sm:w-[60vw] h-[100vh] rounded-b-xl bg-lightBlue dark:bg-darkIcon p-6 pl-10 fixed ease-in-out duration-300 md:hidden z-30 
         text-mainBlue border-mainBlue dark:text-white dark:border-white text-mobileSidebar ${
           showSidebar ? "-translate-x-0 " : "-translate-x-full"
@@ -59,7 +60,7 @@ function Sidebar() {
           <hr className="border-t-[1px] " />
           <div className="flex space-x-3 items-baseline ">
             <BiUser />
-            <p>{user.name}</p>
+            <p>{user ? user.name : "User"}</p>
           </div>
           <div className="flex space-x-3 items-baseline hover:text-coral">
             <BiLogIn />
@@ -70,7 +71,10 @@ function Sidebar() {
 
       {/* desktop sidebar */}
 
-      <div className=" hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue dark:bg-darkIcon px-6 pl-10 text-mainBlue text-desktopSidebar border-mainBlue dark:text-white dark:border-white ml-4 mr-4 mb-4 h-[98vh] ">
+      <div
+        data-testid="desktop-sidebar"
+        className=" hidden md:flex md:flex-col md:flex-grow w-[25vw] shadow-sm rounded-b-2xl bg-lightBlue dark:bg-darkIcon px-6 pl-10 text-mainBlue text-desktopSidebar border-mainBlue dark:text-white dark:border-white ml-4 mr-4 mb-4 h-[98vh] "
+      >
         <nav className="flex flex-col gap-8 pt-48 ">
           <button className="flex space-x-3 items-baseline hover:text-coral dark:hover:text-darkCancel">
             <AiOutlineHome />
@@ -89,9 +93,11 @@ function Sidebar() {
           <hr className="border-t-[1px] " />
           <div className="flex space-x-3 items-baseline ">
             <BiUser />
-            <p>{user.name}</p>
+            <p>{user ? user.name : "User"}</p>
           </div>
-          <p className="flex space-x-3 items-baseline ">Hello {user.name}</p>
+          <p className="flex space-x-3 items-baseline ">
+            Hello {user ? user.name : "User"}
+          </p>
           {isAuthenticated ? (
             <div className="flex space-x-3 items-baseline hover:text-coral">
               <BiLogIn />
