@@ -2,7 +2,7 @@ import { LinkPreview } from "@dhaiwat10/react-link-preview";
 
 export default function Card({ link }) {
   return (
-    <div>
+    <div className="pb-10 hover:scale-95">
       <LinkPreview
         url={link}
         width="250px"
