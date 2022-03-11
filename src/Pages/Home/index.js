@@ -20,7 +20,9 @@ function createData({
 export default function Home() {
   const { user, isLoading, isAuthenticated, logout } = useAuth0();
   const [data, setData] = useState(null);
-  const [filter, setFilter] = useState("all");
+  const [shownData, setShownData] = useState(null);
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [companyFilter, setCompanyFilter] = useState("all");
   const [rerender, setRerender] = useState(0);
 
   if (!isLoading && !isAuthenticated) {
@@ -35,8 +37,7 @@ export default function Home() {
       if (response.status < 300) {
         const data = await response.json();
         const mappedData = data.payload[0].jobs.map((job) => createData(job));
-        const filteredData = filterByStatus(mappedData, filter);
-        setData(filteredData);
+        setData(mappedData);
       } else {
         return;
       }
@@ -44,7 +45,20 @@ export default function Home() {
     if (user) {
       fetchData();
     }
-  }, [URL, user, filter, rerender]);
+  }, [URL, user, rerender]);
+
+  useEffect(() => {
+    if (data) {
+      const dataFilteredByStatus = filterByStatus(data, statusFilter);
+      const dataFilteredByCompany = filterByCompany(
+        dataFilteredByStatus,
+        companyFilter
+      );
+      setShownData(dataFilteredByCompany);
+    } else {
+      return;
+    }
+  }, [data, statusFilter, companyFilter, rerender]);
 
   function filterByStatus(data, filter) {
     return data.filter((job) => {
@@ -56,8 +70,33 @@ export default function Home() {
     });
   }
 
+  function filterByCompany(data, filter) {
+    return data.filter((job) => {
+      if (filter !== "all") {
+        return job.company.toLowerCase() === filter;
+      } else {
+        return job;
+      }
+    });
+  }
+
   function handleChange(e) {
-    setFilter(e.target.value);
+    if (e.target.name === "filter-status") {
+      setStatusFilter(e.target.value);
+    } else if (e.target.name === "filter-company") {
+      setCompanyFilter(e.target.value);
+    }
+  }
+
+  function getCompanyOptions(jobs) {
+    const result = [];
+    const companies = jobs.map((job) => job.company);
+    companies.forEach((company) => {
+      if (!result.includes(company)) {
+        result.push(company);
+      }
+    });
+    return ["All", ...result];
   }
 
   return (
@@ -67,7 +106,7 @@ export default function Home() {
           <div className="flex justify-between">
             <div>
               <SelectFilter
-                value={filter}
+                value={statusFilter}
                 labelText="Filter by status:"
                 name="filter-status"
                 update={(e) => handleChange(e)}
@@ -82,6 +121,15 @@ export default function Home() {
                 ]}
               />
             </div>
+            <div>
+              <SelectFilter
+                value={companyFilter}
+                labelText="Filter by Company:"
+                name="filter-company"
+                update={(e) => handleChange(e)}
+                options={data ? getCompanyOptions(data) : ["All"]}
+              />
+            </div>
 
             <div className="mb-6 flex justify-end">
               <Link to="/add-new" className="newJobButton">
@@ -90,7 +138,7 @@ export default function Home() {
             </div>
           </div>
           <StickyHeadTable
-            data={data}
+            data={shownData}
             rerender={rerender}
             setRerender={setRerender}
           />
