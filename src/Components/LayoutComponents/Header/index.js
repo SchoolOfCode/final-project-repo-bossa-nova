@@ -22,7 +22,7 @@ function Header() {
             <>
               <LogoutButton
                 className=" text-white font-bold mx-2 hover:text-darkBlue dark:hover:text-darkBlue"
-                text="Log out"
+                text="Sign out"
               />
               <Toggle />
             </>
