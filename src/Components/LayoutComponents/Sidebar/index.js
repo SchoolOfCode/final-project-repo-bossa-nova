@@ -8,10 +8,11 @@ import { ImCross } from "react-icons/im";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "../../LoginButton";
+import { BiUser } from "react-icons/bi";
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
-  const { isAuthenticated } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
 
   return (
     <aside>
@@ -56,7 +57,10 @@ function Sidebar() {
             </Link>
           </button>
           <hr className="border-t-[1px] " />
-
+          <div className="flex space-x-3 items-baseline ">
+            <BiUser />
+            <p>{user.name}</p>
+          </div>
           <div className="flex space-x-3 items-baseline hover:text-coral">
             <BiLogIn />
             <LogoutButton text="Sign out" />
@@ -83,7 +87,11 @@ function Sidebar() {
             <Link to="/resources">Resources</Link>
           </button>
           <hr className="border-t-[1px] " />
-
+          <div className="flex space-x-3 items-baseline ">
+            <BiUser />
+            <p>{user.name}</p>
+          </div>
+          <p className="flex space-x-3 items-baseline ">Hello {user.name}</p>
           {isAuthenticated ? (
             <div className="flex space-x-3 items-baseline hover:text-coral">
               <BiLogIn />
