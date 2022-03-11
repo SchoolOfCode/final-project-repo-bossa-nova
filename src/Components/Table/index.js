@@ -31,7 +31,7 @@ const columns = [
   {
     col_id: "buttons",
     label: "",
-    minWidth: 60,
+    minWidth: 30,
     align: "right",
   },
 ];

@@ -131,7 +131,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="flex-row">
+            <div className="flex">
               <Link to="/add-new" className="newJobButton">
                 Add job
               </Link>
