@@ -95,6 +95,6 @@ describe("homepage actions", () => {
   it("logs user out", () => {
     // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.wait(4000);
-    cy.contains("Sign out", { timeout: 10000 }).click();
+    cy.contains("Sign out").click();
   });
 });
