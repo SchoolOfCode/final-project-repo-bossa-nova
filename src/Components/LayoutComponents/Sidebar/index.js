@@ -95,9 +95,7 @@ function Sidebar() {
             <BiUser />
             <p>{user ? user.name : "User"}</p>
           </div>
-          <p className="flex space-x-3 items-baseline ">
-            Hello {user ? user.name : "User"}
-          </p>
+
           {isAuthenticated ? (
             <div className="flex space-x-3 items-baseline hover:text-coral">
               <BiLogIn />

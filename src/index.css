@@ -20,7 +20,7 @@
 
 /* Add new job button */
 .newJobButton {
-  @apply bg-aqua font-bold dark:bg-darkSave hover:bg-grey focus:bg-grey dark:hover:bg-mainBlue dark:focus:bg-mainBlue hover:scale-105 focus:scale-105 focus:outline-none text-mobileButton md:text-desktopMain hover:text-blueWhite focus:text-blueWhite dark:hover:text-lightBlue dark:focus:text-lightBlue border-none rounded-xl font-lato shadow-esm p-3 px-6 duration-300 ease-in-out;
+  @apply bg-aqua font-bold dark:bg-darkSave hover:bg-grey focus:bg-grey dark:hover:bg-mainBlue dark:focus:bg-mainBlue hover:scale-105 focus:scale-105 focus:outline-none text-mobileButton md:text-desktopMain hover:text-blueWhite focus:text-blueWhite dark:hover:text-lightBlue dark:focus:text-lightBlue border-none rounded-xl font-lato shadow-esm p-2 px-6 duration-300 ease-in-out;
 }
 
 /* Save button  */
