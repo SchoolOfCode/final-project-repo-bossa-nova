@@ -1,12 +1,14 @@
 import React from "react";
-const inputStyle = { outline: "solid" };
 
 export default function Input({ labelText, type, name, value, update }) {
   return (
     <>
-      <label>{labelText}</label>
+      <label htmlFor={labelText} className="styleLabel py-2">
+        {labelText}
+      </label>
       <input
-        style={inputStyle}
+        className="styleInput"
+        id={labelText}
         type={type}
         name={name}
         value={value}

@@ -1,13 +1,12 @@
-import Profile from "../../Components/Profile";
-import LogoutButton from "../../Components/LogoutButton";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import HeroContainer from "../../Components/LayoutComponents/HeroContainer";
 import Input from "../../Components/Input";
 import Select from "../../Components/Select";
 import Button from "../../Components/Button";
 import TextArea from "../../Components/Textarea";
-import { useEffect, useState, useReducer } from "react";
+import { useEffect, useReducer } from "react";
+import { useAlert } from "react-alert";
 
 const initialValues = {};
 
@@ -23,6 +22,7 @@ function reducer(state, action) {
 }
 
 export default function Update() {
+  const alert = useAlert();
   const { isLoading, isAuthenticated, logout } = useAuth0();
   const navigate = useNavigate();
   const params = useParams();
@@ -33,14 +33,12 @@ export default function Update() {
     logout({ returnTo: window.location.origin });
   }
 
-  const [initialState, setInitialState] = useState(null);
   const [state, dispatch] = useReducer(reducer, initialValues);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(`${URL}/api/user/${user_id}/${job_id}`);
       const data = await response.json();
-      setInitialState(data.payload[0]);
       dispatch({ type: "set_initialState", value: data.payload[0] });
     }
     fetchData();
@@ -54,133 +52,182 @@ export default function Update() {
     });
   }
 
+  function validateForm(min, max, jobTitle, company, jobStatus) {
+    if (jobTitle === "") {
+      alert.show(
+        <div className="w-[200px] sm:w-[400px]">"Please type a Job Title"</div>,
+        {
+          title: "Success",
+        }
+      );
+      return false;
+    } else if (company === "") {
+      alert.show("Please type a Company Name", {
+        title: "Error",
+      });
+      return false;
+    } else if (min < 0) {
+      alert.show("Please type a Min Salary greater than 0", {
+        title: "Error",
+      });
+      return false;
+    } else if (min >= max) {
+      alert.show("Please type a Max Salary that is greater than Min Salary", {
+        title: "Error",
+      });
+      return false;
+    } else if (jobStatus === "") {
+      alert.show("Please select a job status", {
+        title: "Error",
+      });
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   async function handlePutRequest() {
-    const response = await fetch(`${URL}/api/user/${user_id}/${job_id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(state),
-    });
-    navigate("/home");
-    alert("job edited");
-    return await response.json();
+    if (
+      validateForm(
+        state.minSalary,
+        state.maxSalary,
+        state.jobTitle,
+        state.company,
+        state.jobStatus
+      )
+    ) {
+      const response = await fetch(`${URL}/api/user/${user_id}/${job_id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(state),
+      });
+      navigate("/home");
+      alert.show(<div className="w-[200px] sm:w-[400px]">Job edited</div>, {
+        title: "Success",
+      });
+      return await response.json();
+    }
   }
 
   return (
-    <HeroContainer title={"job to be updated"}>
+    <HeroContainer
+      title={`${state.jobTitle} @ ${state.company}` || "Loading..."}
+    >
       {" "}
       {isAuthenticated ? (
         <>
-          <nav>
-            <Link to="/add-new">Add new</Link>
-            <Link to="/resources">Resources</Link>
-            <Link to="/update">Home</Link>
-          </nav>
-          <main>
-            <h2>Welcome to the update page!</h2>
-          </main>
-          <Profile />
-          <LogoutButton />
-          {initialState && (
+          {state.jobStatus && (
             <>
-              <form>
-                <Input
-                  labelText={"Job Title"}
-                  type={"text"}
-                  name={"jobTitle"}
-                  value={state.jobTitle}
-                  update={(e) => callDispatch(e, "jobTitle")}
-                />
-                <Input
-                  labelText={"Company"}
-                  type={"text"}
-                  name={"company"}
-                  value={state.company}
-                  update={(e) => callDispatch(e, "company")}
-                />
-                <Input
-                  labelText={"Min Salary"}
-                  type={"text"}
-                  name={"minSalary"}
-                  value={state.minSalary}
-                  update={(e) => callDispatch(e, "minSalary")}
-                />
-                <Input
-                  labelText={"Max Salary"}
-                  type={"text"}
-                  name={"maxSalary"}
-                  value={state.maxSalary}
-                  update={(e) => callDispatch(e, "maxSalary")}
-                />
-                <Input
-                  labelText={"Tech Stack"}
-                  type={"text"}
-                  name={"techStack"}
-                  value={state.techStack}
-                  update={(e) => callDispatch(e, "techStack")}
-                />
-                <Input
-                  labelText={"Contact"}
-                  type={"text"}
-                  name={"contact"}
-                  value={state.contact}
-                  update={(e) => callDispatch(e, "contact")}
-                />
-                <Input
-                  labelText={"URL link"}
-                  type={"url"}
-                  name={"urlLink"}
-                  value={state.urlLink}
-                  update={(e) => callDispatch(e, "urlLink")}
-                />
-                <Input
-                  labelText={"Location"}
-                  type={"text"}
-                  name={"location"}
-                  value={state.location}
-                  update={(e) => callDispatch(e, "location")}
-                />
-                <Input
-                  labelText={"Application Deadline"}
-                  type={"text"}
-                  name={"applicationDeadline"}
-                  value={state.applicationDeadline}
-                  update={(e) => callDispatch(e, "applicationDeadline")}
-                />
-                <Input
-                  labelText={"Interview Date"}
-                  type={"text"}
-                  name={"interviewDate"}
-                  value={state.interviewDate}
-                  update={(e) => callDispatch(e, "interviewDate")}
-                />
-                <TextArea
-                  labelText={"Job Description"}
-                  name={"jobDescription"}
-                  value={state.jobDescription}
-                  update={(e) => callDispatch(e, "jobDescription")}
-                />
-                <TextArea
-                  labelText={"Notes"}
-                  name={"notes"}
-                  value={state.notes}
-                  update={(e) => callDispatch(e, "notes")}
-                />
+              <form className="flex flex-col  md:flex-row  ">
+                <div className="flex flex-col w-full md:w-1/3 px-2">
+                  <Input
+                    labelText={"Job Title"}
+                    type={"text"}
+                    name={"jobTitle"}
+                    value={state.jobTitle}
+                    update={(e) => callDispatch(e, "jobTitle")}
+                  />
+                  <Input
+                    labelText={"Company"}
+                    type={"text"}
+                    name={"company"}
+                    value={state.company}
+                    update={(e) => callDispatch(e, "company")}
+                  />
+                  <Input
+                    labelText={"Min Salary"}
+                    type={"number"}
+                    name={"minSalary"}
+                    value={state.minSalary}
+                    update={(e) => callDispatch(e, "minSalary")}
+                  />
+                  <Input
+                    labelText={"Max Salary"}
+                    type={"number"}
+                    name={"maxSalary"}
+                    value={state.maxSalary}
+                    update={(e) => callDispatch(e, "maxSalary")}
+                  />
+                  <TextArea
+                    maxlength={1000}
+                    labelText={"Job Description"}
+                    name={"jobDescription"}
+                    value={state.jobDescription}
+                    update={(e) => callDispatch(e, "jobDescription")}
+                  />
+                </div>
+                <div className="flex flex-col w-full md:w-1/3 px-2">
+                  <Input
+                    labelText={"Tech Stack"}
+                    type={"text"}
+                    name={"techStack"}
+                    value={state.techStack}
+                    update={(e) => callDispatch(e, "techStack")}
+                  />
+                  <Input
+                    labelText={"Contact"}
+                    type={"text"}
+                    name={"contact"}
+                    value={state.contact}
+                    update={(e) => callDispatch(e, "contact")}
+                  />
+                  <Input
+                    labelText={"URL link"}
+                    type={"url"}
+                    name={"urlLink"}
+                    value={state.urlLink}
+                    update={(e) => callDispatch(e, "urlLink")}
+                  />
+                  <Input
+                    labelText={"Location"}
+                    type={"text"}
+                    name={"location"}
+                    value={state.location}
+                    update={(e) => callDispatch(e, "location")}
+                  />
+                </div>
+                <div className="flex flex-col w-full md:w-1/3 px-2">
+                  <Input
+                    labelText={"Application Deadline"}
+                    type={"text"}
+                    name={"applicationDeadline"}
+                    value={state.applicationDeadline}
+                    update={(e) => callDispatch(e, "applicationDeadline")}
+                  />
+                  <Input
+                    labelText={"Interview Date"}
+                    type={"text"}
+                    name={"interviewDate"}
+                    value={state.interviewDate}
+                    update={(e) => callDispatch(e, "interviewDate")}
+                  />
 
-                {/* contact: "Rita Blogs", dateAdded: "2023/10/29",
-              applicationDeadline: "2023/10/10", interviewDate: "2023/10/10",
-              offerDate: "2023/10/10", urlLink: "www.exmple.com", location:
-              "Remote", jobDescription: "Working work working work", notes: "my
-              notes", */}
-                <Select
-                  value={state.jobStatus}
-                  update={(e) => callDispatch(e, "jobStatus")}
-                />
+                  <TextArea
+                    maxlength={2000}
+                    labelText={"Notes"}
+                    name={"notes"}
+                    value={state.notes}
+                    update={(e) => callDispatch(e, "notes")}
+                  />
+                  <Select
+                    value={state.jobStatus}
+                    update={(e) => callDispatch(e, "jobStatus")}
+                  />
+                </div>
               </form>
-              <div>
-                <Button text="CANCEL" handleClick={() => navigate("/home")} />
-                <Button text="SAVE" handleClick={handlePutRequest} />
+              <div className="flex justify-center pt-3">
+                <Button
+                  btn="positiveButton"
+                  text="Save"
+                  handleClick={handlePutRequest}
+                />
+                <Button
+                  btn="negativeButton"
+                  text="Cancel"
+                  handleClick={() => navigate("/home")}
+                />
               </div>
             </>
           )}

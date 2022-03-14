@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,15 +9,9 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import Button from "../Button";
 import { nanoid } from "nanoid";
-import {
-  // BrowserRouter as Router,
-  //   Routes,
-  //   Route,
-  //   Link,
-  //   Navigate,
-  useNavigate,
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useAlert } from "react-alert";
 
 const columns = [
   { col_id: "jobTitle", label: "Job Title", minWidth: 100 },
@@ -37,45 +31,19 @@ const columns = [
   {
     col_id: "buttons",
     label: "",
-    minWidth: 60,
+    minWidth: 30,
     align: "right",
   },
 ];
 
-function createData({
-  jobTitle,
-  company,
-  jobStatus,
-  minSalary,
-  maxSalary,
-  _id,
-}) {
-  const salary = `£${minSalary} - £${maxSalary}`;
-  return { jobTitle, company, salary, jobStatus, _id };
-}
-
-export default function StickyHeadTable() {
+export default function StickyHeadTable({ data, rerender, setRerender }) {
   const navigate = useNavigate();
-  const [data, setData] = useState(null);
   const [page, setPage] = useState(0);
-  const [rerender, setRerender] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const { user } = useAuth0();
+  const alert = useAlert();
 
   const URL = process.env.REACT_APP_API_URL;
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(`${URL}/api/user/${user.sub}`);
-      if (response.status < 300) {
-        const data = await response.json();
-        const mappedData = data.payload[0].jobs.map((job) => createData(job));
-        setData(mappedData);
-      } else {
-        return;
-      }
-    }
-    fetchData();
-  }, [URL, user.sub, rerender]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -91,7 +59,10 @@ export default function StickyHeadTable() {
       method: "DELETE",
     });
     navigate("/home");
-    alert("job deleted");
+    alert.show(<div className="w-[200px] sm:w-[400px]">Job deleted</div>, {
+      title: "Success",
+    });
+
     setRerender(rerender + 1);
     return await response.json();
   }
@@ -99,12 +70,13 @@ export default function StickyHeadTable() {
   return (
     <main>
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
-        <TableContainer sx={{ maxHeight: 440 }}>
+        <TableContainer className="dark:bg-darkTable" sx={{ maxHeight: 440 }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
                 {columns.map((column) => (
                   <TableCell
+                    className="dark:bg-darkBlockHome dark:text-white"
                     key={nanoid()}
                     align={column.align}
                     style={{ minWidth: column.minWidth }}
@@ -122,6 +94,10 @@ export default function StickyHeadTable() {
                   .map((job) => {
                     return (
                       <TableRow
+                        className="cursor-default"
+                        onTouchStart={() => {
+                          navigate(`/update/${user.sub}/${job._id}`);
+                        }}
                         hover
                         role="checkbox"
                         tabIndex={-1}
@@ -133,7 +109,8 @@ export default function StickyHeadTable() {
                               {column.col_id === "buttons" ? (
                                 <div>
                                   <Button
-                                    text="EDIT"
+                                    btn="tablePositiveButton"
+                                    text="Edit"
                                     handleClick={() => {
                                       navigate(
                                         `/update/${user.sub}/${job._id}`
@@ -141,7 +118,8 @@ export default function StickyHeadTable() {
                                     }}
                                   />
                                   <Button
-                                    text="DELETE"
+                                    btn="tableNegativeButton"
+                                    text="Delete"
                                     handleClick={() =>
                                       handleDeleteRequest(job._id)
                                     }
@@ -161,6 +139,7 @@ export default function StickyHeadTable() {
           </Table>
         </TableContainer>
         <TablePagination
+          className="dark:bg-darkBlockHome dark:text-white"
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
           // count expects an interger so we pass 0 if data hasn't been fetched yet
