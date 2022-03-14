@@ -9,7 +9,7 @@ function Header() {
   return (
     <nav className="bg-mainBlue dark:bg-darkMainBlack p-4 fixed left-0 right-0 z-50">
       <div className="flex justify-end md:flex lg:flex md:justify-between lg:justify-between items-center">
-        <div className="pr-32">
+        <div className="pr-[77px]">
           <img
             alt="Logo Bossa Nova"
             src="logo-01.png"
