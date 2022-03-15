@@ -38,6 +38,7 @@ We used auth0 for authentication and authorisation because it was easy to implem
 - [Wireframes and Designs](#wireframes-and-designs)
 - [Our Process](#our-process)
 - [Tech Stack](#tech-stack)
+- [License](#license)
 - [Authors info](#authors-info)
 
 ## How to Install and Run
